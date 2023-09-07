@@ -1,9 +1,6 @@
 package view.test.panels.panelsClient;
 
-import classes.models.Address;
 import classes.models.Clients;
-import classes.models.Contact;
-import view.test.Main;
 
 import javax.swing.*;
 import java.awt.*;

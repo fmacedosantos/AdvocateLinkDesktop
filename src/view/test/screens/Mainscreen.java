@@ -1,26 +1,19 @@
 package view.test.screens;
 
-import classes.models.Address;
 import classes.models.Clients;
-import classes.models.Contact;
 import view.test.Main;
-import view.test.panels.panelsClient.painelEmployee.AlterEmployee;
-import view.test.panels.panelsClient.painelEmployee.BonusEmployee;
-import view.test.panels.panelsClient.painelsAbout.Search;
-import view.test.panels.panelsClient.painelsAbout.GenereteRelatory;
-import view.test.panels.panelsClient.painelEmployee.RegisterEmployee;
 import view.test.panels.panelsClient.AlterClient;
 import view.test.panels.panelsClient.RegisterClient;
+import view.test.panels.panelsClient.painelEmployee.AlterEmployee;
+import view.test.panels.panelsClient.painelEmployee.BonusEmployee;
+import view.test.panels.panelsClient.painelEmployee.RegisterEmployee;
+import view.test.panels.panelsClient.painelsAbout.GenereteRelatory;
+import view.test.panels.panelsClient.painelsAbout.Search;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 public class Mainscreen extends JFrame {
     //Background
