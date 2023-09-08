@@ -1,8 +1,7 @@
 package view.test.screens;
 
 import classes.models.Clients;
-import classes.shared.MethodsUtil;
-import view.test.Main;
+import classes.shared.client.MethodsUtil;
 import view.test.panels.panelsClient.AlterClient;
 import view.test.panels.panelsClient.RegisterClient;
 import view.test.panels.panelsClient.painelEmployee.AlterEmployee;

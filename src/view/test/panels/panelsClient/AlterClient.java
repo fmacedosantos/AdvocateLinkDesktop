@@ -1,17 +1,13 @@
 package view.test.panels.panelsClient;
 
 import classes.models.Clients;
-import classes.shared.MethodsUtil;
+import classes.shared.client.MethodsUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 public class AlterClient extends JPanel{
     private JTextArea jtfSalario, jtfFoto,jtfOAB;

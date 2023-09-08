@@ -4,21 +4,16 @@ import classes.exceptions.LackOfInformationException;
 import classes.models.Address;
 import classes.models.Clients;
 import classes.models.Contact;
-import classes.shared.MethodsUtil;
-import view.test.Main;
+import classes.shared.client.MethodsUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
-import static classes.shared.MethodsUtil.validaCampos;
-import static classes.shared.MethodsUtil.validaNumero;
+import static classes.shared.client.MethodsUtil.validaCampos;
+import static classes.shared.client.MethodsUtil.validaNumero;
 
 public class RegisterClient extends JPanel {
 

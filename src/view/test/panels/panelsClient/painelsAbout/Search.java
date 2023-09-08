@@ -1,8 +1,7 @@
 package view.test.panels.panelsClient.painelsAbout;
 
 import classes.models.Clients;
-import classes.shared.MethodsUtil;
-import view.test.Main;
+import classes.shared.client.MethodsUtil;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

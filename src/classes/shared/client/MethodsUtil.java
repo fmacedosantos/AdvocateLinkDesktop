@@ -1,4 +1,4 @@
-package classes.shared;
+package classes.shared.client;
 
 import classes.models.Clients;
 import com.google.gson.Gson;

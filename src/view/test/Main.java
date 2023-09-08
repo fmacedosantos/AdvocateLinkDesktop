@@ -1,6 +1,6 @@
 package view.test;
 
-import classes.shared.MethodsUtil;
+import classes.shared.client.MethodsUtil;
 import view.test.screens.Login;
 
 import java.io.IOException;
