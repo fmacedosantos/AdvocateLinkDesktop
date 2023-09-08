@@ -7,7 +7,7 @@ import view.test.panels.panelsClient.painelEmployee.AlterEmployee;
 import view.test.panels.panelsClient.painelEmployee.BonusEmployee;
 import view.test.panels.panelsClient.painelEmployee.RegisterEmployee;
 import view.test.panels.panelsClient.painelsAbout.GenereteRelatory;
-import view.test.panels.panelsClient.painelsAbout.Search;
+import view.test.panels.panelsClient.Search;
 
 import javax.swing.*;
 import java.awt.*;

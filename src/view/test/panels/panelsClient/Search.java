@@ -1,4 +1,4 @@
-package view.test.panels.panelsClient.painelsAbout;
+package view.test.panels.panelsClient;
 
 import classes.models.Clients;
 import classes.shared.client.https.HttpsConnections;
