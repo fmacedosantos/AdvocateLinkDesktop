@@ -33,10 +33,10 @@ public abstract class MethodsUtil {
     }
 
     // PESQUISA O CLIENTE A PARTIR DO NOME
-    public static Clients searchClient(String name) throws NullPointerException {
-        for (Clients c1 : HttpsUtil.getClients()) {
-            if (c1.getNome().equals(name)) {
-                return c1;
+    public static Clients search(String name) throws NullPointerException {
+        for (Clients c: HttpsUtil.getClients()) {
+            if (c.getNome().equals(name)) {
+                return c;
             }
         }
         throw new NullPointerException();

@@ -193,7 +193,7 @@ public class RegisterClient extends JPanel {
                                 String urlfoto = jtfFoto.getText();
                                 String oab = jtfOAB.getText();
                                 String itemSelecionado = jcbAreaAtuaçao.getSelectedItem().toString();
-                                JOptionPane.showMessageDialog(null,"Falta de informacao, verifique todos os campos");
+                                JOptionPane.showMessageDialog(null,"Cliente cadastrado com Sucesso");
                                 HttpsConnections.postHttps(new Clients(0, nome, cpf, new Address(rua, numero, bairro), new Contact(tel, email), urlfoto, oab, itemSelecionado));
                             } catch (IOException | InterruptedException ex) {
                                 System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());

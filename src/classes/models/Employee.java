@@ -18,10 +18,6 @@ public class Employee extends Manageable implements UsefulEmployee {
         return idEmployee;
     }
 
-    public void setIdEmployee(long idEmployee) {
-        this.idEmployee = idEmployee;
-    }
-
     public String getRole() {
         return role;
     }

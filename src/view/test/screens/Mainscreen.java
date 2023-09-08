@@ -1,6 +1,5 @@
 package view.test.screens;
 
-import classes.models.Clients;
 import classes.shared.client.MethodsUtil;
 import view.test.panels.panelsClient.AlterClient;
 import view.test.panels.panelsClient.RegisterClient;
@@ -124,7 +123,7 @@ public class Mainscreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     String nomeDoCliente = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
-                    AlterClient clientt = new AlterClient(MethodsUtil.searchClient(nomeDoCliente));
+                    AlterClient clientt = new AlterClient(MethodsUtil.search(nomeDoCliente));
                     getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
                     getContentPane().add(clientt);
                     getContentPane().validate();//

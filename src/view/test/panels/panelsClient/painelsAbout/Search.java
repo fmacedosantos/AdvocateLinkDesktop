@@ -99,7 +99,7 @@ public class Search extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     // Pesquisa o Cliente a partir do nome
-                    final Clients tempClint = MethodsUtil.searchClient(jtfPesquisar.getText());
+                    final Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
                     lfotoUser.setIcon(setfoto(tempClint));
                     lfotoUser.setText("TEXTEEEEE");
                     lfotoUser.setBounds(100, 155, 200, 200);
@@ -111,7 +111,7 @@ public class Search extends JPanel {
                     lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                     lfotoUser.setBounds(100, 155, 200, 200);
                     // Pesquisa o Cliente a partir do nome
-                    final Clients tempClint = MethodsUtil.searchClient(jtfPesquisar.getText());
+                    final Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
                     lfotoUser.setBounds(100, 155, 200, 200);
                     setinfromacao(tempClint);
                     System.out.println(ex.getMessage());

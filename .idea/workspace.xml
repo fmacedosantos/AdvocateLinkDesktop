@@ -4,27 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="ExceptionInInitializerError acrecentada">
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="Alterar client criado">
+      <change afterPath="$PROJECT_DIR$/src/classes/interfaces/ObjectMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/shared/client/employee/MathodsEmployeeUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsConnections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/AlterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/AlterClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/MethodsUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/RegisterClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/painelsAbout/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/painelsAbout/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/test/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/screens/Mainscreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -39,8 +49,11 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/IdeaProjects/Formulario-AdvocateLink&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/IdeaProjects/advocatelink01&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -88,7 +101,9 @@
       <workItem from="1694128867396" duration="884000" />
       <workItem from="1694136253214" duration="5347000" />
       <workItem from="1694177182051" duration="3273000" />
-      <workItem from="1694187941631" duration="1984000" />
+      <workItem from="1694187941631" duration="2182000" />
+      <workItem from="1694205278865" duration="641000" />
+      <workItem from="1694209460103" duration="2996000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -162,17 +177,41 @@
       <option name="project" value="LOCAL" />
       <updated>1694180260489</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Alterar client criado">
+      <option name="closed" value="true" />
+      <created>1694190076437</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694190076437</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initia" />
     <MESSAGE value="encapsulamento de metodos" />
     <MESSAGE value="ExceptionInInitializerError acrecentada" />
-    <option name="LAST_COMMIT_MESSAGE" value="ExceptionInInitializerError acrecentada" />
+    <MESSAGE value="Alterar client criado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterar client criado" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
