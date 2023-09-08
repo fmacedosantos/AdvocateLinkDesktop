@@ -185,7 +185,7 @@ public class RegisterClient extends JPanel {
                         @Override
                         public void actionPerformed(ActionEvent e) throws LackOfInformationException {
                             try {
-                                if (email == null && tel == 0) {
+                                if (email == null || tel == 0) {
                                     throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
                                 }
                                 String nome = jtfNome.getText();

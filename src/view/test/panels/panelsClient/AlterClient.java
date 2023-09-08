@@ -64,7 +64,6 @@ public class AlterClient extends JPanel{
         jbAlterar.setCursor(new Cursor(Cursor.HAND_CURSOR));
       jbAlterar.setContentAreaFilled(false);
         jbAlterar.setBorderPainted(false);
-
         jbApagar = new JButton();
         add(jbApagar);
         jbApagar.setBounds(610, 450, 65, 33);
