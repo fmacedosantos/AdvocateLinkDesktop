@@ -107,6 +107,7 @@ public abstract class MethodsUtil {
             System.out.println("Falha ao adicionar o cliente. Código de resposta: " + response.statusCode());
         }
     }
+    //FAZ CHAMADA DE DELETE DO USUARIO PASSADO PELO PARAMETRO
     public static void deleteHttps(long tempid) throws IOException, InterruptedException {
         HttpClient httpClient = HttpClient.newHttpClient();
         // Constroi a solicitação HTTP DELETE
