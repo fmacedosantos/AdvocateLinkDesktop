@@ -4,7 +4,8 @@ import classes.exceptions.LackOfInformationException;
 import classes.models.Address;
 import classes.models.Clients;
 import classes.models.Contact;
-import classes.shared.client.MethodsUtil;
+import classes.shared.client.https.HttpsConnections;
+import classes.shared.client.https.HttpsUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +36,7 @@ public class RegisterClient extends JPanel {
         setLayout(null);
         iniciarComponentes();
         criarEventos();
-        MethodsUtil.getHttps();
+        HttpsConnections.getHttps();
     }
 
     private void iniciarComponentes() {
@@ -192,7 +193,7 @@ public class RegisterClient extends JPanel {
                                 String urlfoto = jtfFoto.getText();
                                 String oab = jtfOAB.getText();
                                 String itemSelecionado = jcbAreaAtuaçao.getSelectedItem().toString();
-                                MethodsUtil.postHttps(new Clients(0, nome, cpf, new Address(rua, numero, bairro), new Contact(tel, email), urlfoto, oab, itemSelecionado));
+                                HttpsConnections.postHttps(new Clients(0, nome, cpf, new Address(rua, numero, bairro), new Contact(tel, email), urlfoto, oab, itemSelecionado));
                             } catch (IOException | InterruptedException ex) {
                                 System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
                             } catch (NumberFormatException ex) {

@@ -1,35 +1,11 @@
 package classes.shared.client;
 
 import classes.models.Clients;
-import com.google.gson.Gson;
+import classes.shared.client.https.HttpsUtil;
 
 import javax.swing.*;
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 public abstract class MethodsUtil {
-    public static HttpClient client = HttpClient.newHttpClient();
-    static HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("http://localhost:8080/client/api"))
-            .build();
-    public static HttpResponse<String> response;
-
-    static {
-        try {
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static Gson gson = new Gson();
-    public static Clients[] clients = gson.fromJson(response.body(), Clients[].class);
-
     // VALIDA SE UM CAMPO SERA STRING OU NUMERO, SE CASO FOR STRING RETORNARAR ERROR
     public static int validaNumero(Object numero) throws NumberFormatException {
         if ((numero instanceof String)) {
@@ -58,7 +34,7 @@ public abstract class MethodsUtil {
 
     // PESQUISA O CLIENTE A PARTIR DO NOME
     public static Clients searchClient(String name) throws NullPointerException {
-        for (Clients c1 : MethodsUtil.clients) {
+        for (Clients c1 : HttpsUtil.getClients()) {
             if (c1.getNome().equals(name)) {
                 return c1;
             }
@@ -66,54 +42,4 @@ public abstract class MethodsUtil {
         throw new NullPointerException();
     }
 
-    // inicia a conexao com a API do Spring
-    public static void getHttps() throws RuntimeException {
-
-         client = HttpClient.newHttpClient();
-         request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/client/api"))
-                .build();
-        {
-            try {
-                response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        Gson gson = new Gson();
-        clients = gson.fromJson(response.body(), Clients[].class);
-    }
-
-    // Adiciona informacao(Cliente) na API
-    public static void postHttps(Clients tempClient) throws IOException, InterruptedException {
-         client = HttpClient.newHttpClient();
-        // Constroi a solicitação HTTP POST
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/client/api/add"))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(MethodsUtil.gson.toJson(tempClient)))
-                .build();
-        System.out.println(MethodsUtil.gson.toJson(tempClient));
-        // Enviando a solicitação e tendo a resposta
-         response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        // Lida com a resposta da API
-        if (response.statusCode() == 201) {
-            System.out.println("Cliente adicionado com sucesso!");
-        } else {
-            System.out.println("Falha ao adicionar o cliente. Código de resposta: " + response.statusCode());
-        }
-    }
-    //FAZ CHAMADA DE DELETE DO USUARIO PASSADO PELO PARAMETRO
-    public static void deleteHttps(long tempid) throws IOException, InterruptedException {
-        client = HttpClient.newHttpClient();
-        // Constroi a solicitação HTTP DELETE
-         request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/client/api/"+tempid))
-                .header("Content-Type", "application/json")
-                .DELETE()
-                .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-    }
 }

@@ -1,14 +1,21 @@
 package view.test;
 
-import classes.shared.client.MethodsUtil;
+import classes.shared.client.https.HttpsConnections;
 import view.test.screens.Login;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Login login = new Login("AdvocateLink");
         login.setVisible(true);
-        MethodsUtil.getHttps();// inicia a conexao com a API do Spring
+        try {
+            HttpsConnections.getHttps();// inicia a conexao com a API do Spring
+        }catch (ExceptionInInitializerError ex){
+            JOptionPane.showMessageDialog(null,"Por favor, verifique se a conexao com a API ADVOCATE-Link esta sicronizada ou iniciada, para mais ajuda acesse: "+ "https://github.com/guilhermevini2013/Advocatelink-APPDesktop-consumindo-API");
+            System.exit(0);
+        }
+
     }
 }

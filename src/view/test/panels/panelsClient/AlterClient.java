@@ -1,7 +1,7 @@
 package view.test.panels.panelsClient;
 
 import classes.models.Clients;
-import classes.shared.client.MethodsUtil;
+import classes.shared.client.https.HttpsConnections;
 
 import javax.swing.*;
 import java.awt.*;
@@ -89,7 +89,7 @@ public class AlterClient extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    MethodsUtil.deleteHttps(client.getId());
+                    HttpsConnections.deleteHttps(client.getId());
                     JOptionPane.showMessageDialog(null,"Client removido com Sucesso!");
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);

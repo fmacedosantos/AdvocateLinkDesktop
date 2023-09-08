@@ -1,6 +1,7 @@
 package view.test.panels.panelsClient.painelsAbout;
 
 import classes.models.Clients;
+import classes.shared.client.https.HttpsConnections;
 import classes.shared.client.MethodsUtil;
 
 import javax.imageio.ImageIO;
@@ -22,7 +23,7 @@ public class Search extends JPanel {
         setLayout(null);
         iniciarComponentes();
         criarEventos();
-        MethodsUtil.getHttps();
+        HttpsConnections.getHttps();
     }
 
     private void iniciarComponentes() {
