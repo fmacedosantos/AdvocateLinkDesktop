@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="encapsulamento de metodos">
-      <change afterPath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsConnections.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsUtil.java" afterDir="false" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="ExceptionInInitializerError acrecentada">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/MethodsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsConnections.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/AlterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/AlterClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/RegisterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/painelsAbout/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/painelsAbout/Search.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +87,8 @@
       <updated>1694128866374</updated>
       <workItem from="1694128867396" duration="884000" />
       <workItem from="1694136253214" duration="5347000" />
-      <workItem from="1694177182051" duration="2835000" />
+      <workItem from="1694177182051" duration="3273000" />
+      <workItem from="1694187941631" duration="1984000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -156,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694178105472</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ExceptionInInitializerError acrecentada">
+      <option name="closed" value="true" />
+      <created>1694180260489</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694180260489</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +171,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initia" />
     <MESSAGE value="encapsulamento de metodos" />
-    <option name="LAST_COMMIT_MESSAGE" value="encapsulamento de metodos" />
+    <MESSAGE value="ExceptionInInitializerError acrecentada" />
+    <option name="LAST_COMMIT_MESSAGE" value="ExceptionInInitializerError acrecentada" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

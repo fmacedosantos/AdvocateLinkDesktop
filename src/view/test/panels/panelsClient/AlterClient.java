@@ -1,5 +1,6 @@
 package view.test.panels.panelsClient;
 
+import classes.exceptions.LackOfInformationException;
 import classes.models.Clients;
 import classes.shared.client.https.HttpsConnections;
 
@@ -15,6 +16,8 @@ public class AlterClient extends JPanel{
     private JLabel jlFundoAlterar;
     private JCheckBox jcbEmail, jcbTelefone;
     private Clients client;
+    private int tel = 0;
+    private String email = null;
 
     public AlterClient(Clients client) {
         super();
@@ -43,7 +46,7 @@ public class AlterClient extends JPanel{
         jtfSalario.setBounds(409, 155, 230, 33);
         jtfSalario.setOpaque(false);
         jtfSalario.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
-        jtfSalario.setText("0");
+        jtfSalario.setText(client.getAreaAtuacao());
         jtfFoto = new JTextArea();
         jtfFoto.setFont(fonte);
         add(jtfFoto);
@@ -98,6 +101,52 @@ public class AlterClient extends JPanel{
                 }
             }
         });
-
+        jcbTelefone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (jcbTelefone.isSelected()) {
+                    try {
+                        tel = Integer.parseInt(JOptionPane.showInputDialog("DIGITE O TELEFONE"));
+                    } catch (NumberFormatException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                }
+            }
+        });
+        jcbEmail.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (jcbEmail.isSelected()) {
+                    try {
+                        email = JOptionPane.showInputDialog("DIGITE O EMAIL");
+                    } catch (NullPointerException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                }
+            }
+        });
+        jbAlterar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) throws LackOfInformationException {
+                try {
+                    if (email == null || tel == 0) {
+                        throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
+                    }
+                    client.setOab(jtfOAB.getText());
+                    client.setUrlfoto(jtfFoto.getText());
+                    client.setAreaAtuacao(jtfSalario.getText());
+                    client.getContato().setEmail(email);
+                    client.getContato().setTelefone(tel);
+                    HttpsConnections.alterClient(client.getId(),client);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }catch (LackOfInformationException ex){
+                    JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");
+                    ex.getMessage();
+                }
+            }
+        });
     }
 }

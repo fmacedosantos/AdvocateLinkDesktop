@@ -59,4 +59,22 @@ public abstract class HttpsConnections extends HttpsUtil {
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
     }
+    //ALTERAR AS INFORMACOES DO CLIENT
+    public static void alterClient(long id, Clients tempClient) throws IOException, InterruptedException {
+        client = HttpClient.newHttpClient();
+        // Constroi a solicitação HTTP POST
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/client/api/"+id))
+                .header("Content-Type", "application/json")
+                .PUT(HttpRequest.BodyPublishers.ofString(HttpsUtil.gson.toJson(tempClient)))
+                .build();
+        // Enviando a solicitação e tendo a resposta
+        response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Lida com a resposta da API
+        if (response.statusCode() == 201) {
+            System.out.println("Cliente adicionado com sucesso!");
+        } else {
+            System.out.println("Falha ao adicionar o cliente. Código de resposta: " + response.statusCode());
+        }
+    }
 }
