@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static classes.shared.methodsUtil.validaCampos;
+import static classes.shared.MethodsUtil.validaCampos;
 
 public class Login extends JFrame {
 

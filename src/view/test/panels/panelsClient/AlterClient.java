@@ -1,6 +1,7 @@
 package view.test.panels.panelsClient;
 
 import classes.models.Clients;
+import classes.shared.MethodsUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -66,7 +67,7 @@ public class AlterClient extends JPanel{
 
         jbApagar = new JButton();
         add(jbApagar);
-        jbApagar.setBounds(610, 460, 65, 33);
+        jbApagar.setBounds(610, 450, 65, 33);
         jbApagar.setOpaque(false);
         jbApagar.setBackground(new Color(0,0,0,0));
         jbApagar.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
@@ -92,16 +93,8 @@ public class AlterClient extends JPanel{
         jbApagar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HttpClient httpClient = HttpClient.newHttpClient();
-                // Constroi a solicitação HTTP POST
-                HttpRequest request = HttpRequest.newBuilder()
-                        .uri(URI.create("http://localhost:8080/client/api/"+client.getId()))
-                        .header("Content-Type", "application/json")
-                        .DELETE()
-                        .build();
-                // Enviando a solicitação e tendo a resposta
                 try {
-                    HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+                    MethodsUtil.deleteHttps(client.getId());
                     JOptionPane.showMessageDialog(null,"Client removido com Sucesso!");
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);

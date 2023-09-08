@@ -1,6 +1,7 @@
 package view.test.panels.panelsClient.painelsAbout;
 
 import classes.models.Clients;
+import classes.shared.MethodsUtil;
 import view.test.Main;
 
 import javax.imageio.ImageIO;
@@ -14,7 +15,7 @@ public class Search extends JPanel {
 
     private JTextField jtfPesquisar;
     private JButton jbPesquisar;
-    private JLabel jlFundoPesquisar,lfotoUser,lnomeuser,lcpf,ltelefone,lemail,lOAB,lareaatuacao;
+    private JLabel jlFundoPesquisar, lfotoUser, lnomeuser, lcpf, ltelefone, lemail, lOAB, lareaatuacao;
 
     public Search() {
         super();
@@ -22,6 +23,7 @@ public class Search extends JPanel {
         setLayout(null);
         iniciarComponentes();
         criarEventos();
+        MethodsUtil.getHttps();
     }
 
     private void iniciarComponentes() {
@@ -42,7 +44,7 @@ public class Search extends JPanel {
         jbPesquisar.setOpaque(false);
         jbPesquisar.setBorder(null);
         jbPesquisar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jbPesquisar.setBackground(new Color(0,0,0,0));
+        jbPesquisar.setBackground(new Color(0, 0, 0, 0));
         jbPesquisar.setContentAreaFilled(false);
         lnomeuser = new JLabel();
         add(lnomeuser);
@@ -57,72 +59,64 @@ public class Search extends JPanel {
         lareaatuacao = new JLabel();
         add(lareaatuacao);
         add(jlFundoPesquisar);
-        jlFundoPesquisar.setBounds(0,0,800,500);
+        jlFundoPesquisar.setBounds(0, 0, 800, 500);
     }
+
     private ImageIcon setfoto(Clients client) throws IOException {
-        URL url= new URL(client.getUrlfoto());
+        URL url = new URL(client.getUrlfoto());
         Image image = ImageIO.read(url);
         ImageIcon imageIcon = new ImageIcon(image);
         return imageIcon;
     }
-    private void setinfromacao(Clients client){
-        Font font =  new Font(Font.SERIF, Font.BOLD, 18);
-        lnomeuser.setText("Nome: "+client.getNome());
+
+    private void setinfromacao(Clients client) {
+        Font font = new Font(Font.SERIF, Font.BOLD, 18);
+        lnomeuser.setText("Nome: " + client.getNome());
         lnomeuser.setFont(font);
-        lnomeuser.setBounds(310,170,300,30);
-        lcpf.setText("CPF: "+client.getCpf());
+        lnomeuser.setBounds(310, 170, 300, 30);
+        lcpf.setText("CPF: " + client.getCpf());
         lcpf.setFont(font);
-        lcpf.setBounds(310,200,250,30);
-        ltelefone.setText("Tel: "+client.getContato().getTelefone());
+        lcpf.setBounds(310, 200, 250, 30);
+        ltelefone.setText("Tel: " + client.getContato().getTelefone());
         ltelefone.setFont(font);
-        ltelefone.setBounds(310,230,250,30);
-        lemail.setText("Email: "+client.getContato().getEmail());
+        ltelefone.setBounds(310, 230, 250, 30);
+        lemail.setText("Email: " + client.getContato().getEmail());
         lemail.setFont(font);
-        lemail.setBounds(310,260,400,30);
-        lOAB.setText("OAB: "+client.getOab());
+        lemail.setBounds(310, 260, 400, 30);
+        lOAB.setText("OAB: " + client.getOab());
         lOAB.setFont(font);
-        lOAB.setBounds(310,290,200,30);
-        lareaatuacao.setText("Area atuacao: "+ client.getAreaAtuacao());
+        lOAB.setBounds(310, 290, 200, 30);
+        lareaatuacao.setText("Area atuacao: " + client.getAreaAtuacao());
         lareaatuacao.setFont(font);
-        lareaatuacao.setBounds(310,320,350,30);
+        lareaatuacao.setBounds(310, 320, 350, 30);
         add(jlFundoPesquisar);
-        jlFundoPesquisar.setBounds(0,0,800,500);
+        jlFundoPesquisar.setBounds(0, 0, 800, 500);
     }
+
     private void criarEventos() throws NullPointerException {
         jbPesquisar.addActionListener(new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e)  {
-                boolean achou = false;
+            public void actionPerformed(ActionEvent e) {
                 try {
-                    for (Clients client: Main.clients) {
-                        if (client.getNome().equals(jtfPesquisar.getText())){
-                            achou=true;
-                            lfotoUser.setIcon(setfoto(client));
-                            lfotoUser.setText("TEXTEEEEE");
-                            lfotoUser.setBounds(100,155,200,200);
-                            setinfromacao(client);
-                        }
-                    }
-                    if (!achou){
-                        JOptionPane.showMessageDialog(null,"NOME DE BUSCA INCORRETO OU INEXISTENTE");
-                    }
-                }catch (NullPointerException exception){
+                    // Pesquisa o Cliente a partir do nome
+                    final Clients tempClint = MethodsUtil.searchClient(jtfPesquisar.getText());
+                    lfotoUser.setIcon(setfoto(tempClint));
+                    lfotoUser.setText("TEXTEEEEE");
+                    lfotoUser.setBounds(100, 155, 200, 200);
+                    setinfromacao(tempClint);
+                } catch (NullPointerException exception) {
                     System.out.println(exception.getMessage());
+                    JOptionPane.showMessageDialog(null, "Nome de busca incorreto ou inexistente");
                 } catch (IOException ex) {
                     lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
-                    lfotoUser.setBounds(100,155,200,200);
-                    for (Clients client: Main.clients) {
-                        if (client.getNome().equals(jtfPesquisar.getText())){
-                            achou=true;
-                            lfotoUser.setBounds(100,155,200,200);
-                            setinfromacao(client);
-                        }
-                    }
+                    lfotoUser.setBounds(100, 155, 200, 200);
+                    // Pesquisa o Cliente a partir do nome
+                    final Clients tempClint = MethodsUtil.searchClient(jtfPesquisar.getText());
+                    lfotoUser.setBounds(100, 155, 200, 200);
+                    setinfromacao(tempClint);
                     System.out.println(ex.getMessage());
                 }
             }
         });
     }
-
-
 }
