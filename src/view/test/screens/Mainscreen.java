@@ -122,15 +122,16 @@ public class Mainscreen extends JFrame {
         jmiAlterarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
-                for (Clients client : MethodsUtil.clients) {
-                    if (client.getNome().equals(id)) {
-                        AlterClient clientt = new AlterClient(client);
-                        getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
-                        getContentPane().add(clientt);
-                        getContentPane().validate();//
-                        repaint(); // atualiza a tela
-                    }
+                try {
+                    String nomeDoCliente = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
+                    AlterClient clientt = new AlterClient(MethodsUtil.searchClient(nomeDoCliente));
+                    getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                    getContentPane().add(clientt);
+                    getContentPane().validate();//
+                    repaint(); // atualiza a tela
+                }catch (NullPointerException ex){
+                    JOptionPane.showMessageDialog(null,"Cliente inexistente, confira os dados");
+                    System.out.println(ex.getMessage()+" exception ao procurar nome inexistente");
                 }
             }
         });

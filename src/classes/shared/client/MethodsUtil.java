@@ -60,7 +60,6 @@ public abstract class MethodsUtil {
     public static Clients searchClient(String name) throws NullPointerException {
         for (Clients c1 : MethodsUtil.clients) {
             if (c1.getNome().equals(name)) {
-                System.out.println("achouuu");
                 return c1;
             }
         }
@@ -70,11 +69,10 @@ public abstract class MethodsUtil {
     // inicia a conexao com a API do Spring
     public static void getHttps() throws RuntimeException {
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
+         client = HttpClient.newHttpClient();
+         request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/client/api"))
                 .build();
-        HttpResponse<String> response;
         {
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -90,7 +88,7 @@ public abstract class MethodsUtil {
 
     // Adiciona informacao(Cliente) na API
     public static void postHttps(Clients tempClient) throws IOException, InterruptedException {
-        HttpClient httpClient = HttpClient.newHttpClient();
+         client = HttpClient.newHttpClient();
         // Constroi a solicitação HTTP POST
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/client/api/add"))
@@ -99,7 +97,7 @@ public abstract class MethodsUtil {
                 .build();
         System.out.println(MethodsUtil.gson.toJson(tempClient));
         // Enviando a solicitação e tendo a resposta
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+         response = client.send(request, HttpResponse.BodyHandlers.ofString());
         // Lida com a resposta da API
         if (response.statusCode() == 201) {
             System.out.println("Cliente adicionado com sucesso!");
@@ -109,13 +107,13 @@ public abstract class MethodsUtil {
     }
     //FAZ CHAMADA DE DELETE DO USUARIO PASSADO PELO PARAMETRO
     public static void deleteHttps(long tempid) throws IOException, InterruptedException {
-        HttpClient httpClient = HttpClient.newHttpClient();
+        client = HttpClient.newHttpClient();
         // Constroi a solicitação HTTP DELETE
-        HttpRequest request = HttpRequest.newBuilder()
+         request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/client/api/"+tempid))
                 .header("Content-Type", "application/json")
                 .DELETE()
                 .build();
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 }
