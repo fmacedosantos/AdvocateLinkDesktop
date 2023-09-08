@@ -4,8 +4,8 @@ import classes.exceptions.LackOfInformationException;
 import classes.models.Address;
 import classes.models.Clients;
 import classes.models.Contact;
+import classes.shared.client.MethodsUtil;
 import classes.shared.client.https.HttpsConnections;
-import classes.shared.client.https.HttpsUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,8 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import static classes.shared.client.MethodsUtil.validaCampos;
-import static classes.shared.client.MethodsUtil.validaNumero;
+import static classes.shared.client.MethodsUtil.validatesInput;
+import static classes.shared.client.MethodsUtil.validatesNumber;
 
 public class RegisterClient extends JPanel {
 
@@ -108,7 +108,7 @@ public class RegisterClient extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (validaCampos(jtfNome, jtfRua, jtfRua, jtfBairro, jtfCodigo, jtfCPF)) {
+                if (MethodsUtil.validatesInput(jtfNome, jtfRua, jtfRua, jtfBairro, jtfCodigo, jtfCPF)) {
                     removeAll();
                     img = new ImageIcon(getClass().getResource("/imagens/backgroundRegister01.png"));
                     jlFundoCadastro = new JLabel(img);
@@ -187,7 +187,7 @@ public class RegisterClient extends JPanel {
                                 String nome = jtfNome.getText();
                                 String cpf = jtfCPF.getText();
                                 String rua = jtfRua.getText();
-                                int numero = validaNumero(Integer.parseInt(jtfNumero.getText()));
+                                int numero = validatesNumber(Integer.parseInt(jtfNumero.getText()));
                                 System.out.println(numero);
                                 String bairro = jtfBairro.getText();
                                 String urlfoto = jtfFoto.getText();

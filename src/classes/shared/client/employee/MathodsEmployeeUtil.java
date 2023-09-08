@@ -6,9 +6,9 @@ import classes.models.Employee;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class MathodsEmployeeUtil implements ObjectMethods<Employee> {
+public  class MathodsEmployeeUtil implements ObjectMethods<Employee> {
     public static List<Employee> employeeslList = new ArrayList<>();
-
+    public static MathodsEmployeeUtil employee = new MathodsEmployeeUtil();
     //Pega Referencia
     @Override
     public Employee search(Employee tempEmployee) throws NullPointerException {
@@ -47,5 +47,20 @@ public abstract class MathodsEmployeeUtil implements ObjectMethods<Employee> {
             }
         }
         throw new NullPointerException();
+    }
+    // Registra o funcionario no employeelList
+    @Override
+    public Employee register(Employee employee) {
+        employeeslList.add(employee);
+        return null;
+    }
+    @Override
+    public List<Employee> show() {
+        return employeeslList;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return 0;
     }
 }

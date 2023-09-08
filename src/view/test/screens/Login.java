@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static classes.shared.client.MethodsUtil.validaCampos;
+import static classes.shared.client.MethodsUtil.validatesInput;
 
 public class Login extends JFrame {
 
@@ -75,7 +75,7 @@ public class Login extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (validaCampos(jtflogin,jpsSenha)){
+                if (validatesInput(jtflogin,jpsSenha)){
                     if (jtflogin.getText().equals(Administration.getLogin())&&jpsSenha.getText().equals(Administration.getPassword())){
                         Mainscreen tela = new Mainscreen("Advocate-Link");
                         tela.setVisible(true);

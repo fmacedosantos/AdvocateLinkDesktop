@@ -1,5 +1,12 @@
 package view.test.panels.panelsClient.painelEmployee;
 
+import classes.exceptions.LackOfInformationException;
+import classes.models.Address;
+import classes.models.Contact;
+import classes.models.Employee;
+import classes.shared.client.MethodsUtil;
+import classes.shared.client.employee.MathodsEmployeeUtil;
+
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
@@ -18,6 +25,8 @@ public class RegisterEmployee extends JPanel {
     private JTextField jtfCodigo;
     private ImageIcon img;
     private JButton jbContinuar;
+    private int tel = 0;
+    private String email = null;
 
     public RegisterEmployee() {
         super();
@@ -177,15 +186,53 @@ public class RegisterEmployee extends JPanel {
                 jbFinalizar.setContentAreaFilled(false); // Remover preenchimento
                 jbFinalizar.setBorderPainted(false); // Remover borda
                 jbFinalizar.setOpaque(false); // Tornar o botão transparente
-
-                jbFinalizar.addActionListener(new ActionListener() {
+                jcTelefone.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        System.exit(0);
+                        if (jcTelefone.isSelected()) {
+                            try {
+                                tel = Integer.parseInt(JOptionPane.showInputDialog("DIGITE O TELEFONE"));
+                            } catch (NumberFormatException ex) {
+                                System.out.println(ex.getMessage());
+                            }
+                        }
+                    }
+                });
+                jcEmail.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (jcEmail.isSelected()) {
+                            try {
+                                email = JOptionPane.showInputDialog("DIGITE O EMAIL");
+                            } catch (NullPointerException ex) {
+                                System.out.println(ex.getMessage());
+                            }
+                        }
                     }
                 });
 
-
+                jbFinalizar.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e)throws LackOfInformationException {
+                        if (MethodsUtil.validatesInput(jtfCPF,jtfRua,jtfBairro,jtfSalario,jtfCargo,jtfNumero,jtfCodigo,jtfFoto)){
+                        try {
+                            if (email == null || tel == 0) {
+                                throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
+                            }
+                            MethodsUtil.validatesNumber(Integer.parseInt(jtfNumero.getText()));
+                            MethodsUtil.validatesNumber(Integer.parseInt(jtfSalario.getText()));
+                        }catch (NumberFormatException | LackOfInformationException ex){
+                            JOptionPane.showMessageDialog(null,"VERIFIQUE AS INFORMACOESAAAA");
+                            System.out.println(""+ex.getMessage());
+                        }
+                            MathodsEmployeeUtil.employee.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
+                                new Contact(tel,email),jtfFoto.getText(),0,jtfCargo.getText(),Integer.parseInt(jtfSalario.getText())));
+                            JOptionPane.showMessageDialog(null,"Cliente cadastrado por sucesso");
+                        }else {
+                            JOptionPane.showMessageDialog(null,"PREENCHA TODOS OS CAMPOS");
+                        }
+                    }
+                });
             }
         });
 
