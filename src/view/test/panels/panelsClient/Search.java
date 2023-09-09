@@ -1,8 +1,11 @@
 package view.test.panels.panelsClient;
 
 import classes.models.Clients;
+import classes.models.Employee;
+import classes.shared.client.employee.EmployeeService;
 import classes.shared.client.https.HttpsConnections;
 import classes.shared.client.MethodsUtil;
+import view.test.screens.Mainscreen;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -60,10 +63,17 @@ public class Search extends JPanel {
         add(lareaatuacao);
         add(jlFundoPesquisar);
         jlFundoPesquisar.setBounds(0, 0, 800, 500);
+
     }
 
     private ImageIcon setfoto(Clients client) throws IOException {
         URL url = new URL(client.getUrlfoto());
+        Image image = ImageIO.read(url);
+        ImageIcon imageIcon = new ImageIcon(image);
+        return imageIcon;
+    }
+    private ImageIcon setfoto(Employee employee) throws IOException {
+        URL url = new URL(employee.getUrlfoto());
         Image image = ImageIO.read(url);
         ImageIcon imageIcon = new ImageIcon(image);
         return imageIcon;
@@ -92,30 +102,75 @@ public class Search extends JPanel {
         add(jlFundoPesquisar);
         jlFundoPesquisar.setBounds(0, 0, 800, 500);
     }
+    private void setinfromacao(Employee employee) {
+        Font font = new Font(Font.SERIF, Font.BOLD, 18);
+        lnomeuser.setText("Nome: " + employee.getNome());
+        lnomeuser.setFont(font);
+        lnomeuser.setBounds(310, 170, 300, 30);
+        lcpf.setText("CPF: " + employee.getCpf());
+        lcpf.setFont(font);
+        lcpf.setBounds(310, 200, 250, 30);
+        ltelefone.setText("Tel: " + employee.getContato().getTelefone());
+        ltelefone.setFont(font);
+        ltelefone.setBounds(310, 230, 250, 30);
+        lemail.setText("Email: " + employee.getContato().getEmail());
+        lemail.setFont(font);
+        lemail.setBounds(310, 260, 400, 30);
+        lOAB.setText("Salario: " + employee.getSalary());
+        lOAB.setFont(font);
+        lOAB.setBounds(310, 290, 200, 30);
+        lareaatuacao.setText("Cargo: " + employee.getRole());
+        lareaatuacao.setFont(font);
+        lareaatuacao.setBounds(310, 320, 350, 30);
+        add(jlFundoPesquisar);
+        jlFundoPesquisar.setBounds(0, 0, 800, 500);
+    }
 
     private void criarEventos() throws NullPointerException {
         jbPesquisar.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    // Pesquisa o Cliente a partir do nome
-                    final Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
-                    lfotoUser.setIcon(setfoto(tempClint));
-                    lfotoUser.setText("TEXTEEEEE");
-                    lfotoUser.setBounds(100, 155, 200, 200);
-                    setinfromacao(tempClint);
-                } catch (NullPointerException exception) {
-                    System.out.println(exception.getMessage());
-                    JOptionPane.showMessageDialog(null, "Nome de busca incorreto ou inexistente");
-                } catch (IOException ex) {
-                    lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
-                    lfotoUser.setBounds(100, 155, 200, 200);
-                    // Pesquisa o Cliente a partir do nome
-                    final Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
-                    lfotoUser.setBounds(100, 155, 200, 200);
-                    setinfromacao(tempClint);
-                    System.out.println(ex.getMessage());
+                if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.CLIENT){
+                    try {
+                        // Pesquisa o Cliente a partir do nome
+                        final Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
+                        lfotoUser.setIcon(setfoto(tempClint));
+                        lfotoUser.setText("TEXTEEEEE");
+                        lfotoUser.setBounds(100, 155, 200, 200);
+                        setinfromacao(tempClint);
+                    } catch (NullPointerException exception) {
+                        System.out.println(exception.getMessage());
+                        JOptionPane.showMessageDialog(null, "Nome de busca incorreto ou inexistente");
+                    } catch (IOException ex) {
+                        lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
+                        lfotoUser.setBounds(100, 155, 200, 200);
+                        // Pesquisa o Cliente a partir do nome
+                        final Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
+                        lfotoUser.setBounds(100, 155, 200, 200);
+                        setinfromacao(tempClint);
+                        System.out.println(ex.getMessage());
+                    }
+                } else if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.EMPLOYEE) {
+                    try{
+                        Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
+                        lfotoUser.setIcon(setfoto(tempEmployee));
+                        lfotoUser.setText("TEXTEEEEE");
+                        lfotoUser.setBounds(100, 155, 200, 200);
+                        setinfromacao(tempEmployee);
+                    }catch (NullPointerException ex){
+                        JOptionPane.showMessageDialog(null,"FUNCIONARIO INEXISTENTE OU INCORRETO");
+                    } catch (IOException ex) {
+                        lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
+                        lfotoUser.setBounds(100, 155, 200, 200);
+                        // Pesquisa o Cliente a partir do nome
+                        Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
+                        lfotoUser.setBounds(100, 155, 200, 200);
+                        setinfromacao(tempEmployee);
+                        System.out.println(ex.getMessage());
+                    }
+
                 }
+
             }
         });
     }

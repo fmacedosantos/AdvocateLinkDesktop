@@ -35,7 +35,12 @@ public class Mainscreen extends JFrame {
     private JMenuItem jmiAlterarCliente;
     private JMenuItem jmiGerarRelatorio;
     private JMenuItem jmiSistema;
-
+    public enum AppSearchState {
+        NONE,
+        CLIENT,
+        EMPLOYEE,;
+    }
+    public static AppSearchState currentAppSearchState = AppSearchState.NONE;
     public Mainscreen(String title) throws HeadlessException {
         super(title);
         //Atributos da tela
@@ -157,6 +162,7 @@ public class Mainscreen extends JFrame {
         jmiPesquisarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                currentAppSearchState = AppSearchState.CLIENT;
                 Search search = new Search();
                 getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
                 getContentPane().add(search);
@@ -167,6 +173,7 @@ public class Mainscreen extends JFrame {
         jmiPesquisarFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                currentAppSearchState = AppSearchState.EMPLOYEE;
                 Search search = new Search();
                 getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
                 getContentPane().add(search);

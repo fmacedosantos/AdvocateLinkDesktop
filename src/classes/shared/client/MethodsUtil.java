@@ -26,7 +26,7 @@ public abstract class MethodsUtil {
 
     // VALIDA SE TODOS OS CAMPOS FORAM COMPLETADOS
     public static boolean validatesInput(JTextField tf1, JTextField tf2) {
-        return (!tf1.getText().isEmpty() && !tf2.getText().isEmpty()) ;
+        return (!tf1.getText().isEmpty() && !tf2.getText().isEmpty());
     }
 
     // PESQUISA O CLIENTE A PARTIR DO NOME _____________________
@@ -38,6 +38,4 @@ public abstract class MethodsUtil {
         }
         throw new NullPointerException();
     }
-
-
 }
