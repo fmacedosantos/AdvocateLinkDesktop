@@ -5,7 +5,7 @@ import classes.models.Address;
 import classes.models.Contact;
 import classes.models.Employee;
 import classes.shared.client.MethodsUtil;
-import classes.shared.client.employee.MathodsEmployeeUtil;
+import classes.shared.client.employee.EmployeeService;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
@@ -221,7 +221,7 @@ public class RegisterEmployee extends JPanel {
                             }
                             MethodsUtil.validatesNumber(Integer.parseInt(jtfNumero.getText()));
                             MethodsUtil.validatesNumber(Integer.parseInt(jtfSalario.getText()));
-                            MathodsEmployeeUtil.employee.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
+                            EmployeeService.employee.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
                                     new Contact(tel,email),jtfFoto.getText(),0,jtfCargo.getText(),Integer.parseInt(jtfSalario.getText())));
                             JOptionPane.showMessageDialog(null,"Cliente cadastrado por sucesso");
                         }catch (NumberFormatException | LackOfInformationException ex){

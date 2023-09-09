@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="criada a interface de metodos do funcionario">
-      <change afterPath="$PROJECT_DIR$/src/classes/exceptions/NegativeNumberException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/interfaces/ObjectMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/interfaces/ObjectMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/models/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/shared/client/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/MethodsUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/employee/MathodsEmployeeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/employee/MathodsEmployeeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/employee/MathodsEmployeeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/employee/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/RegisterClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/painelEmployee/BonusEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/painelEmployee/RegisterEmployee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +103,9 @@
       <workItem from="1694177182051" duration="3273000" />
       <workItem from="1694187941631" duration="2182000" />
       <workItem from="1694205278865" duration="641000" />
-      <workItem from="1694209460103" duration="9659000" />
+      <workItem from="1694209460103" duration="9847000" />
+      <workItem from="1694221090755" duration="44000" />
+      <workItem from="1694265923462" duration="1208000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -209,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694216175573</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="criada a interface de metodos do funcionario">
+      <option name="closed" value="true" />
+      <created>1694219295060</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694219295060</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

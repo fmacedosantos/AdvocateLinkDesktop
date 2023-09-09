@@ -2,7 +2,7 @@ package classes.interfaces;
 
 import java.util.List;
 
-public interface ObjectMethods<T> extends Comparable<T>{
+public interface ObjectMethods<T>{
     T search(String t);
     T delete(T t);
     T alter(T t);

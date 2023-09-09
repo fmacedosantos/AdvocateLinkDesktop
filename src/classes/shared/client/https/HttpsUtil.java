@@ -25,7 +25,6 @@ public abstract class HttpsUtil {
             throw new RuntimeException(e);
         }
     }
-
     protected static Gson gson = new Gson();
     protected static Clients[] clients = gson.fromJson(response.body(), Clients[].class);
     //Getters

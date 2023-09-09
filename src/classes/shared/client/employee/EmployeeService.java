@@ -9,9 +9,9 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public  class MathodsEmployeeUtil implements ObjectMethods<Employee> {
+public  class EmployeeService implements ObjectMethods<Employee> {
     public static List<Employee> employeeslList = new ArrayList<>();
-    public static MathodsEmployeeUtil employee = new MathodsEmployeeUtil();
+    public static EmployeeService employee = new EmployeeService();
     public void sendBonus(Employee tempEmployee,double bonus)throws NegativeNumberException {
         try {
             if (bonus<0){
@@ -72,10 +72,5 @@ public  class MathodsEmployeeUtil implements ObjectMethods<Employee> {
     @Override
     public List<Employee> show() {
         return employeeslList;
-    }
-
-    @Override
-    public int compareTo(Employee o) {
-        return 0;
     }
 }
