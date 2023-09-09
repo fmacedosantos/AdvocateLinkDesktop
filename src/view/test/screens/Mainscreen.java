@@ -1,6 +1,7 @@
 package view.test.screens;
 
 import classes.shared.client.MethodsUtil;
+import view.test.Main;
 import view.test.panels.panelsClient.AlterClient;
 import view.test.panels.panelsClient.RegisterClient;
 import view.test.panels.panelsClient.painelEmployee.AlterEmployee;
@@ -37,10 +38,12 @@ public class Mainscreen extends JFrame {
     private JMenuItem jmiSistema;
     public enum AppSearchState {
         NONE,
+        OFF,
         CLIENT,
         EMPLOYEE,;
     }
     public static AppSearchState currentAppSearchState = AppSearchState.NONE;
+
     public Mainscreen(String title) throws HeadlessException {
         super(title);
         //Atributos da tela
@@ -105,11 +108,16 @@ public class Mainscreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
-                RegisterClient client = new RegisterClient();
-                getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
-                getContentPane().add(client);
-                getContentPane().validate();//
-                repaint(); // atualiza a tela
+                if (Mainscreen.currentAppSearchState!=Mainscreen.AppSearchState.OFF&&Mainscreen.currentAppSearchState!= AppSearchState.EMPLOYEE){
+                    RegisterClient client = new RegisterClient();
+                    getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                    getContentPane().add(client);
+                    getContentPane().validate();//
+                    repaint(); // atualiza a tela
+                }else {
+                    JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
+                }
+
             }
         });
         jmiCadastrarFuncionario.addActionListener(new ActionListener() {
@@ -126,17 +134,22 @@ public class Mainscreen extends JFrame {
         jmiAlterarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    String nomeDoCliente = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
-                    AlterClient clientt = new AlterClient(MethodsUtil.search(nomeDoCliente));
-                    getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
-                    getContentPane().add(clientt);
-                    getContentPane().validate();//
-                    repaint(); // atualiza a tela
-                }catch (NullPointerException ex){
-                    JOptionPane.showMessageDialog(null,"Cliente inexistente, confira os dados");
-                    System.out.println(ex.getMessage()+" exception ao procurar nome inexistente");
+                if (Mainscreen.currentAppSearchState!=Mainscreen.AppSearchState.OFF&&Mainscreen.currentAppSearchState!= AppSearchState.EMPLOYEE){
+                    try {
+                        String nomeDoCliente = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
+                        AlterClient clientt = new AlterClient(MethodsUtil.search(nomeDoCliente));
+                        getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                        getContentPane().add(clientt);
+                        getContentPane().validate();//
+                        repaint(); // atualiza a tela
+                    }catch (NullPointerException ex){
+                        JOptionPane.showMessageDialog(null,"Cliente inexistente, confira os dados");
+                        System.out.println(ex.getMessage()+" exception ao procurar nome inexistente");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
                 }
+
             }
         });
         jmiAlterarFuncionario.addActionListener(new ActionListener() {
@@ -162,18 +175,23 @@ public class Mainscreen extends JFrame {
         jmiPesquisarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentAppSearchState = AppSearchState.CLIENT;
-                Search search = new Search();
-                getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
-                getContentPane().add(search);
-                getContentPane().validate();//
-                repaint(); // atualiza a tela
+                if (Mainscreen.currentAppSearchState!=Mainscreen.AppSearchState.OFF&&Mainscreen.currentAppSearchState==AppSearchState.EMPLOYEE){
+                    Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.CLIENT;
+                    Search search = new Search();
+                    getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                    getContentPane().add(search);
+                    getContentPane().validate();//
+                    repaint(); // atualiza a tela
+                }else {
+                    JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
+                }
+
             }
         });
         jmiPesquisarFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentAppSearchState = AppSearchState.EMPLOYEE;
+                Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.EMPLOYEE;
                 Search search = new Search();
                 getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
                 getContentPane().add(search);

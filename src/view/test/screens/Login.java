@@ -16,6 +16,7 @@ public class Login extends JFrame {
     private JTextField jtflogin,jpsSenha;
     private JButton jbLogar;
 
+
     public Login(String title) throws HeadlessException {
         super(title);
         setLayout(null);

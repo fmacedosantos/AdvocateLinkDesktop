@@ -5,6 +5,8 @@ import classes.models.Employee;
 import classes.shared.client.employee.EmployeeService;
 import classes.shared.client.https.HttpsConnections;
 import classes.shared.client.MethodsUtil;
+import view.test.Main;
+import view.test.screens.Login;
 import view.test.screens.Mainscreen;
 
 import javax.imageio.ImageIO;
@@ -26,7 +28,10 @@ public class Search extends JPanel {
         setLayout(null);
         iniciarComponentes();
         criarEventos();
-        HttpsConnections.getHttps();
+        //se for verdadeiro ele permite a entrada no Gethttps
+        if (Mainscreen.currentAppSearchState==Mainscreen.AppSearchState.CLIENT){
+            HttpsConnections.getHttps();
+        }
     }
 
     private void iniciarComponentes() {
