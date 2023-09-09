@@ -43,7 +43,6 @@ public class Mainscreen extends JFrame {
         EMPLOYEE,;
     }
     public static AppSearchState currentAppSearchState = AppSearchState.NONE;
-
     public Mainscreen(String title) throws HeadlessException {
         super(title);
         //Atributos da tela
@@ -117,7 +116,6 @@ public class Mainscreen extends JFrame {
                 }else {
                     JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
                 }
-
             }
         });
         jmiCadastrarFuncionario.addActionListener(new ActionListener() {
@@ -149,7 +147,6 @@ public class Mainscreen extends JFrame {
                 }else{
                     JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
                 }
-
             }
         });
         jmiAlterarFuncionario.addActionListener(new ActionListener() {
@@ -185,7 +182,6 @@ public class Mainscreen extends JFrame {
                 }else {
                     JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
                 }
-
             }
         });
         jmiPesquisarFuncionario.addActionListener(new ActionListener() {
