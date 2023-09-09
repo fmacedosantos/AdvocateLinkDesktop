@@ -1,6 +1,7 @@
 package view.test.panels.panelsClient;
 
 import classes.exceptions.LackOfInformationException;
+import classes.exceptions.NegativeNumberException;
 import classes.models.Address;
 import classes.models.Clients;
 import classes.models.Contact;
@@ -179,15 +180,18 @@ public class RegisterClient extends JPanel {
                     });
                     jbFinalizar.addActionListener(new ActionListener() {
                         @Override
-                        public void actionPerformed(ActionEvent e) throws LackOfInformationException {
+                        public void actionPerformed(ActionEvent e) throws LackOfInformationException, NegativeNumberException {
                             try {
                                 if (email == null || tel == 0) {
                                     throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
                                 }
+                                int numero =(int) validatesNumber(Integer.parseInt(jtfNumero.getText()));
+                                if (numero<0){
+                                    throw new NegativeNumberException("Numero negativo em campos");
+                                }
                                 String nome = jtfNome.getText();
                                 String cpf = jtfCPF.getText();
                                 String rua = jtfRua.getText();
-                                int numero = validatesNumber(Integer.parseInt(jtfNumero.getText()));
                                 System.out.println(numero);
                                 String bairro = jtfBairro.getText();
                                 String urlfoto = jtfFoto.getText();
@@ -197,7 +201,7 @@ public class RegisterClient extends JPanel {
                                 HttpsConnections.postHttps(new Clients(0, nome, cpf, new Address(rua, numero, bairro), new Contact(tel, email), urlfoto, oab, itemSelecionado));
                             } catch (IOException | InterruptedException ex) {
                                 System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
-                            } catch (NumberFormatException ex) {
+                            } catch (NumberFormatException | NegativeNumberException ex) {
                                 JOptionPane.showMessageDialog(null, " VERIFIQUE AS INFORMACOES");
                                 System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
                             } catch (LackOfInformationException ex) {

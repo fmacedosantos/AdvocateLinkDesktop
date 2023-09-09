@@ -36,6 +36,7 @@ public class Employee extends Manageable implements UsefulEmployee {
 
     @Override
     public double getBonus(double salary, double bonus) {
+
         return salary * bonus;
     }
 }

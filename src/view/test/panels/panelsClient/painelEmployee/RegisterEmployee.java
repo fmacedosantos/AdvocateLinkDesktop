@@ -221,13 +221,13 @@ public class RegisterEmployee extends JPanel {
                             }
                             MethodsUtil.validatesNumber(Integer.parseInt(jtfNumero.getText()));
                             MethodsUtil.validatesNumber(Integer.parseInt(jtfSalario.getText()));
+                            MathodsEmployeeUtil.employee.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
+                                    new Contact(tel,email),jtfFoto.getText(),0,jtfCargo.getText(),Integer.parseInt(jtfSalario.getText())));
+                            JOptionPane.showMessageDialog(null,"Cliente cadastrado por sucesso");
                         }catch (NumberFormatException | LackOfInformationException ex){
-                            JOptionPane.showMessageDialog(null,"VERIFIQUE AS INFORMACOESAAAA");
+                            JOptionPane.showMessageDialog(null,"VERIFIQUE AS INFORMACOES");
                             System.out.println(""+ex.getMessage());
                         }
-                            MathodsEmployeeUtil.employee.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
-                                new Contact(tel,email),jtfFoto.getText(),0,jtfCargo.getText(),Integer.parseInt(jtfSalario.getText())));
-                            JOptionPane.showMessageDialog(null,"Cliente cadastrado por sucesso");
                         }else {
                             JOptionPane.showMessageDialog(null,"PREENCHA TODOS OS CAMPOS");
                         }

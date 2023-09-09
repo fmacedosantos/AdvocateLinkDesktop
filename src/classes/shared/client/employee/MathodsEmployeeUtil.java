@@ -1,20 +1,35 @@
 package classes.shared.client.employee;
 
+import classes.exceptions.NegativeNumberException;
 import classes.interfaces.ObjectMethods;
 import classes.models.Employee;
+import classes.shared.client.MethodsUtil;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public  class MathodsEmployeeUtil implements ObjectMethods<Employee> {
     public static List<Employee> employeeslList = new ArrayList<>();
     public static MathodsEmployeeUtil employee = new MathodsEmployeeUtil();
+    public void sendBonus(Employee tempEmployee,double bonus)throws NegativeNumberException {
+        try {
+            if (bonus<0){
+                throw new NegativeNumberException("Numero negativo");
+            }
+            MethodsUtil.validatesNumber(bonus);
+            tempEmployee.setSalary(tempEmployee.getSalary()*bonus);
+            System.out.println(tempEmployee.getSalary()*bonus);
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, " VERIFIQUE AS INFORMACOES");
+            System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
+        }
+    }
     //Pega Referencia
     @Override
-    public Employee search(Employee tempEmployee) throws NullPointerException {
-
+    public Employee search(String tempEmployee) throws NullPointerException {
         for (Employee employee:employeeslList) {
-            if (employee.getNome().equals(tempEmployee.getNome())){
+            if (employee.getNome().equals(tempEmployee)){
                 return employee;
             }
         }

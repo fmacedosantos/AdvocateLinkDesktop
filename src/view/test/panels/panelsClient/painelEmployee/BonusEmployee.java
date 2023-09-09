@@ -1,5 +1,9 @@
 package view.test.panels.panelsClient.painelEmployee;
 
+import classes.exceptions.NegativeNumberException;
+import classes.shared.client.MethodsUtil;
+import classes.shared.client.employee.MathodsEmployeeUtil;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -58,7 +62,16 @@ public class BonusEmployee extends JPanel {
         jbFinalizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                if (MethodsUtil.validatesInput(jtfCodigo,jtfValorBonus)){
+                    try{
+                        MathodsEmployeeUtil.employee.sendBonus(MathodsEmployeeUtil.employee.search(jtfCodigo.getText()),
+                                Double.parseDouble(jtfValorBonus.getText()));
+                        JOptionPane.showMessageDialog(null,"Bonus adicionado com sucesso");
+                    }catch (NegativeNumberException ex){
+                        JOptionPane.showMessageDialog(null,"Valor negativo em campo");
+                    }
+
+                }
             }
         });
 
