@@ -43,6 +43,7 @@ public class Mainscreen extends JFrame {
         CLIENT,
         EMPLOYEE,;
     }
+    //Gerenciador de Status
     public static AppSearchState currentAppSearchState = AppSearchState.NONE;
     public Mainscreen(String title) throws HeadlessException {
         super(title);
