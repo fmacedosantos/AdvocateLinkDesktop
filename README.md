@@ -15,14 +15,14 @@ A API do AdvocateLink oferece os seguintes endpoints:
 
 ### 1. Alterar Funcionário/Cliente (PUT)
 - **Endpoint:** `PUT /client/api/{id}`
-- **Descrição:** Este endpoint permite alterar informações de um funcionário ou cliente existente com base no ID fornecido.
+- **Descrição:** Este endpoint permite alterar informações de um cliente existente com base no ID fornecido.
 - **Parâmetros:**
   - `{id}`: ID do funcionário ou cliente que deseja atualizar.
 - **Corpo da Solicitação:** O corpo da solicitação deve conter os dados atualizados do funcionário ou cliente.
 
 ### 2. Deletar Funcionário/Cliente (DELETE)
 - **Endpoint:** `DELETE /client/api/{id}`
-- **Descrição:** Este endpoint permite excluir um funcionário ou cliente existente com base no ID fornecido.
+- **Descrição:** Este endpoint permite excluir cliente existente com base no ID fornecido.
 - **Parâmetros:**
   - `{id}`: ID do funcionário ou cliente que deseja excluir.
 
