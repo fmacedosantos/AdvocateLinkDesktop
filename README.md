@@ -40,3 +40,16 @@ A API do AdvocateLink oferece os seguintes endpoints:
 - **Descrição:** Este endpoint retorna informações detalhadas de um cliente específico com base no ID fornecido.
 - **Parâmetros:**
   - `{id}`: ID do cliente que deseja obter.
+    
+## Como Consumir a API
+Para consumir a API do AdvocateLink, siga os passos abaixo:
+
+1. Clone o repositório da API em [https://github.com/guilhermevini2013/Formulario-AdvocateLink](https://github.com/guilhermevini2013/Formulario-AdvocateLink).
+
+2. Siga as instruções fornecidas no README do repositório para configurar e iniciar a API localmente.
+
+3. Depois de configurada, você poderá acessar a API localmente no seu servidor local (normalmente em `localhost:8080`).
+
+Utilize os endpoints mencionados nesta documentação para interagir com a API do AdvocateLink.
+
+Isso conclui a documentação do projeto AdvocateLink. Utilize essas instruções para consumir a API local e gerenciar funcionários e clientes.
