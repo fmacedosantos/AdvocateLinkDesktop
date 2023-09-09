@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="Procurar do Funcionario adicionado">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/screens/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/screens/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/screens/Mainscreen.java" afterDir="false" />
-    </list>
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="Modo Off criado" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +101,7 @@
       <workItem from="1694221090755" duration="44000" />
       <workItem from="1694265923462" duration="2139000" />
       <workItem from="1694279404874" duration="1022000" />
-      <workItem from="1694289266623" duration="5148000" />
+      <workItem from="1694289266623" duration="5488000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -237,7 +231,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694292279713</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Modo Off criado">
+      <option name="closed" value="true" />
+      <created>1694294544322</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1694294544322</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Modo Off criado">
+      <option name="closed" value="true" />
+      <created>1694294603279</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694294603279</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +272,8 @@
     <MESSAGE value="criada a interface de metodos do funcionario" />
     <MESSAGE value="melhorada a estrutura do projeto" />
     <MESSAGE value="Procurar do Funcionario adicionado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Procurar do Funcionario adicionado" />
+    <MESSAGE value="Modo Off criado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modo Off criado" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

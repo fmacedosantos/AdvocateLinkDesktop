@@ -36,6 +36,7 @@ public class Mainscreen extends JFrame {
     private JMenuItem jmiAlterarCliente;
     private JMenuItem jmiGerarRelatorio;
     private JMenuItem jmiSistema;
+    //Gerenciador de Status
     public enum AppSearchState {
         NONE,
         OFF,
