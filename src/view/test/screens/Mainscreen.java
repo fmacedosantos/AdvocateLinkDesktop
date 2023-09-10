@@ -173,7 +173,7 @@ public class Mainscreen extends JFrame {
         jmiPesquisarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Mainscreen.currentAppSearchState!=Mainscreen.AppSearchState.OFF&&Mainscreen.currentAppSearchState==AppSearchState.EMPLOYEE){
+                if (Mainscreen.currentAppSearchState!=Mainscreen.AppSearchState.OFF&&Mainscreen.currentAppSearchState!=AppSearchState.EMPLOYEE){
                     Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.CLIENT;
                     Search search = new Search();
                     getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
