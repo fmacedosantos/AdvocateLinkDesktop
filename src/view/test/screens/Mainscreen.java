@@ -1,6 +1,7 @@
 package view.test.screens;
 
 import classes.shared.client.MethodsUtil;
+import classes.shared.client.employee.EmployeeService;
 import view.test.Main;
 import view.test.panels.panelsClient.AlterClient;
 import view.test.panels.panelsClient.RegisterClient;
@@ -153,11 +154,18 @@ public class Mainscreen extends JFrame {
         jmiAlterarFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AlterEmployee employee = new AlterEmployee();
-                getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
-                getContentPane().add(employee);
-                getContentPane().validate();//
-                repaint(); // atualiza a tela
+                try {
+                    String nameEmployee = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
+                    AlterEmployee employeee = new AlterEmployee(EmployeeService.employee.search(nameEmployee));
+                    getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                    getContentPane().add(employeee);
+                    getContentPane().validate();//
+                    repaint(); // atualiza a tela
+                }catch (NullPointerException ex){
+                    JOptionPane.showMessageDialog(null,"Funcionario inexistente, confira os dados");
+                    System.out.println(ex.getMessage()+" exception ao procurar nome inexistente");
+                }
+
             }
         });
         jmiGerarRelatorio.addActionListener(new ActionListener() {

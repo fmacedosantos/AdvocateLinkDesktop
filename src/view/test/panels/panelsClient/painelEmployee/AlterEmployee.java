@@ -1,7 +1,15 @@
 package view.test.panels.panelsClient.painelEmployee;
 
+import classes.exceptions.LackOfInformationException;
+import classes.models.Employee;
+import classes.shared.client.employee.EmployeeService;
+import classes.shared.client.https.HttpsConnections;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class AlterEmployee extends JPanel {
 
@@ -10,10 +18,13 @@ public class AlterEmployee extends JPanel {
     private JLabel jlFundoAlterar;
     private JCheckBox jcbEmail, jcbTelefone;
     private JComboBox <String> combo = new JComboBox<>();
+    private long tel = 0;
+    private String email = null;
 
-
-    public AlterEmployee() {
+    private Employee employee;
+    public AlterEmployee(Employee employee) {
         super();
+        this.employee=employee;
         setSize(812, 535);
         setLayout(null);
         iniciarComponentes();
@@ -37,6 +48,7 @@ public class AlterEmployee extends JPanel {
         jtfSalario = new JTextArea();
         jtfSalario.setFont(fonte);
         add(jtfSalario);
+        jtfSalario.setText(String.valueOf(employee.getSalary()));
         jtfSalario.setBounds(409, 163, 230, 33);
         jtfSalario.setOpaque(false);
         jtfSalario.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
@@ -44,6 +56,7 @@ public class AlterEmployee extends JPanel {
         jtfFoto = new JTextArea();
         jtfFoto.setFont(fonte);
         add(jtfFoto);
+        jtfFoto.setText(employee.getUrlfoto());
         jtfFoto.setBounds(409, 263, 230, 33);
         jtfFoto.setOpaque(false);
         jtfFoto.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
@@ -90,6 +103,55 @@ public class AlterEmployee extends JPanel {
     }
 
     private void criarEventos() {
+        jbApagar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EmployeeService.employeeslList.remove(EmployeeService.employee.show().indexOf(employee));
+            }
+        });
+        jcbTelefone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (jcbTelefone.isSelected()) {
+                    try {
+                        tel = Integer.parseInt(JOptionPane.showInputDialog("DIGITE O TELEFONE"));
+                    } catch (NumberFormatException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                }
+            }
+        });
+        jcbEmail.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (jcbEmail.isSelected()) {
+                    try {
+                        email = JOptionPane.showInputDialog("DIGITE O EMAIL");
+                    } catch (NullPointerException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                }
+            }
+        });
+        jbAlterar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    if (email == null || tel == 0) {
+                        throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
+                    }
+                    String itemSelect = combo.getSelectedItem().toString();
+                    employee.setUrlfoto(jtfFoto.getText());
+                    employee.setRole(itemSelect);
+                    employee.setSalary(Double.parseDouble(jtfSalario.getText()));
+                    employee.getContato().setEmail(email);
+                    employee.getContato().setTelefone(tel);
+                }catch (LackOfInformationException ex){
+                    JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");
+                    ex.getMessage();
+                }
+            }
+        });
         
     }
 

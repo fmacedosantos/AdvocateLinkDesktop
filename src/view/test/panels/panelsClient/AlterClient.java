@@ -16,7 +16,7 @@ public class AlterClient extends JPanel{
     private JLabel jlFundoAlterar;
     private JCheckBox jcbEmail, jcbTelefone;
     private Clients client;
-    private int tel = 0;
+    private long tel = 0;
     private String email = null;
 
     public AlterClient(Clients client) {

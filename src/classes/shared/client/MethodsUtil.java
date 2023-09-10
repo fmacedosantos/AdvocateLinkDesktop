@@ -13,9 +13,9 @@ public abstract class MethodsUtil {
         }
         return numero;
     }
-    public static boolean validatesInput(JTextField tf1, JTextField tf2, JTextField tf3, JTextField tf4, JTextField tf5, JTextField tf6, JTextField tf7, JTextField tf8) {
+    public static boolean validatesInput(JTextField tf1, JTextField tf2, JTextField tf3, JTextField tf4, JTextField tf5, JTextField tf6, JTextField tf7) {
         return (!tf1.getText().isEmpty() && !tf2.getText().isEmpty() && !tf3.getText().isEmpty() && !tf4.getText().isEmpty() &&
-                !tf5.getText().isEmpty() && !tf6.getText().isEmpty()&&!tf7.getText().isEmpty()&&!tf8.getText().isEmpty());
+                !tf5.getText().isEmpty() && !tf6.getText().isEmpty()&&!tf7.getText().isEmpty());
     }
 
     // VALIDA SE TODOS OS CAMPOS FORAM COMPLETADOS

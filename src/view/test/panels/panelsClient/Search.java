@@ -159,7 +159,6 @@ public class Search extends JPanel {
                     try{
                         Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
                         lfotoUser.setIcon(setfoto(tempEmployee));
-                        lfotoUser.setText("TEXTEEEEE");
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
                     }catch (NullPointerException ex){
