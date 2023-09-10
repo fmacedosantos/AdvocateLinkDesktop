@@ -56,7 +56,7 @@ public class Login extends JFrame {
         jbLogar.setOpaque(false); // Remove a cor de fundo do botao
         jbLogar.setContentAreaFilled(false); // Remover preenchimento
         jbLogar.setBorderPainted(false); // Remover borda
-
+        jbLogar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //Adicionar na tela
 
         add(jtflogin);
@@ -76,14 +76,12 @@ public class Login extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (validatesInput(jtflogin,jpsSenha)){
-                    if (jtflogin.getText().equals(Administration.getLogin())&&jpsSenha.getText().equals(Administration.getPassword())){
+                if (validatesInput(jtflogin,jpsSenha)&&jtflogin.getText().equals(Administration.getLogin())&&jpsSenha.getText().equals(Administration.getPassword())){
                         Mainscreen tela = new Mainscreen("Advocate-Link");
                         tela.setVisible(true);
                         setVisible(false);
-                    }
                 }else{
-                    JOptionPane.showMessageDialog(null,"PREENCHA TODOS OS CAMPOS");
+                    JOptionPane.showMessageDialog(null,"Informacoes incorretas, verifique todos os campos");
                 }
             }
         });

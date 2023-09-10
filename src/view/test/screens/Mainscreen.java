@@ -2,13 +2,12 @@ package view.test.screens;
 
 import classes.shared.client.MethodsUtil;
 import classes.shared.client.employee.EmployeeService;
-import view.test.Main;
 import view.test.panels.panelsClient.AlterClient;
 import view.test.panels.panelsClient.RegisterClient;
-import view.test.panels.panelsClient.painelEmployee.AlterEmployee;
-import view.test.panels.panelsClient.painelEmployee.BonusEmployee;
-import view.test.panels.panelsClient.painelEmployee.RegisterEmployee;
-import view.test.panels.panelsClient.painelsAbout.GenereteRelatory;
+import view.test.panels.painelEmployee.AlterEmployee;
+import view.test.panels.painelEmployee.BonusEmployee;
+import view.test.panels.painelEmployee.RegisterEmployee;
+import view.test.panels.painelsAbout.GenereteRelatory;
 import view.test.panels.panelsClient.Search;
 
 import javax.swing.*;

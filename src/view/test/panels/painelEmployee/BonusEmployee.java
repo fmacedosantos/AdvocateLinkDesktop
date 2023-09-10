@@ -1,4 +1,4 @@
-package view.test.panels.panelsClient.painelEmployee;
+package view.test.panels.painelEmployee;
 
 import classes.exceptions.NegativeNumberException;
 import classes.shared.client.MethodsUtil;

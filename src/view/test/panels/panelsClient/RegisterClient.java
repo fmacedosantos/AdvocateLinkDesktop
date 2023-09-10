@@ -85,6 +85,7 @@ public class RegisterClient extends JPanel {
         jtfNumero.setBounds(570, 273, 70, 35);
         jtfCodigo.setBounds(410, 350, 240, 35);
         jbContinuar.setBounds(687, 448, 95, 35);
+        jbContinuar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //Adicionar os componentes
         add(jtfNome);
         add(jtfCPF);
@@ -151,6 +152,7 @@ public class RegisterClient extends JPanel {
                     jbFinalizar.setContentAreaFilled(false); // Remover preenchimento
                     jbFinalizar.setBorderPainted(false); // Remover borda
                     jbFinalizar.setOpaque(false); // Tornar o botão transparente
+                    jbFinalizar.setCursor(new Cursor(Cursor.HAND_CURSOR));
                     jcbAreaAtuaçao.addItem("Criminalista");
                     jcbAreaAtuaçao.addItem("Previdenciário");
                     jcbAreaAtuaçao.addItem("Comercial");

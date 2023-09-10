@@ -1,4 +1,4 @@
-package view.test.panels.panelsClient.painelEmployee;
+package view.test.panels.painelEmployee;
 
 import classes.exceptions.LackOfInformationException;
 import classes.models.Address;
@@ -55,45 +55,31 @@ public class RegisterEmployee extends JPanel {
         jtfNumero = new JTextField();
         jtfCodigo = new JTextField();
         jbContinuar = new JButton();
-
         //Estilizar os fonte
         Font font = jtfNome.getFont();
         jtfNome.setFont(new Font(font.getName(), Font.PLAIN, 18)); // Tamanho da fonte
-
         jtfCPF.setFont(new Font(font.getName(), Font.PLAIN, 18)); // Tamanho da fonte
-
         jtfBairro.setFont(new Font(font.getName(), Font.PLAIN, 18));
-
         jtfRua.setFont(new Font(font.getName(), Font.PLAIN, 18));
-
         jtfNumero.setFont(new Font(font.getName(), Font.PLAIN, 18));
-
         jtfCodigo.setFont(new Font(font.getName(), Font.PLAIN, 18));
-
         //Deixar os componentes transparente
         jtfNome.setOpaque(false);
         jtfNome.setBorder(null);
-
         jtfCPF.setOpaque(false);
         jtfCPF.setBorder(null);
-
         jtfBairro.setOpaque(false);
         jtfBairro.setBorder(null);
-
         jtfRua.setOpaque(false);
         jtfRua.setBorder(null);
-
         jtfNumero.setOpaque(false);
         jtfNumero.setBorder(null);
-
         jtfCodigo.setOpaque(false);
         jtfCodigo.setBorder(null);
-
         jbContinuar.setContentAreaFilled(false); // Remover preenchimento
         jbContinuar.setBorderPainted(false); // Remover borda
         jbContinuar.setOpaque(false); // Tornar o botão transparente
-
-
+        jbContinuar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //Posicionando os elemnetos
         jtfNome.setBounds(410, 62, 240, 35);
         jtfCPF.setBounds(410, 132, 240, 35);
@@ -102,8 +88,6 @@ public class RegisterEmployee extends JPanel {
         jtfNumero.setBounds(570, 273, 70, 35);
         jtfCodigo.setBounds(410,350,240,35);
         jbContinuar.setBounds(687,448,95,35);
-
-
         //Adicionar os componentes
         add(jtfNome);
         add(jtfCPF);
@@ -113,10 +97,7 @@ public class RegisterEmployee extends JPanel {
         add(jtfCodigo);
         add(jbContinuar);
         add(jlFundoCadastro);
-
-
     }
-
     private void criarEventos() {
         jbContinuar.addActionListener(new ActionListener() {
             private JLabel jlFundoCadastro01;
@@ -172,6 +153,7 @@ public class RegisterEmployee extends JPanel {
                 jbFinalizar.setContentAreaFilled(false); // Remover preenchimento
                 jbFinalizar.setBorderPainted(false); // Remover borda
                 jbFinalizar.setOpaque(false); // Tornar o botão transparente
+                jbFinalizar.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 jcTelefone.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {

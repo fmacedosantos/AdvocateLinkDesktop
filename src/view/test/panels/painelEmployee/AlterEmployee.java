@@ -1,4 +1,4 @@
-package view.test.panels.panelsClient.painelEmployee;
+package view.test.panels.painelEmployee;
 
 import classes.exceptions.LackOfInformationException;
 import classes.models.Employee;
@@ -94,7 +94,6 @@ public class AlterEmployee extends JPanel {
         jcbTelefone.setOpaque(false);
         jcbTelefone.setCursor(new Cursor(Cursor.HAND_CURSOR));//deixa o cursor com a maozinha do click
         jcbTelefone.setBorder(null);
-
         jlFundoAlterar.setBounds(0, 0, 800, 500);
         add(jlFundoAlterar);
 
