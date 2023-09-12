@@ -1,9 +1,9 @@
-package classes.shared.client.employee;
+package classes.shared.employee;
 
 import classes.exceptions.NegativeNumberException;
 import classes.interfaces.ObjectMethods;
 import classes.models.Employee;
-import classes.shared.client.MethodsUtil;
+import classes.shared.MethodsUtil;
 
 import javax.swing.*;
 import java.util.ArrayList;

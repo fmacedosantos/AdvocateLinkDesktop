@@ -4,8 +4,8 @@ import classes.exceptions.LackOfInformationException;
 import classes.models.Address;
 import classes.models.Contact;
 import classes.models.Employee;
-import classes.shared.client.MethodsUtil;
-import classes.shared.client.employee.EmployeeService;
+import classes.shared.MethodsUtil;
+import classes.shared.employee.EmployeeService;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
@@ -110,8 +110,6 @@ public class RegisterEmployee extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
                 removeAll();
                 img = new ImageIcon(getClass().getResource("/imagens/backgroundEmployee01.png"));
                 jlFundoCadastro = new JLabel(img);

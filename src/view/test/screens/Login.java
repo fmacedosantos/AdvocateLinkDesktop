@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static classes.shared.client.MethodsUtil.validatesInput;
+import static classes.shared.MethodsUtil.validatesInput;
 
 public class Login extends JFrame {
 

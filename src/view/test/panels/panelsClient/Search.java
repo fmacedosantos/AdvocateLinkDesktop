@@ -2,11 +2,9 @@ package view.test.panels.panelsClient;
 
 import classes.models.Clients;
 import classes.models.Employee;
-import classes.shared.client.employee.EmployeeService;
+import classes.shared.employee.EmployeeService;
 import classes.shared.client.https.HttpsConnections;
-import classes.shared.client.MethodsUtil;
-import view.test.Main;
-import view.test.screens.Login;
+import classes.shared.MethodsUtil;
 import view.test.screens.Mainscreen;
 
 import javax.imageio.ImageIO;

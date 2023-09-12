@@ -1,8 +1,8 @@
 package view.test.panels.painelEmployee;
 
 import classes.exceptions.NegativeNumberException;
-import classes.shared.client.MethodsUtil;
-import classes.shared.client.employee.EmployeeService;
+import classes.shared.MethodsUtil;
+import classes.shared.employee.EmployeeService;
 
 import javax.swing.*;
 import java.awt.*;

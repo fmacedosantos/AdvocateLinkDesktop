@@ -1,7 +1,8 @@
 package view.test.screens;
 
-import classes.shared.client.MethodsUtil;
-import classes.shared.client.employee.EmployeeService;
+import classes.shared.MethodsUtil;
+import classes.shared.employee.EmployeeService;
+import view.test.Main;
 import view.test.panels.panelsClient.AlterClient;
 import view.test.panels.panelsClient.RegisterClient;
 import view.test.panels.painelEmployee.AlterEmployee;
@@ -108,7 +109,7 @@ public class Mainscreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
-                if (Mainscreen.currentAppSearchState!=Mainscreen.AppSearchState.OFF&&Mainscreen.currentAppSearchState!= AppSearchState.EMPLOYEE){
+                if (Main.currentConnectState == Main.AppConnectState.ON){
                     RegisterClient client = new RegisterClient();
                     getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
                     getContentPane().add(client);
@@ -133,7 +134,7 @@ public class Mainscreen extends JFrame {
         jmiAlterarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Mainscreen.currentAppSearchState!=Mainscreen.AppSearchState.OFF&&Mainscreen.currentAppSearchState!= AppSearchState.EMPLOYEE){
+                if (Main.currentConnectState == Main.AppConnectState.ON){
                     try {
                         String nomeDoCliente = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
                         AlterClient clientt = new AlterClient(MethodsUtil.search(nomeDoCliente));
@@ -180,7 +181,7 @@ public class Mainscreen extends JFrame {
         jmiPesquisarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Mainscreen.currentAppSearchState!=Mainscreen.AppSearchState.OFF&&Mainscreen.currentAppSearchState!=AppSearchState.EMPLOYEE){
+                if (Main.currentConnectState == Main.AppConnectState.ON){
                     Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.CLIENT;
                     Search search = new Search();
                     getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES

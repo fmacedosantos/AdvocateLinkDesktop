@@ -5,7 +5,7 @@ import classes.exceptions.NegativeNumberException;
 import classes.models.Address;
 import classes.models.Clients;
 import classes.models.Contact;
-import classes.shared.client.MethodsUtil;
+import classes.shared.MethodsUtil;
 import classes.shared.client.https.HttpsConnections;
 
 import javax.swing.*;
@@ -14,8 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import static classes.shared.client.MethodsUtil.validatesInput;
-import static classes.shared.client.MethodsUtil.validatesNumber;
+import static classes.shared.MethodsUtil.validatesInput;
+import static classes.shared.MethodsUtil.validatesNumber;
 
 public class RegisterClient extends JPanel {
 

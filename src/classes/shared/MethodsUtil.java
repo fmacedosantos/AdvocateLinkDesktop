@@ -1,7 +1,7 @@
-package classes.shared.client;
+package classes.shared;
 
-import classes.models.Clients;
 import classes.shared.client.https.HttpsUtil;
+import classes.models.Clients;
 
 import javax.swing.*;
 

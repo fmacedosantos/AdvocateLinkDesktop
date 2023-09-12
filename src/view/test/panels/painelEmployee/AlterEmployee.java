@@ -2,14 +2,12 @@ package view.test.panels.painelEmployee;
 
 import classes.exceptions.LackOfInformationException;
 import classes.models.Employee;
-import classes.shared.client.employee.EmployeeService;
-import classes.shared.client.https.HttpsConnections;
+import classes.shared.employee.EmployeeService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 public class AlterEmployee extends JPanel {
 

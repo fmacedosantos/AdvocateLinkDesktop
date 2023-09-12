@@ -36,9 +36,9 @@ public abstract class HttpsConnections extends HttpsUtil {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/client/api/add"))
                 .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(HttpsUtil.gson.toJson(tempClient)))
+                .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(tempClient)))
                 .build();
-        System.out.println(HttpsUtil.gson.toJson(tempClient));
+        System.out.println(gson.toJson(tempClient));
         // Enviando a solicitação e tendo a resposta
         response = client.send(request, HttpResponse.BodyHandlers.ofString());
         // Lida com a resposta da API
@@ -66,7 +66,7 @@ public abstract class HttpsConnections extends HttpsUtil {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/client/api/"+id))
                 .header("Content-Type", "application/json")
-                .PUT(HttpRequest.BodyPublishers.ofString(HttpsUtil.gson.toJson(tempClient)))
+                .PUT(HttpRequest.BodyPublishers.ofString(gson.toJson(tempClient)))
                 .build();
         // Enviando a solicitação e tendo a resposta
         response = client.send(request, HttpResponse.BodyHandlers.ofString());
