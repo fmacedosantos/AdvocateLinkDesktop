@@ -1,4 +1,4 @@
-package view.test.panels.panelsClient;
+package view.panels.panelsClient;
 
 import classes.exceptions.LackOfInformationException;
 import classes.exceptions.NegativeNumberException;

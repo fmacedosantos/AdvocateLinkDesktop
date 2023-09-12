@@ -1,8 +1,7 @@
-package view.test;
+package view;
 
 import classes.shared.client.https.HttpsConnections;
-import view.test.screens.Login;
-import view.test.screens.Mainscreen;
+import view.screens.Login;
 
 import javax.swing.*;
 import java.io.IOException;

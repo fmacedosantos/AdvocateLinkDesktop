@@ -1,4 +1,4 @@
-package view.test.panels.painelsAbout;
+package view.panels.painelsAbout;
 
 import javax.swing.*;
 import java.awt.*;

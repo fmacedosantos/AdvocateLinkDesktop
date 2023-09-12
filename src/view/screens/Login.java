@@ -1,4 +1,4 @@
-package view.test.screens;
+package view.screens;
 
 import classes.models.Administration;
 
