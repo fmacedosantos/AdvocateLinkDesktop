@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
     public enum AppConnectState {
         ON,
-        OFF,;
+        OFF;
     }
     public static AppConnectState currentConnectState;
     public static void main(String[] args) throws IOException, InterruptedException {
