@@ -104,6 +104,7 @@ public class AlterEmployee extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 EmployeeService.employee.delete(employee);
+                JOptionPane.showMessageDialog(null,"Cliente deletado com sucesso");
             }
         });
         jcbTelefone.addActionListener(new ActionListener() {
@@ -139,12 +140,7 @@ public class AlterEmployee extends JPanel {
                     }
                     String itemSelect = combo.getSelectedItem().toString();
                     EmployeeService.employee.alter(employee,jtfFoto.getText(),itemSelect,Double.parseDouble(jtfSalario.getText()),email,tel);
-//                    String itemSelect = combo.getSelectedItem().toString();
-//                    employee.setUrlfoto(jtfFoto.getText());
-//                    employee.setRole(itemSelect);
-//                    employee.setSalary(Double.parseDouble(jtfSalario.getText()));
-//                    employee.getContato().setEmail(email);
-//                    employee.getContato().setTelefone(tel);
+                    JOptionPane.showMessageDialog(null,"Cliente alterado com sucesso");
                 }catch (LackOfInformationException ex){
                     JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");
                     ex.getMessage();
