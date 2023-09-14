@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="Alterar do employee adicionado.">
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="status de connect Arrumados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/record/ClientJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/record/ClientJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/MethodsUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/employee/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsConnections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/panels/painelEmployee/AlterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/painelEmployee/AlterEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/panels/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/painelEmployee/BonusEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/panels/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/painelEmployee/RegisterEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/RegisterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/panels/panelsClient/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/screens/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/screens/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test/screens/Mainscreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/exceptions/LackOfInformationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/LackOfInformationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/exceptions/NegativeNumberException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/NegativeNumberException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/interfaces/ObjectMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/ObjectMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/interfaces/UsefulEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/UsefulEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/interfaces/UsefulPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/UsefulPhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/models/Administration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Administration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/models/Clients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Clients.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/models/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/models/Manageable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Manageable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/record/ClientJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/record/ClientJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/shared/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/client/https/HttpsConnections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/shared/client/https/HttpsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/client/https/HttpsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panels/painelEmployee/AlterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panels/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panels/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panels/painelsAbout/GenereteRelatory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelsAbout/GenereteRelatory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panels/panelsClient/AlterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/screens/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +55,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ebeea0b3-d946-4d17-9915-1ead673a6ba8" />
+        <option name="url" value="https://github.com/guilhermevini2013/Advocatelink-APPDesktop-consumindo-API.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
@@ -53,26 +88,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Daniel/IdeaProjects/Formulario-AdvocateLink",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/IdeaProjects/Formulario-AdvocateLink&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01\src" />
@@ -140,7 +175,9 @@
       <workItem from="1694377583332" duration="63000" />
       <workItem from="1694377704101" duration="274000" />
       <workItem from="1694435802590" duration="823000" />
-      <workItem from="1694482770730" duration="384000" />
+      <workItem from="1694482770730" duration="687000" />
+      <workItem from="1694483466951" duration="3000" />
+      <workItem from="1694645073186" duration="4982000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -334,7 +371,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694356647730</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="status de connect Arrumados">
+      <option name="closed" value="true" />
+      <created>1694483264649</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1694483264649</updated>
+    </task>
+    <task id="LOCAL-00026" summary="status de connect Arrumados">
+      <option name="closed" value="true" />
+      <created>1694483370098</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1694483370098</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +417,8 @@
     <MESSAGE value="bug arrumados" />
     <MESSAGE value="Alterar do employee adicionado" />
     <MESSAGE value="Alterar do employee adicionado." />
-    <option name="LAST_COMMIT_MESSAGE" value="Alterar do employee adicionado." />
+    <MESSAGE value="status de connect Arrumados" />
+    <option name="LAST_COMMIT_MESSAGE" value="status de connect Arrumados" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
