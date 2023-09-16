@@ -6,7 +6,7 @@ import br.com.advocateLink.classes.models.Address;
 import br.com.advocateLink.classes.models.Clients;
 import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.shared.MethodsUtil;
-import br.com.advocateLink.classes.shared.client.https.HttpsConnections;
+import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
 
 import javax.swing.*;
 import java.awt.*;

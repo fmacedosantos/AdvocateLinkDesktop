@@ -44,12 +44,8 @@ public class RegisterEmployee extends JPanel {
         jlFundoCadastro = new JLabel(img);
         jlFundoCadastro.setBounds(2, 2, 800, 500);
         //Objetos dos componentes
-                jtfNome = new JTextField();
-        try {
-            MaskFormatter cpfMaskFormatter = new MaskFormatter("###.###.###-##");
-            jtfCPF = new JFormattedTextField(cpfMaskFormatter);
-        } catch (ParseException e) {
-        }
+        jtfNome = new JTextField();
+        jtfCPF = new JTextField();
         jtfBairro = new JTextField();
         jtfRua = new JTextField();
         jtfNumero = new JTextField();

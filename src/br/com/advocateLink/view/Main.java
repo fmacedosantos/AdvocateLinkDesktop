@@ -1,6 +1,7 @@
 package br.com.advocateLink.view;
 
-import br.com.advocateLink.classes.shared.client.https.HttpsConnections;
+import br.com.advocateLink.classes.shared.connections.database.ConnectionMysql;
+import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
 import br.com.advocateLink.view.screens.Login;
 
 import javax.swing.*;

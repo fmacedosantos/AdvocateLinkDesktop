@@ -1,4 +1,4 @@
-package br.com.advocateLink.classes.shared.client.https;
+package br.com.advocateLink.classes.shared.connections.https;
 
 import br.com.advocateLink.classes.models.Clients;
 import com.google.gson.Gson;

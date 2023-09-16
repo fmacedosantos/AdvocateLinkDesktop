@@ -3,7 +3,7 @@ package br.com.advocateLink.view.panels.panelsClient;
 import br.com.advocateLink.classes.models.Clients;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.employee.EmployeeService;
-import br.com.advocateLink.classes.shared.client.https.HttpsConnections;
+import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.view.screens.Mainscreen;
 

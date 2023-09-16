@@ -1,6 +1,6 @@
 package br.com.advocateLink.classes.shared;
 
-import br.com.advocateLink.classes.shared.client.https.HttpsUtil;
+import br.com.advocateLink.classes.shared.connections.https.HttpsUtil;
 import br.com.advocateLink.classes.models.Clients;
 
 import javax.swing.*;

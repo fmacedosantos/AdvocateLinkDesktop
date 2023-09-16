@@ -2,7 +2,7 @@ package br.com.advocateLink.view.panels.panelsClient;
 
 import br.com.advocateLink.classes.exceptions.LackOfInformationException;
 import br.com.advocateLink.classes.models.Clients;
-import br.com.advocateLink.classes.shared.client.https.HttpsConnections;
+import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
 
 import javax.swing.*;
 import java.awt.*;
