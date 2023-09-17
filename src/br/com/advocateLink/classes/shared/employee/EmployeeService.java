@@ -4,11 +4,9 @@ import br.com.advocateLink.classes.exceptions.NegativeNumberException;
 import br.com.advocateLink.classes.interfaces.ObjectMethods;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
-import br.com.advocateLink.classes.shared.connections.database.ConnectionMysql;
+import br.com.advocateLink.classes.shared.connections.database.ConnectionMysqlUtil;
 
 import javax.swing.*;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +17,7 @@ import java.util.List;
 public  class EmployeeService implements ObjectMethods<Employee> {
     public static List<Employee> employeeslList = new ArrayList<>();
     public static EmployeeService employee = new EmployeeService();
-    private ConnectionMysql connectionMysql= new ConnectionMysql();
+    private ConnectionMysqlUtil connectionMysql= new ConnectionMysqlUtil();
 
     /**
      * sends bonuses to an employee.
