@@ -107,7 +107,4 @@ public class ConnectionMysqlUtil {
             connection.close();
         }
     }
-    public String getInsertUrl() {
-        return insertUrl;
-    }
 }
