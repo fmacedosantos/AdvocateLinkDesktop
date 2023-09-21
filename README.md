@@ -46,13 +46,14 @@ Para consumir a API do AdvocateLink, siga os passos abaixo:
 
 1. Clone o repositório da API em [https://github.com/guilhermevini2013/Formulario-AdvocateLink](https://github.com/guilhermevini2013/Formulario-AdvocateLink).
 
-2. Siga as instruções fornecidas no README do repositório para configurar e iniciar a API localmente.
+2. Execute a classe AdvocateLinkApplication.
 
-3. Depois de configurada, você poderá acessar a API localmente no seu servidor local (normalmente em `localhost:8080`).
+3. Depois de executada, você poderá acessar a API localmente no seu servidor local (normalmente em `localhost:8080/client`).
 
-Utilize os endpoints mencionados nesta documentação para interagir com a API do AdvocateLink.
-
+Utilize os endpoints mencionados nesta documentação atraves do App desktop para interagir com a API do AdvocateLink.
 Isso conclui a documentação do projeto AdvocateLink. Utilize essas instruções para consumir a API local e gerenciar funcionários e clientes.
+<br>
+<br>
 <br>
 <br>
 # Modelo logico e conceitual do Banco de Dados
