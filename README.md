@@ -53,3 +53,8 @@ Para consumir a API do AdvocateLink, siga os passos abaixo:
 Utilize os endpoints mencionados nesta documentação para interagir com a API do AdvocateLink.
 
 Isso conclui a documentação do projeto AdvocateLink. Utilize essas instruções para consumir a API local e gerenciar funcionários e clientes.
+<br>
+<br>
+# Modelo logico e conceitual do Banco de Dados
+<img src="src/imagens/logico.png">
+<img src="src/imagens/conceitual.png">
