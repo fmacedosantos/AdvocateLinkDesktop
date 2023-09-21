@@ -13,7 +13,7 @@ import java.net.http.HttpResponse;
  * @version 1.0
  * @author Guilherme Vinicius
  */
-public abstract class HttpsUtil {
+public abstract class HttpsInitialize {
     protected static HttpClient client = HttpClient.newHttpClient();
     protected static HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:8080/client/api"))

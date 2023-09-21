@@ -13,7 +13,7 @@ import java.net.http.HttpResponse;
  * @version 1.0
  * @author Guilherme Vinicius
  */
-public abstract class HttpsConnections extends HttpsUtil {
+public abstract class HttpsConnections extends HttpsInitialize {
 
     /**
      * starts the connection to the Spring API.

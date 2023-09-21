@@ -1,6 +1,6 @@
 package br.com.advocateLink.classes.shared;
 
-import br.com.advocateLink.classes.shared.connections.https.HttpsUtil;
+import br.com.advocateLink.classes.shared.connections.https.HttpsInitialize;
 import br.com.advocateLink.classes.models.Clients;
 
 import javax.swing.*;
@@ -45,7 +45,7 @@ public abstract class MethodsUtil {
      * @throws NullPointerException
      */
     public static Clients search(String name) throws NullPointerException {
-        for (Clients c: HttpsUtil.getClients()) {
+        for (Clients c: HttpsInitialize.getClients()) {
             if (c.getNome().equals(name)) {
                 return c;
             }
