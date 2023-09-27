@@ -20,6 +20,8 @@ public class Main {
             JOptionPane.showMessageDialog(null,"VOCE ESTA INICIANDO O APP NO MODO OFF");
             JOptionPane.showMessageDialog(null,"Falha ao tentar acessar a API ADVOCATE-Link,Por favor, verifique se a conexao com a API ADVOCATE-Link esta sicronizada ou iniciada, para mais ajuda acesse: "+ "https://github.com/guilhermevini2013/Advocatelink-APPDesktop-consumindo-API");
             currentConnectState=AppConnectState.OFF;
+        }finally {
+            JOptionPane.showMessageDialog(null,"OLA usuario, para que voce nao fique 1 hora procurando a senha para entrar no sistema, tome aqui: login: admin  senha: admin  , Muito Obrigado :)");
         }
     }
 }
