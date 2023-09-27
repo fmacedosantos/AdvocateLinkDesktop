@@ -12,7 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="criado O Executavel da aplicacao" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="criado O Executavel da aplicacao">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4dafc34-88f1-4631-b180-2cb66e2214ff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4dafc34-88f1-4631-b180-2cb66e2214ff.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,6 +217,8 @@
       <workItem from="1695731746447" duration="73000" />
       <workItem from="1695815044039" duration="444000" />
       <workItem from="1695815634610" duration="445000" />
+      <workItem from="1695816935106" duration="105000" />
+      <workItem from="1695818549741" duration="643000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
