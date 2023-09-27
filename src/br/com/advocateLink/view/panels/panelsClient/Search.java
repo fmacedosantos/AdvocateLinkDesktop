@@ -2,6 +2,7 @@ package br.com.advocateLink.view.panels.panelsClient;
 
 import br.com.advocateLink.classes.models.Clients;
 import br.com.advocateLink.classes.models.Employee;
+import br.com.advocateLink.classes.shared.employee.EmployeeRenderer;
 import br.com.advocateLink.classes.shared.employee.EmployeeService;
 import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
 import br.com.advocateLink.classes.shared.MethodsUtil;
@@ -9,6 +10,7 @@ import br.com.advocateLink.view.screens.Mainscreen;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -19,6 +21,7 @@ public class Search extends JPanel {
     private JTextField jtfPesquisar;
     private JButton jbPesquisar;
     private JLabel jlFundoPesquisar, lfotoUser, lnomeuser, lcpf, ltelefone, lemail, lOAB, lareaatuacao;
+    private JList<Employee> jemployee;
 
     public Search() {
         super();
@@ -31,8 +34,27 @@ public class Search extends JPanel {
             HttpsConnections.getHttps();
         }
     }
-
+    private JPanel createMainPanel() {
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        // create list book and set to scrollpane and add to panel
+        panel.add(new JScrollPane(jemployee = createListBooks()),
+                BorderLayout.CENTER);
+        panel.setBounds(65,130,670,310);
+        return panel;
+    }
+    private JList<Employee> createListBooks() {
+        // create List model
+        DefaultListModel<Employee> model = new DefaultListModel<>();
+        // add item to model
+        model.addAll(EmployeeService.employeeslList);
+        // create JList with model
+        JList<Employee> list = new JList<Employee>(model);
+        list.setCellRenderer(new EmployeeRenderer());
+        return list;
+    }
     private void iniciarComponentes() {
+        add(createMainPanel());
         jlFundoPesquisar = new JLabel();
         jlFundoPesquisar.setIcon(new ImageIcon(getClass().getResource("/imagens/backgroundSearch.png")));
         lfotoUser = new JLabel();
@@ -75,12 +97,7 @@ public class Search extends JPanel {
         ImageIcon imageIcon = new ImageIcon(image);
         return imageIcon;
     }
-    private ImageIcon setfoto(Employee employee) throws IOException {
-        URL url = new URL(employee.getUrlfoto());
-        Image image = ImageIO.read(url);
-        ImageIcon imageIcon = new ImageIcon(image);
-        return imageIcon;
-    }
+
 
     private void setinfromacao(Clients client) {
         Font font = new Font(Font.SERIF, Font.BOLD, 18);
@@ -154,22 +171,23 @@ public class Search extends JPanel {
                         System.out.println(ex.getMessage());
                     }
                 } else if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.EMPLOYEE) {
-                    try{
-                        Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
-                        lfotoUser.setIcon(setfoto(tempEmployee));
-                        lfotoUser.setBounds(100, 155, 200, 200);
-                        setinfromacao(tempEmployee);
-                    }catch (NullPointerException ex){
-                        JOptionPane.showMessageDialog(null,"FUNCIONARIO INEXISTENTE OU INCORRETO");
-                    } catch (IOException ex) {
-                        lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
-                        lfotoUser.setBounds(100, 155, 200, 200);
-                        // Pesquisa o Cliente a partir do nome
-                        Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
-                        lfotoUser.setBounds(100, 155, 200, 200);
-                        setinfromacao(tempEmployee);
-                        System.out.println(ex.getMessage());
-                    }
+
+//                    try{
+//                        Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
+//                        lfotoUser.setIcon(setfoto(tempEmployee));
+//                        lfotoUser.setBounds(100, 155, 200, 200);
+//                        setinfromacao(tempEmployee);
+//                    }catch (NullPointerException ex){
+//                        JOptionPane.showMessageDialog(null,"FUNCIONARIO INEXISTENTE OU INCORRETO");
+//                    } catch (IOException ex) {
+//                        lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
+//                        lfotoUser.setBounds(100, 155, 200, 200);
+//                        // Pesquisa o Cliente a partir do nome
+//                        Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
+//                        lfotoUser.setBounds(100, 155, 200, 200);
+//                        setinfromacao(tempEmployee);
+//                        System.out.println(ex.getMessage());
+//                    }
 
                 }
 

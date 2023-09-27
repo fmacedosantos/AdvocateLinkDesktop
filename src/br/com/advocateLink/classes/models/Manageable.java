@@ -22,6 +22,10 @@ public class Manageable {
         this.urlfoto = photograph;
     }
 
+    public Address getEndereco() {
+        return endereco;
+    }
+
     public long getId() {
         return id;
     }

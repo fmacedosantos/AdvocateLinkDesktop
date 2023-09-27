@@ -34,4 +34,16 @@ public class Employee extends Manageable implements UsefulEmployee {
     public double getBonus(double salary, double bonus) {
         return salary * bonus;
     }
+
+    @Override
+    public String toString() {
+        return     urlfoto +
+                "\nrole='" + role + '\'' +
+                "\nsalary=" + salary +
+                "\nid=" + id +
+                "\nnome='" + nome + '\'' +
+                "\ncpf='" + cpf + '\'' +
+                "\nendereco=" + endereco +
+                "\ncontato=" + contato;
+    }
 }

@@ -8,12 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="add Conexao DATABASE e adicionado documentacao dos metodos da classe ConnectionMysqlUtil.java">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-09-13_9_25_p_m__[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-09-13_9_25_p_m___Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsConnections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsInitialize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Manageable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Manageable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,12 +76,12 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Daniel/IdeaProjects/Formulario-AdvocateLink",
+    "last_opened_file_path": "C:/Users/Daniel/IdeaProjects/advocatelink01",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -94,6 +94,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01\src\imagens" />
       <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01\src\libs" />
       <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01\src" />
       <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01\src\classes" />
@@ -202,6 +203,15 @@
       <workItem from="1695128866264" duration="41000" />
       <workItem from="1695174394159" duration="1214000" />
       <workItem from="1695258081205" duration="1426000" />
+      <workItem from="1695301212333" duration="604000" />
+      <workItem from="1695334920884" duration="4063000" />
+      <workItem from="1695397938871" duration="1374000" />
+      <workItem from="1695420838151" duration="1000" />
+      <workItem from="1695420843515" duration="3986000" />
+      <workItem from="1695431117500" duration="463000" />
+      <workItem from="1695503845299" duration="27000" />
+      <workItem from="1695731746447" duration="73000" />
+      <workItem from="1695815044039" duration="185000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -475,7 +485,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694961419198</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="add Conexao DATABASE e adicionado documentacao dos metodos da classe ConnectionMysqlUtil.java">
+      <option name="closed" value="true" />
+      <created>1695301246406</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1695301246406</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add Conexao DATABASE e adicionado documentacao dos metodos da classe ConnectionMysqlUtil.java">
+      <option name="closed" value="true" />
+      <created>1695301636927</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1695301636927</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
