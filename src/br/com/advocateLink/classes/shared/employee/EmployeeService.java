@@ -47,14 +47,8 @@ public  class EmployeeService implements ObjectMethods<Employee> {
      */
     @Override
     public Employee search(String tempEmployee) throws NullPointerException {
-        for (Employee employee:employeeslList) {
-            if (employee.getNome().equals(tempEmployee)){
-                return employee;
-            }
-        }
-        throw new NullPointerException();
+      return employeeslList.stream().filter(x->x.getNome().equals(tempEmployee)).findFirst().orElseThrow(()-> new NullPointerException());
     }
-
     /**
      * delete an employee passed by the parameter.
      * @param tempEmployee
