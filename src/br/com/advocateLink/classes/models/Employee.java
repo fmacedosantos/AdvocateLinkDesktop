@@ -1,7 +1,15 @@
 package br.com.advocateLink.classes.models;
 
 import br.com.advocateLink.classes.interfaces.UsefulEmployee;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee extends Manageable implements UsefulEmployee {
     private long idEmployee;
     private String role;
@@ -13,23 +21,6 @@ public class Employee extends Manageable implements UsefulEmployee {
         this.role = role;
         this.salary = salary;
     }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
     @Override
     public double getBonus(double salary, double bonus) {
         return salary * bonus;

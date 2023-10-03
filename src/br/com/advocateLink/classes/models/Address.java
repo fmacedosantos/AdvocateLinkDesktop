@@ -1,42 +1,21 @@
 package br.com.advocateLink.classes.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * class to initialize an Address
  *  @version 1.0
  *  @author Guilherme Vinicius
  */
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Address {
     private String rua;
     private int numero;
     private String bairro;
-
-    public Address(String rua, int numero, String bairro) {
-        this.rua = rua;
-        this.numero = numero;
-        this.bairro = bairro;
-    }
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
 }

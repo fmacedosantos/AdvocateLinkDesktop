@@ -5,8 +5,8 @@ package br.com.advocateLink.classes.models;
  *  @author Guilherme Vinicius
  */
 public abstract class Administration {
-    private static String login = "admin";
-    private static String password ="admin";
+    private final static String login = "admin";
+    private final static String password ="admin";
 
     public static String getLogin() {
         return login;
