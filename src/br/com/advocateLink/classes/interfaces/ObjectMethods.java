@@ -2,6 +2,7 @@ package br.com.advocateLink.classes.interfaces;
 
 import br.com.advocateLink.classes.models.Employee;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**This Interface is a "CRUD", when implemented it will have all the necessary methods for a "CRUD" of some object.
@@ -49,6 +50,6 @@ public interface ObjectMethods<T>{
      * @param t
      * @return
      */
-    T register(T t);
+    T register(T t) throws SQLException;
     List<T> show();
 }

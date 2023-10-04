@@ -7,6 +7,7 @@ import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.classes.shared.connections.database.ConnectionMysqlUtil;
 
 import javax.swing.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +94,13 @@ public  class EmployeeService implements ObjectMethods<Employee> {
      */
     @Override
     public Employee register(Employee employee) {
-        employeeslList.add(employee);
+        try {
+            connectionMysql.ConnectDatabase();
+            System.out.println(connectionMysql.insertRowUsers(employee,employee.getSalary(), employee.getRole(), null));
+        }catch (SQLException ex){
+
+        }
+
         return null;
     }
     @Override

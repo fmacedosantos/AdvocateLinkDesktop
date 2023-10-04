@@ -1,9 +1,8 @@
 package br.com.advocateLink.classes.shared.connections.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import br.com.advocateLink.classes.models.Manageable;
+
+import java.sql.*;
 
 /**
  * This class will be responsible for the services of the connections in the database, having commands to change, delete and add data.
@@ -11,13 +10,9 @@ import java.sql.SQLException;
  * @author Guilherme vinicius
  */
 public class ConnectionMysqlUtil {
-    //connectar no banco de dados no 2 SPRINT...
-    //connectar no banco de dados no 2 SPRINT...
-    //connectar no banco de dados no 2 SPRINT...
-    //connectar no banco de dados no 2 SPRINT...
-    //connectar no banco de dados no 2 SPRINT...
-    //connectar no banco de dados no 2 SPRINT...
-    private final String insertUrl="INSERT INTO advocatelink.users(nome,cpf,addressKey,contactKey,urlfoto,salary,role) VALUE (?,?,?,?,?,?,?);";
+    private final String insertUrl="INSERT INTO advocatelink.person(name,cpf,urlphoto,salary,role,oab) VALUE (?,?,?,?,?,?);";
+    private final String addressSql = "INSERT INTO advocatelink.address (rua, number, bairro, id_person) VALUES (?, ?, ?, LAST_INSERT_ID());";
+    private final String contactSql = "INSERT INTO advocatelink.contact (telephone, email, id_person) VALUES (?, ?, LAST_INSERT_ID())";
     private Connection connection;
     private PreparedStatement preparedStatement;
 
@@ -78,30 +73,38 @@ public class ConnectionMysqlUtil {
 
     /**
      *  This method inserts an object into a row of the database from the parameters
-     * @param name
-     * @param cpf
-     * @param adressKey
-     * @param contactKey
-     * @param urlfoto
+     * @param manageable
+     * @param oab
      * @param salary
      * @param role
      * @return
      * @throws SQLException
      */
-    public boolean insertRowUsers(String name, String cpf,int adressKey,int contactKey,String urlfoto,double salary,String role) throws SQLException {
+    public boolean insertRowUsers(Manageable manageable, Double salary,String role,String oab) throws SQLException {
         try {
-            preparedStatement = connection.prepareStatement(insertUrl);
-            preparedStatement.setString(1,name);
-            preparedStatement.setString(2,cpf);
-            preparedStatement.setInt(3,adressKey);
-            preparedStatement.setInt(4,contactKey);
-            preparedStatement.setString(5,urlfoto);
-            preparedStatement.setDouble(6,salary);
-            preparedStatement.setString(7,role);
-            preparedStatement.execute();
-            preparedStatement.close();
+            PreparedStatement personStatement = connection.prepareStatement(insertUrl, Statement.RETURN_GENERATED_KEYS);
+            personStatement.setString(1, manageable.getNome());
+            personStatement.setString(2, manageable.getCpf());
+            personStatement.setString(3, manageable.getUrlfoto());
+            personStatement.setDouble(4, salary);
+            personStatement.setString(5, role);
+            personStatement.setString(6, oab);
+            personStatement.executeUpdate();
+            ResultSet generatedKeys = personStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                PreparedStatement addressStatement = connection.prepareStatement(addressSql);
+                addressStatement.setString(1, manageable.getEndereco().getRua());
+                addressStatement.setInt(2, manageable.getEndereco().getNumero());
+                addressStatement.setString(3, manageable.getEndereco().getBairro());
+                addressStatement.executeUpdate();
+                PreparedStatement contactStatement = connection.prepareStatement(contactSql);
+                contactStatement.setLong(1, manageable.getContato().getTelefone());
+                contactStatement.setString(2, manageable.getContato().getEmail());
+                contactStatement.executeUpdate();
+            }
             return true;
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             return false;
         }finally {
             connection.close();
