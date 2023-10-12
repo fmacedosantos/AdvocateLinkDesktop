@@ -1,5 +1,6 @@
 package br.com.advocateLink.classes.shared.connections.database;
 
+import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.models.Manageable;
 
 import java.sql.*;
@@ -14,7 +15,7 @@ public class ConnectionMysqlUtil {
     private final String addressSql = "INSERT INTO advocatelink.address (rua, number, bairro, id_person) VALUES (?, ?, ?, LAST_INSERT_ID());";
     private final String contactSql = "INSERT INTO advocatelink.contact (telephone, email, id_person) VALUES (?, ?, LAST_INSERT_ID())";
     private Connection connection;
-    private PreparedStatement preparedStatement;
+    private PreparedStatement preparedStatement ;
 
     /**
      * This method will have the function of initiating the database connection
@@ -36,32 +37,59 @@ public class ConnectionMysqlUtil {
      * @return
      * @throws SQLException
      */
-    public boolean deleteRow(String nameTable, String nameRow, String nameObject) throws SQLException {
+    public boolean deleteRow(String nameTable, String nameRow, Employee nameObject) throws SQLException {
         final String deleteUrl="DELETE FROM "+nameTable+" WHERE "+nameRow+" = ?;";
         try {
             preparedStatement =connection.prepareStatement(deleteUrl);
-            preparedStatement.setString(1,nameObject);
+            preparedStatement.setLong(1,nameObject.getId());
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
+            System.out.println(e);
             return false;
         }finally {
             connection.close();
         }
     }
+    public Employee searchRow(String nameTable, String nameRow, String cpf) throws SQLException {
+        final String selectQuery = "SELECT * FROM " + nameTable + " WHERE " + nameRow + " = ?";
+        preparedStatement = connection.prepareStatement(selectQuery);
+        preparedStatement.setString(1, cpf); // Define o valor do parâmetro para evitar SQL injection
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Employee employee = null;
+        if (resultSet.next()) {
+            employee = new Employee(
+                    resultSet.getInt("id"), // Suponhamos que o ID esteja na coluna "id"
+                    resultSet.getString("name"),
+                    resultSet.getString("cpf"),
+                    null, // Suponhamos que outros campos sejam null por enquanto
+                    null,
+                    resultSet.getString("urlphoto"),
+                    0, // Suponhamos que o campo "field" seja 0 por enquanto
+                    resultSet.getString("role"),
+                    resultSet.getDouble("salary")
+            );
+            return employee;
+        }
+        return null;
+    }
 
     /**
      * This method changes a database object from the parameters.
-     * @param nameTable
-     * @param valueUpdate
-     * @param id
      * @return
      * @throws SQLException
      */
-    public boolean updateRowUsers(String nameTable,String valueUpdate, int id) throws SQLException {
-        final String updateUrl="UPDATE "+nameTable+" SET "+valueUpdate+" WHERE id = "+id+";";
+    public boolean updateRowUsers(String nameTable, Employee tempEmployee) throws SQLException {
+        System.out.println(tempEmployee.getSalary());
+        final String updateUrl="UPDATE "+nameTable+" SET "+"name = ?,cpf = ?,urlphoto = ?,salary = ?,role = ?,oab = ? WHERE id = "+tempEmployee.getId()+";";
         try {
             preparedStatement = connection.prepareStatement(updateUrl);
+            preparedStatement.setString(1,tempEmployee.getNome());
+            preparedStatement.setString(2,tempEmployee.getCpf());
+            preparedStatement.setString(3,tempEmployee.getUrlfoto());
+            preparedStatement.setDouble(4,tempEmployee.getSalary());
+            preparedStatement.setString(5,tempEmployee.getRole());
+            preparedStatement.setString(6,null);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -91,17 +119,17 @@ public class ConnectionMysqlUtil {
             personStatement.setString(6, oab);
             personStatement.executeUpdate();
             ResultSet generatedKeys = personStatement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                PreparedStatement addressStatement = connection.prepareStatement(addressSql);
-                addressStatement.setString(1, manageable.getEndereco().getRua());
-                addressStatement.setInt(2, manageable.getEndereco().getNumero());
-                addressStatement.setString(3, manageable.getEndereco().getBairro());
-                addressStatement.executeUpdate();
-                PreparedStatement contactStatement = connection.prepareStatement(contactSql);
-                contactStatement.setLong(1, manageable.getContato().getTelefone());
-                contactStatement.setString(2, manageable.getContato().getEmail());
-                contactStatement.executeUpdate();
-            }
+//            if (generatedKeys.next()) {
+//                PreparedStatement addressStatement = connection.prepareStatement(addressSql);
+//                addressStatement.setString(1, manageable.getEndereco().getRua());
+//                addressStatement.setInt(2, manageable.getEndereco().getNumero());
+//                addressStatement.setString(3, manageable.getEndereco().getBairro());
+//                addressStatement.executeUpdate();
+//                PreparedStatement contactStatement = connection.prepareStatement(contactSql);
+//                contactStatement.setLong(1, manageable.getContato().getTelefone());
+//                contactStatement.setString(2, manageable.getContato().getEmail());
+//                contactStatement.executeUpdate();
+//            }
             return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -1,7 +1,7 @@
 package br.com.advocateLink.classes.shared.employee;
 
 import br.com.advocateLink.classes.exceptions.NegativeNumberException;
-import br.com.advocateLink.classes.interfaces.ObjectMethods;
+import br.com.advocateLink.classes.interfaces.IService;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.classes.shared.connections.database.ConnectionMysqlUtil;
@@ -15,7 +15,7 @@ import java.util.List;
  * @author Guilherme vinicius
  * @version 1.0
  */
-public  class EmployeeService implements ObjectMethods<Employee> {
+public  class EmployeeService implements IService<Employee> {
     public static List<Employee> employeeslList = new ArrayList<>();
     public static EmployeeService employee = new EmployeeService();
     private ConnectionMysqlUtil connectionMysql= new ConnectionMysqlUtil();
@@ -47,8 +47,15 @@ public  class EmployeeService implements ObjectMethods<Employee> {
      * @throws NullPointerException
      */
     @Override
-    public Employee search(String tempEmployee) throws NullPointerException {
-      return employeeslList.stream().filter(x->x.getNome().equals(tempEmployee)).findFirst().orElseThrow(()-> new NullPointerException());
+    public Employee search(String tempEmployee) {
+        try {
+
+            connectionMysql.ConnectDatabase();
+            return connectionMysql.searchRow("advocatelink.person","cpf",tempEmployee);
+        }catch (SQLException ex){
+            System.out.println(ex);
+            return null;
+        }
     }
     /**
      * delete an employee passed by the parameter.
@@ -57,11 +64,19 @@ public  class EmployeeService implements ObjectMethods<Employee> {
      * @throws NullPointerException
      */
     @Override
-    public Employee delete(Employee tempEmployee)throws NullPointerException {
-            employeeslList.remove(employeeslList.indexOf(tempEmployee));
+    public Employee delete(Employee tempEmployee) throws NullPointerException {
+        try{
+            connectionMysql.ConnectDatabase();
+            connectionMysql.deleteRow("advocatelink.address","id",tempEmployee);
+            connectionMysql.ConnectDatabase();
+            connectionMysql.deleteRow("advocatelink.contact","id",tempEmployee);
+            connectionMysql.ConnectDatabase();
+            connectionMysql.deleteRow("advocatelink.person","id", tempEmployee );
+        }catch (SQLException ex){
+            System.out.println("seu ruim");
+        }
             return tempEmployee;
     }
-
     /**
      * CHANGES EMPLOYEE INFORMATION.
      * @param tempEmployee
@@ -74,16 +89,17 @@ public  class EmployeeService implements ObjectMethods<Employee> {
      */
     @Override
     public Employee alter(Employee tempEmployee, String urlfoto, String role, double salario, String email, long tel) {
-        for (Employee employee:employeeslList){
-            if (employee.getNome().equals(tempEmployee.getNome())){
-                employee.getContato().setEmail(email);
-                employee.getContato().setTelefone(tel);
-                employee.setSalary(salario);
-                employee.setRole(role);
-                employee.setUrlfoto(urlfoto);
-                return employee;
-            }
+        tempEmployee.setSalary(salario);
+        tempEmployee.setRole(role);
+        tempEmployee.setUrlfoto(urlfoto);
+        try{
+            connectionMysql.ConnectDatabase();
+            connectionMysql.updateRowUsers("advocatelink.person",tempEmployee);
+            return tempEmployee;
+        }catch (SQLException ex){
+            System.out.println(ex.getMessage());
         }
+
         return null;
     }
 
@@ -100,12 +116,10 @@ public  class EmployeeService implements ObjectMethods<Employee> {
         }catch (SQLException ex){
 
         }
-
         return null;
     }
     @Override
     public List<Employee> show() {
-
         return employeeslList;
     }
 

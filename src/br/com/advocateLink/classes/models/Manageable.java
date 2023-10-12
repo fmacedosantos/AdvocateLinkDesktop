@@ -21,4 +21,12 @@ public class Manageable {
     protected Address endereco;
     protected Contact contato;
     protected String urlfoto;
+
+    public Manageable(String nome, String cpf, Address endereco, Contact contato, String urlfoto) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.contato = contato;
+        this.urlfoto = urlfoto;
+    }
 }

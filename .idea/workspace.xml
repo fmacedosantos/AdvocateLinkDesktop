@@ -12,19 +12,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="adicionado lombok-1.18.28.jar">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4dafc34-88f1-4631-b180-2cb66e2214ff.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4dafc34-88f1-4631-b180-2cb66e2214ff/storage_v2/_src_/schema/advocatelink.5a0w-g.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4dafc34-88f1-4631-b180-2cb66e2214ff/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4dafc34-88f1-4631-b180-2cb66e2214ff/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4dafc34-88f1-4631-b180-2cb66e2214ff/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4dafc34-88f1-4631-b180-2cb66e2214ff/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="adicionado inserir dados na tabela do banco de dados">
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionDataBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/testes/Teste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/ObjectMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/ObjectMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/ObjectMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/UsefulEmployee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/UsefulPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Manageable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Manageable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionMysqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionMysqlUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,13 +120,26 @@
       <recent name="view.test.panels.panelsClient.painelsAbout" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.br.com.advocateLink.view.Main">
+  <component name="RunManager" selected="Application.Teste">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.advocateLink.appDesktop.classes.test.Main" />
       <module name="advocatelink01" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="br.com.advocateLink.appDesktop.classes.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.com.advocateLink.classes.testes.Teste" />
+      <module name="advocatelink01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.advocateLink.classes.testes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -161,6 +175,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Teste" />
         <item itemvalue="Application.br.com.advocateLink.view.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.br.com.advocateLink.appDesktop.test.Main" />
@@ -228,7 +243,11 @@
       <workItem from="1695816935106" duration="105000" />
       <workItem from="1695818549741" duration="643000" />
       <workItem from="1696337024612" duration="1200000" />
-      <workItem from="1696421125293" duration="2348000" />
+      <workItem from="1696421125293" duration="2619000" />
+      <workItem from="1696445475343" duration="4793000" />
+      <workItem from="1696451446631" duration="2457000" />
+      <workItem from="1696550968960" duration="6000" />
+      <workItem from="1697114571667" duration="6432000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -542,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696295913956</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="adicionado inserir dados na tabela do banco de dados">
+      <option name="closed" value="true" />
+      <created>1696424344700</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1696424344700</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +607,8 @@
     <MESSAGE value="add Conexao DATABASE e adicionado documentacao dos metodos da classe ConnectionMysqlUtil.java" />
     <MESSAGE value="criado O Executavel da aplicacao" />
     <MESSAGE value="adicionado lombok-1.18.28.jar" />
-    <option name="LAST_COMMIT_MESSAGE" value="adicionado lombok-1.18.28.jar" />
+    <MESSAGE value="adicionado inserir dados na tabela do banco de dados" />
+    <option name="LAST_COMMIT_MESSAGE" value="adicionado inserir dados na tabela do banco de dados" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

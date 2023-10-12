@@ -155,7 +155,8 @@ public class Mainscreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String nameEmployee = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
+                    String nameEmployee = JOptionPane.showInputDialog("DIGITE O CPF DO CLIENTE");
+                    System.out.println("chegou");
                     AlterEmployee employeee = new AlterEmployee(EmployeeService.employee.search(nameEmployee));
                     getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
                     getContentPane().add(employeee);

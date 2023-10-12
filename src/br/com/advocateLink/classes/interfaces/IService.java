@@ -11,7 +11,7 @@ import java.util.List;
  * @author Guilherme vinicius
  */
 
-public interface ObjectMethods<T>{
+public interface IService<T>{
     /** Searches for an object from a name.
      * @version 1.0
      * @author Guilherme vinicius
@@ -26,7 +26,7 @@ public interface ObjectMethods<T>{
      * @param t
      * @return
      */
-    T delete(T t);
+    T delete(T t) throws SQLException;
 
     /**
      * Changes an object in a list
