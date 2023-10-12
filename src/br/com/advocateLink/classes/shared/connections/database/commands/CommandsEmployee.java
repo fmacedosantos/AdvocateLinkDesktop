@@ -44,11 +44,9 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
         PreparedStatement userStatement = super.connectionDB().prepareStatement(selectQueryUser);
         userStatement.setLong(1, 27);
         ResultSet resultUser = userStatement.executeQuery();
-        System.out.println(resultUser);
         PreparedStatement addressStatement = super.getConnection().prepareStatement(selectQueryAddress);
         addressStatement.setLong(1, 27);
         ResultSet resultAddress = addressStatement.executeQuery();
-        System.out.println(resultAddress);
         PreparedStatement contactStatement = super.getConnection().prepareStatement(selectQueryContact);
         contactStatement.setLong(1, 27);
         ResultSet resultContact = contactStatement.executeQuery();
