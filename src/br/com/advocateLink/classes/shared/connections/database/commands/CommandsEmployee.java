@@ -1,6 +1,9 @@
 package br.com.advocateLink.classes.shared.connections.database.commands;
 
+import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.interfaces.IDatabase;
+import br.com.advocateLink.classes.models.Address;
+import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.connections.database.ConnectionDataBase;
 
@@ -13,7 +16,9 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
     private final String deletePerson ="DELETE FROM advocatelink.person WHERE id = ?;";
     private final String deleteAddress ="DELETE FROM advocatelink.address WHERE id_person = ?;";
     private final String deleteContact ="DELETE FROM advocatelink.contact WHERE id = ?;";
-    private final String selectQuery = "SELECT * FROM person WHERE id = ?";
+    private final String selectQueryUser = "SELECT * FROM advocatelink.person WHERE id = ?;";
+    private final String selectQueryAddress = "SELECT * FROM advocatelink.address WHERE id_person = ?;";
+    private final String selectQueryContact = "SELECT * FROM advocatelink.contact WHERE id_person = ?;";
     private final String updateUrl="UPDATE person SET name = ?,cpf = ?,urlphoto = ?,salary = ?,role = ?,oab = ? WHERE id = ? ;";
     private final String insertPerson="INSERT INTO advocatelink.person(name,cpf,urlphoto,salary,role) VALUE (?,?,?,?,?);";
     private final String insertAddress="INSERT INTO advocatelink.address(rua,number,bairro,id_person) VALUE (?,?,?,?);";
@@ -35,8 +40,34 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
     }
 
     @Override
-    public Boolean searchRow(Employee employee) {
-        return null;
+    public Employee searchRow(Employee employee) throws SQLException, UserNotFound {
+        PreparedStatement userStatement = super.connectionDB().prepareStatement(selectQueryUser);
+        userStatement.setLong(1, 27);
+        ResultSet resultUser = userStatement.executeQuery();
+        System.out.println(resultUser);
+        PreparedStatement addressStatement = super.getConnection().prepareStatement(selectQueryAddress);
+        addressStatement.setLong(1, 27);
+        ResultSet resultAddress = addressStatement.executeQuery();
+        System.out.println(resultAddress);
+        PreparedStatement contactStatement = super.getConnection().prepareStatement(selectQueryContact);
+        contactStatement.setLong(1, 27);
+        ResultSet resultContact = contactStatement.executeQuery();
+        if (resultUser.next() && resultAddress.next() && resultContact.next()) {
+            employee = new Employee(
+                    resultUser.getInt("id"),
+                    resultUser.getString("name"),
+                    resultUser.getString("cpf"),
+                    new Address(resultAddress.getString("rua"), resultAddress.getInt("number"), resultAddress.getString("bairro")),
+                    new Contact(resultContact.getLong("telephone"),resultContact.getString("email")),
+                    resultUser.getString("urlphoto"),
+                    0,
+                    resultUser.getString("role"),
+                    resultUser.getDouble("salary")
+            );
+            return employee;
+        } else {
+            throw new UserNotFound("Usuário não existente");
+        }
     }
 
     @Override
@@ -69,6 +100,7 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
             PREPARED_STATEMENT.setLong(3,key);
             PREPARED_STATEMENT.execute();
         }
+        super.closeDB();
         return true;
     }
 }

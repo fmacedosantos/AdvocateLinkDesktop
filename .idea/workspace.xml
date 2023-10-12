@@ -12,20 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="adicionado inserir dados na tabela do banco de dados">
-      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionDataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/testes/Teste.java" afterDir="false" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="Melhorado a estrutura de classe de ConnectionDataBase">
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/ObjectMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/UsefulEmployee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/UsefulPhone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Manageable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Manageable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionMysqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionMysqlUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/testes/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/testes/Teste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +239,8 @@
       <workItem from="1696445475343" duration="4793000" />
       <workItem from="1696451446631" duration="2457000" />
       <workItem from="1696550968960" duration="6000" />
-      <workItem from="1697114571667" duration="6432000" />
+      <workItem from="1697114571667" duration="6543000" />
+      <workItem from="1697129488574" duration="4346000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -569,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696424344700</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Melhorado a estrutura de classe de ConnectionDataBase">
+      <option name="closed" value="true" />
+      <created>1697121141755</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1697121141755</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +609,8 @@
     <MESSAGE value="criado O Executavel da aplicacao" />
     <MESSAGE value="adicionado lombok-1.18.28.jar" />
     <MESSAGE value="adicionado inserir dados na tabela do banco de dados" />
-    <option name="LAST_COMMIT_MESSAGE" value="adicionado inserir dados na tabela do banco de dados" />
+    <MESSAGE value="Melhorado a estrutura de classe de ConnectionDataBase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhorado a estrutura de classe de ConnectionDataBase" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
