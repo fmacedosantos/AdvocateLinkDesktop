@@ -12,13 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="metodo de procurar uma linha adicionado">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/testes/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/testes/Teste.java" afterDir="false" />
-    </list>
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="metodo de dar Update em um Usuario feito" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -246,7 +240,7 @@
       <workItem from="1697114571667" duration="6543000" />
       <workItem from="1697129488574" duration="5540000" />
       <workItem from="1697152601650" duration="964000" />
-      <workItem from="1697197604272" duration="4554000" />
+      <workItem from="1697197604272" duration="5144000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -592,7 +586,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697134105096</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="metodo de dar Update em um Usuario feito">
+      <option name="closed" value="true" />
+      <created>1697202519529</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1697202519529</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,22 +635,14 @@
     <MESSAGE value="adicionado inserir dados na tabela do banco de dados" />
     <MESSAGE value="Melhorado a estrutura de classe de ConnectionDataBase" />
     <MESSAGE value="metodo de procurar uma linha adicionado" />
-    <option name="LAST_COMMIT_MESSAGE" value="metodo de procurar uma linha adicionado" />
+    <MESSAGE value="metodo de dar Update em um Usuario feito" />
+    <option name="LAST_COMMIT_MESSAGE" value="metodo de dar Update em um Usuario feito" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
     <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="clients[9]" />

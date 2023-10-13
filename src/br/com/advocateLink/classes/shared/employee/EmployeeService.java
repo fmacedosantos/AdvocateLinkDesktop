@@ -4,7 +4,6 @@ import br.com.advocateLink.classes.exceptions.NegativeNumberException;
 import br.com.advocateLink.classes.interfaces.IService;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
-import br.com.advocateLink.classes.shared.connections.database.ConnectionMysqlUtil;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -18,7 +17,6 @@ import java.util.List;
 public  class EmployeeService implements IService<Employee> {
     public static List<Employee> employeeslList = new ArrayList<>();
     public static EmployeeService employee = new EmployeeService();
-    private ConnectionMysqlUtil connectionMysql= new ConnectionMysqlUtil();
 
     /**
      * sends bonuses to an employee.
@@ -48,14 +46,7 @@ public  class EmployeeService implements IService<Employee> {
      */
     @Override
     public Employee search(String tempEmployee) {
-        try {
-
-            connectionMysql.ConnectDatabase();
-            return connectionMysql.searchRow("advocatelink.person","cpf",tempEmployee);
-        }catch (SQLException ex){
-            System.out.println(ex);
-            return null;
-        }
+        return null;
     }
     /**
      * delete an employee passed by the parameter.
@@ -65,17 +56,18 @@ public  class EmployeeService implements IService<Employee> {
      */
     @Override
     public Employee delete(Employee tempEmployee) throws NullPointerException {
-        try{
-            connectionMysql.ConnectDatabase();
-            connectionMysql.deleteRow("advocatelink.address","id",tempEmployee);
-            connectionMysql.ConnectDatabase();
-            connectionMysql.deleteRow("advocatelink.contact","id",tempEmployee);
-            connectionMysql.ConnectDatabase();
-            connectionMysql.deleteRow("advocatelink.person","id", tempEmployee );
-        }catch (SQLException ex){
-            System.out.println("seu ruim");
-        }
-            return tempEmployee;
+//        try{
+//            connectionMysql.ConnectDatabase();
+//            connectionMysql.deleteRow("advocatelink.address","id",tempEmployee);
+//            connectionMysql.ConnectDatabase();
+//            connectionMysql.deleteRow("advocatelink.contact","id",tempEmployee);
+//            connectionMysql.ConnectDatabase();
+//            connectionMysql.deleteRow("advocatelink.person","id", tempEmployee );
+//        }catch (SQLException ex){
+//            System.out.println("seu ruim");
+//        }
+//            return tempEmployee;
+        return null;
     }
     /**
      * CHANGES EMPLOYEE INFORMATION.
@@ -89,17 +81,16 @@ public  class EmployeeService implements IService<Employee> {
      */
     @Override
     public Employee alter(Employee tempEmployee, String urlfoto, String role, double salario, String email, long tel) {
-        tempEmployee.setSalary(salario);
-        tempEmployee.setRole(role);
-        tempEmployee.setUrlfoto(urlfoto);
-        try{
-            connectionMysql.ConnectDatabase();
-            connectionMysql.updateRowUsers("advocatelink.person",tempEmployee);
-            return tempEmployee;
-        }catch (SQLException ex){
-            System.out.println(ex.getMessage());
-        }
-
+//        tempEmployee.setSalary(salario);
+//        tempEmployee.setRole(role);
+//        tempEmployee.setUrlfoto(urlfoto);
+//        try{
+//            connectionMysql.ConnectDatabase();
+//            connectionMysql.updateRowUsers("advocatelink.person",tempEmployee);
+//            return tempEmployee;
+//        }catch (SQLException ex){
+//            System.out.println(ex.getMessage());
+//        }
         return null;
     }
 
@@ -110,12 +101,12 @@ public  class EmployeeService implements IService<Employee> {
      */
     @Override
     public Employee register(Employee employee) {
-        try {
-            connectionMysql.ConnectDatabase();
-            System.out.println(connectionMysql.insertRowUsers(employee,employee.getSalary(), employee.getRole(), null));
-        }catch (SQLException ex){
-
-        }
+//        try {
+//            connectionMysql.ConnectDatabase();
+//            System.out.println(connectionMysql.insertRowUsers(employee,employee.getSalary(), employee.getRole(), null));
+//        }catch (SQLException ex){
+//
+//        }
         return null;
     }
     @Override

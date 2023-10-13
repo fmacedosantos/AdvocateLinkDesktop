@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Optional;
-
 public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Employee> {
     private final String deletePerson = "DELETE FROM advocatelink.person WHERE id = ?;";
     private final String deleteAddress = "DELETE FROM advocatelink.address WHERE id_person = ?;";
