@@ -137,7 +137,7 @@ public class Search extends JPanel {
                 if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.CLIENT){
                     try {
                         // Pesquisa o Cliente a partir do nome
-                        final Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
+                        Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
                         lfotoUser.setIcon(setfoto(tempClint));
                         lfotoUser.setText("TEXTEEEEE");
                         lfotoUser.setBounds(100, 155, 200, 200);
@@ -149,7 +149,7 @@ public class Search extends JPanel {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         // Pesquisa o Cliente a partir do nome
-                        final Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
+                        Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempClint);
                         System.out.println(ex.getMessage());
@@ -168,6 +168,7 @@ public class Search extends JPanel {
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
                         System.out.println(ex.getMessage());
+                    }catch (NullPointerException ex){
                     }
                 }
             }

@@ -71,9 +71,7 @@ public class BonusEmployee extends JPanel {
                     }catch (NegativeNumberException ex){
                         JOptionPane.showMessageDialog(null,"Valor negativo em campo");
                     }catch (NullPointerException ex){
-                        JOptionPane.showMessageDialog(null,"Cliente inexistente ou incorreto");
                     }
-
                 }
             }
         });

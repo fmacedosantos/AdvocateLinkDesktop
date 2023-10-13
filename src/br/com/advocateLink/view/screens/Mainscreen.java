@@ -112,10 +112,10 @@ public class Mainscreen extends JFrame {
                 // TODO Auto-generated method stub
                 if (Main.currentConnectState == Main.AppConnectState.ON){
                     RegisterClient client = new RegisterClient();
-                    getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                    getContentPane().removeAll();
                     getContentPane().add(client);
-                    getContentPane().validate();//
-                    repaint(); // atualiza a tela
+                    getContentPane().validate();
+                    repaint();
                 }else {
                     JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
                 }
@@ -126,10 +126,10 @@ public class Mainscreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 RegisterEmployee employee = new RegisterEmployee();
-                getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                getContentPane().removeAll();
                 getContentPane().add(employee);
-                getContentPane().validate();//
-                repaint(); // atualiza a tela
+                getContentPane().validate();
+                repaint();
             }
         });
         jmiAlterarCliente.addActionListener(new ActionListener() {
@@ -139,13 +139,12 @@ public class Mainscreen extends JFrame {
                     try {
                         String nomeDoCliente = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
                         AlterClient clientt = new AlterClient(MethodsUtil.search(nomeDoCliente));
-                        getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                        getContentPane().removeAll();
                         getContentPane().add(clientt);
-                        getContentPane().validate();//
-                        repaint(); // atualiza a tela
+                        getContentPane().validate();
+                        repaint();
                     }catch (NullPointerException ex){
                         JOptionPane.showMessageDialog(null,"Cliente inexistente, confira os dados");
-                        System.out.println(ex.getMessage()+" exception ao procurar nome inexistente");
                     }
                 }else{
                     JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
@@ -156,28 +155,25 @@ public class Mainscreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Long id = Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO CLIENTE"));
-                    System.out.println("chegou");
+                    Long id = Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO FUNCIONARIO"));
                     AlterEmployee employeee = new AlterEmployee(employeeService.search(id));
-                    getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                    getContentPane().removeAll();
                     getContentPane().add(employeee);
-                    getContentPane().validate();//
-                    repaint(); // atualiza a tela
-                }catch (NullPointerException ex){
-                    JOptionPane.showMessageDialog(null,"Funcionario inexistente, confira os dados");
-                    System.out.println(ex.getMessage()+" exception ao procurar nome inexistente");
+                    getContentPane().validate();
+                    repaint();
+                }catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, "Digite um Id valido");
                 }
-
             }
         });
         jmiGerarRelatorio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GenereteRelatory realatory = new GenereteRelatory();
-                getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                getContentPane().removeAll();
                 getContentPane().add(realatory);
-                getContentPane().validate();//
-                repaint(); // atualiza a tela
+                getContentPane().validate();
+                repaint();
             }
         });
         jmiPesquisarCliente.addActionListener(new ActionListener() {
@@ -186,10 +182,10 @@ public class Mainscreen extends JFrame {
                 if (Main.currentConnectState == Main.AppConnectState.ON){
                     Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.CLIENT;
                     Search search = new Search();
-                    getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                    getContentPane().removeAll();
                     getContentPane().add(search);
-                    getContentPane().validate();//
-                    repaint(); // atualiza a tela
+                    getContentPane().validate();
+                    repaint();
                 }else {
                     JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
                 }
@@ -200,20 +196,20 @@ public class Mainscreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.EMPLOYEE;
                 Search search = new Search();
-                getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                getContentPane().removeAll();
                 getContentPane().add(search);
-                getContentPane().validate();//
-                repaint(); // atualiza a tela
+                getContentPane().validate();
+                repaint();
             }
         });
         jmiBonusFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 BonusEmployee bonus = new BonusEmployee();
-                getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
+                getContentPane().removeAll();
                 getContentPane().add(bonus);
-                getContentPane().validate();//
-                repaint(); // atualiza a tela
+                getContentPane().validate();
+                repaint();
             }
         });
     }

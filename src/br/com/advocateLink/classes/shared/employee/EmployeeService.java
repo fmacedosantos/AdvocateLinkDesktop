@@ -44,7 +44,7 @@ public  class EmployeeService implements IService<Employee> {
      * @throws NullPointerException
      */
     @Override
-    public Employee search(Long id) {
+    public Employee search(Long id){
         try {
            return commandsEmployee.searchRow(id);
         }catch (SQLException ex){
