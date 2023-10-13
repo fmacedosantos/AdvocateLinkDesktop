@@ -17,7 +17,7 @@ import java.util.List;
  * @version 1.0
  */
 public  class EmployeeService implements IService<Employee> {
-    public static List<Employee> employeeslList = new ArrayList<>();
+    public static List<Employee> list = new ArrayList<>();
     private CommandsEmployee commandsEmployee = new CommandsEmployee();
     /**
      * sends bonuses to an employee.
@@ -38,7 +38,6 @@ public  class EmployeeService implements IService<Employee> {
             System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
         }
     }
-
     /**
      * Grab a reference.
      * @return
@@ -88,8 +87,6 @@ public  class EmployeeService implements IService<Employee> {
             JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
             return false;
         }
-
-
     }
 
     /**
@@ -109,7 +106,7 @@ public  class EmployeeService implements IService<Employee> {
     }
     @Override
     public List<Employee> show() {
-        return employeeslList;
+        return list;
     }
 
 }

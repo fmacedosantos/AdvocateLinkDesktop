@@ -25,8 +25,7 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
     private final String insertPerson = "INSERT INTO advocatelink.person(name,cpf,urlphoto,salary,role) VALUE (?,?,?,?,?);";
     private final String insertAddress = "INSERT INTO advocatelink.address(rua,number,bairro,id_person) VALUE (?,?,?,?);";
     private final String insertContact = "INSERT INTO advocatelink.contact(telephone,email,id_person) VALUE (?,?,?);";
-    PreparedStatement PREPARED_STATEMENT;
-
+    private PreparedStatement PREPARED_STATEMENT;
     @Override
     public Boolean deleteRow(Employee employee) throws SQLException {
         PREPARED_STATEMENT = super.connectionDB().prepareStatement(deleteAddress);

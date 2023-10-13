@@ -155,15 +155,12 @@ public class Search extends JPanel {
                         System.out.println(ex.getMessage());
                     }
                 } else if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.EMPLOYEE) {
-
                     try{
                         Employee tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
                         lfotoUser.setIcon(setfoto(tempEmployee));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
-                    }catch (NullPointerException ex){
-                        JOptionPane.showMessageDialog(null,"FUNCIONARIO INEXISTENTE OU INCORRETO");
-                   } catch (IOException ex) {
+                    } catch (IOException ex) {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                        lfotoUser.setBounds(100, 155, 200, 200);
                         // Pesquisa o Cliente a partir do nome
@@ -172,9 +169,7 @@ public class Search extends JPanel {
                         setinfromacao(tempEmployee);
                         System.out.println(ex.getMessage());
                     }
-
                 }
-
             }
         });
     }

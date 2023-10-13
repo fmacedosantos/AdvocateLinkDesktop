@@ -67,8 +67,7 @@ public class BonusEmployee extends JPanel {
                     try{
                         employeeService.sendBonus(employeeService.search(Long.parseLong(jtfCodigo.getText())),
                                 Double.parseDouble(jtfValorBonus.getText()));
-                        JOptionPane.showMessageDialog(null,"Bonus adicionado com sucesso, Salario com bonus:"+
-                                employeeService.search(Long.parseLong(jtfCodigo.getText())).getSalary()+ "R$");
+                        JOptionPane.showMessageDialog(null,"Bonus adicionado com sucesso, Salario com bonus:"+ employeeService.search(Long.parseLong(jtfCodigo.getText())).getSalary()+ "R$");
                     }catch (NegativeNumberException ex){
                         JOptionPane.showMessageDialog(null,"Valor negativo em campo");
                     }catch (NullPointerException ex){
@@ -78,8 +77,5 @@ public class BonusEmployee extends JPanel {
                 }
             }
         });
-
     }
-
-
 }

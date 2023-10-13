@@ -12,18 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="metodo de dar Update em um Usuario feito.">
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="Adicionado o Banco de Dados na Camada de Servicos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +250,7 @@
       <workItem from="1697152601650" duration="964000" />
       <workItem from="1697197604272" duration="5683000" />
       <workItem from="1697203387730" duration="32000" />
-      <workItem from="1697227955853" duration="2199000" />
+      <workItem from="1697227955853" duration="3300000" />
     </task>
     <task id="LOCAL-00001" summary="initia">
       <option name="closed" value="true" />
@@ -624,7 +620,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697203048545</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Adicionado o Banco de Dados na Camada de Servicos">
+      <option name="closed" value="true" />
+      <created>1697230291818</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1697230291818</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -642,7 +646,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initia" />
     <MESSAGE value="encapsulamento de metodos" />
     <MESSAGE value="ExceptionInInitializerError acrecentada" />
     <MESSAGE value="Alterar client criado" />
@@ -667,7 +670,8 @@
     <MESSAGE value="metodo de procurar uma linha adicionado" />
     <MESSAGE value="metodo de dar Update em um Usuario feito" />
     <MESSAGE value="metodo de dar Update em um Usuario feito." />
-    <option name="LAST_COMMIT_MESSAGE" value="metodo de dar Update em um Usuario feito." />
+    <MESSAGE value="Adicionado o Banco de Dados na Camada de Servicos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionado o Banco de Dados na Camada de Servicos" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

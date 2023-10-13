@@ -187,10 +187,10 @@ public class RegisterEmployee extends JPanel {
                             String itemSelect = combo.getSelectedItem().toString();
                             employeeService.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
                                     new Contact(tel,email),jtfFoto.getText(),0,itemSelect,Integer.parseInt(jtfSalario.getText())));
-                            JOptionPane.showMessageDialog(null,"Cliente cadastrado por sucesso");
+                            JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso");
                         }catch (NumberFormatException | LackOfInformationException ex){
                             JOptionPane.showMessageDialog(null,"VERIFIQUE AS INFORMACOES");
-                            System.out.println(""+ex.getMessage());
+                            System.out.println(" "+ex.getMessage());
                         }
                         }else {
                             JOptionPane.showMessageDialog(null,"PREENCHA TODOS OS CAMPOS");
@@ -199,6 +199,5 @@ public class RegisterEmployee extends JPanel {
                 });
             }
         });
-
     }
 }
