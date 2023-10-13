@@ -1,9 +1,11 @@
 package br.com.advocateLink.classes.shared.employee;
 
 import br.com.advocateLink.classes.exceptions.NegativeNumberException;
+import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.interfaces.IService;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
+import br.com.advocateLink.classes.shared.connections.database.commands.CommandsEmployee;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -16,8 +18,7 @@ import java.util.List;
  */
 public  class EmployeeService implements IService<Employee> {
     public static List<Employee> employeeslList = new ArrayList<>();
-    public static EmployeeService employee = new EmployeeService();
-
+    private CommandsEmployee commandsEmployee = new CommandsEmployee();
     /**
      * sends bonuses to an employee.
      * @param tempEmployee
@@ -40,13 +41,20 @@ public  class EmployeeService implements IService<Employee> {
 
     /**
      * Grab a reference.
-     * @param tempEmployee
      * @return
      * @throws NullPointerException
      */
     @Override
-    public Employee search(String tempEmployee) {
-        return null;
+    public Employee search(Long id) {
+        try {
+           return commandsEmployee.searchRow(id);
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null,"Sem conexao");
+            return null;
+        }catch (UserNotFound ex){
+            JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
+            return null;
+        }
     }
     /**
      * delete an employee passed by the parameter.
@@ -55,43 +63,33 @@ public  class EmployeeService implements IService<Employee> {
      * @throws NullPointerException
      */
     @Override
-    public Employee delete(Employee tempEmployee) throws NullPointerException {
-//        try{
-//            connectionMysql.ConnectDatabase();
-//            connectionMysql.deleteRow("advocatelink.address","id",tempEmployee);
-//            connectionMysql.ConnectDatabase();
-//            connectionMysql.deleteRow("advocatelink.contact","id",tempEmployee);
-//            connectionMysql.ConnectDatabase();
-//            connectionMysql.deleteRow("advocatelink.person","id", tempEmployee );
-//        }catch (SQLException ex){
-//            System.out.println("seu ruim");
-//        }
-//            return tempEmployee;
-        return null;
+    public Boolean delete(Employee tempEmployee)  {
+        try{
+            commandsEmployee.deleteRow(tempEmployee);
+            return true;
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null,"Sem conexao");
+            return false;
+        }
     }
     /**
      * CHANGES EMPLOYEE INFORMATION.
-     * @param tempEmployee
-     * @param urlfoto
-     * @param role
-     * @param salario
-     * @param email
-     * @param tel
      * @return
      */
     @Override
-    public Employee alter(Employee tempEmployee, String urlfoto, String role, double salario, String email, long tel) {
-//        tempEmployee.setSalary(salario);
-//        tempEmployee.setRole(role);
-//        tempEmployee.setUrlfoto(urlfoto);
-//        try{
-//            connectionMysql.ConnectDatabase();
-//            connectionMysql.updateRowUsers("advocatelink.person",tempEmployee);
-//            return tempEmployee;
-//        }catch (SQLException ex){
-//            System.out.println(ex.getMessage());
-//        }
-        return null;
+    public Boolean alter(Long id, Employee temp) {
+        try {
+            commandsEmployee.updateRow(id,temp);
+            return true;
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null,"Sem conexao");
+            return false;
+        } catch (UserNotFound e) {
+            JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
+            return false;
+        }
+
+
     }
 
     /**
@@ -100,14 +98,14 @@ public  class EmployeeService implements IService<Employee> {
      * @return
      */
     @Override
-    public Employee register(Employee employee) {
-//        try {
-//            connectionMysql.ConnectDatabase();
-//            System.out.println(connectionMysql.insertRowUsers(employee,employee.getSalary(), employee.getRole(), null));
-//        }catch (SQLException ex){
-//
-//        }
-        return null;
+    public Boolean register(Employee employee) {
+        try{
+            commandsEmployee.insertRow(employee);
+            return true;
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null,"sem conexao");
+            return false;
+        }
     }
     @Override
     public List<Employee> show() {

@@ -18,7 +18,7 @@ public interface IService<T>{
      * @param t
      * @return
      */
-    T search(String t);
+    T search(Long id);
 
     /** Delete for an object from a Object.
      * @version 1.0
@@ -26,7 +26,7 @@ public interface IService<T>{
      * @param t
      * @return
      */
-    T delete(T t) throws SQLException;
+    Boolean delete(T t) throws SQLException;
 
     /**
      * Changes an object in a list
@@ -41,7 +41,7 @@ public interface IService<T>{
      * @return
      */
     // ALTERA AS INFORMACOES DO FUNCIONARIO
-    Employee alter(Employee tempEmployee, String urlfoto, String role, double salario, String email, long tel) throws NullPointerException;
+    Boolean alter(Long id, T t) ;
 
     /**
      * Registers an object to a list
@@ -50,6 +50,6 @@ public interface IService<T>{
      * @param t
      * @return
      */
-    T register(T t) throws SQLException;
+    Boolean register(T t) throws SQLException;
     List<T> show();
 }

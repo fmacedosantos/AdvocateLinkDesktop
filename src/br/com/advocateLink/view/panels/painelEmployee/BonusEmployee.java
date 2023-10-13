@@ -14,6 +14,7 @@ public class BonusEmployee extends JPanel {
     private JTextField jtfCodigo, jtfValorBonus;
     private JButton jbFinalizar;
     private JLabel jlFundoBonificacao;
+    private EmployeeService employeeService = new EmployeeService();
 
     public BonusEmployee(){
         super();
@@ -64,10 +65,10 @@ public class BonusEmployee extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (MethodsUtil.validatesInput(jtfCodigo,jtfValorBonus)){
                     try{
-                        EmployeeService.employee.sendBonus(EmployeeService.employee.search(jtfCodigo.getText()),
+                        employeeService.sendBonus(employeeService.search(Long.parseLong(jtfCodigo.getText())),
                                 Double.parseDouble(jtfValorBonus.getText()));
                         JOptionPane.showMessageDialog(null,"Bonus adicionado com sucesso, Salario com bonus:"+
-                                EmployeeService.employee.search(jtfCodigo.getText()).getSalary()+ "R$");
+                                employeeService.search(Long.parseLong(jtfCodigo.getText())).getSalary()+ "R$");
                     }catch (NegativeNumberException ex){
                         JOptionPane.showMessageDialog(null,"Valor negativo em campo");
                     }catch (NullPointerException ex){

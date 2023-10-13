@@ -1,6 +1,7 @@
 package br.com.advocateLink.view.panels.painelEmployee;
 
 import br.com.advocateLink.classes.exceptions.LackOfInformationException;
+import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.employee.EmployeeService;
 
@@ -18,6 +19,7 @@ public class AlterEmployee extends JPanel {
     private JComboBox <String> combo = new JComboBox<>();
     private long tel = 0;
     private String email = null;
+    private EmployeeService employeeService = new EmployeeService();
 
     private Employee employee;
     public AlterEmployee(Employee employee) {
@@ -103,7 +105,7 @@ public class AlterEmployee extends JPanel {
         jbApagar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EmployeeService.employee.delete(employee);
+                employeeService.delete(employee);
                 JOptionPane.showMessageDialog(null,"Cliente deletado com sucesso");
             }
         });
@@ -136,10 +138,10 @@ public class AlterEmployee extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (email == null || tel == 0) {
-                        throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
+                        throw new LackOfInformationException("Falta de informacao");
                     }
                     String itemSelect = combo.getSelectedItem().toString();
-                    EmployeeService.employee.alter(employee,jtfFoto.getText(),itemSelect,Double.parseDouble(jtfSalario.getText()),email,tel);
+                    employeeService.alter(employee.getId(),new Employee(0,null,null,null,new Contact(tel,email),jtfFoto.getText(),0,itemSelect,Double.parseDouble(jtfSalario.getText())));
                     JOptionPane.showMessageDialog(null,"Cliente alterado com sucesso");
                 }catch (LackOfInformationException ex){
                     JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");

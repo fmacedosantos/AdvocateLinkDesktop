@@ -37,6 +37,7 @@ public class Mainscreen extends JFrame {
     private JMenuItem jmiAlterarCliente;
     private JMenuItem jmiGerarRelatorio;
     private JMenuItem jmiSistema;
+    private EmployeeService employeeService = new EmployeeService();
     //Gerenciador de Status
     public enum AppSearchState {
         NONE,
@@ -155,9 +156,9 @@ public class Mainscreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String nameEmployee = JOptionPane.showInputDialog("DIGITE O CPF DO CLIENTE");
+                    Long id = Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO CLIENTE"));
                     System.out.println("chegou");
-                    AlterEmployee employeee = new AlterEmployee(EmployeeService.employee.search(nameEmployee));
+                    AlterEmployee employeee = new AlterEmployee(employeeService.search(id));
                     getContentPane().removeAll(); //REMOVE TODOS OS COMPONENTES
                     getContentPane().add(employeee);
                     getContentPane().validate();//

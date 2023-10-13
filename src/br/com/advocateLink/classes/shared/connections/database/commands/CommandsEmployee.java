@@ -43,7 +43,7 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
     }
 
     @Override
-    public Employee searchRow(Long id) throws SQLException, UserNotFound {
+    public @NonNull Employee searchRow(Long id) throws SQLException, UserNotFound {
         PreparedStatement userStatement = super.connectionDB().prepareStatement(selectQueryUser);
         userStatement.setLong(1, id);
         ResultSet resultUser = userStatement.executeQuery();

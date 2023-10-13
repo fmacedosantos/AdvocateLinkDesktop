@@ -28,6 +28,7 @@ public class RegisterEmployee extends JPanel {
     private JComboBox <String> combo = new JComboBox<>();
     private int tel = 0;
     private String email = null;
+    private EmployeeService employeeService = new EmployeeService();
 
     public RegisterEmployee() {
         super();
@@ -184,7 +185,7 @@ public class RegisterEmployee extends JPanel {
                             MethodsUtil.validatesNumber(Integer.parseInt(jtfNumero.getText()));
                             MethodsUtil.validatesNumber(Integer.parseInt(jtfSalario.getText()));
                             String itemSelect = combo.getSelectedItem().toString();
-                            EmployeeService.employee.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
+                            employeeService.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
                                     new Contact(tel,email),jtfFoto.getText(),0,itemSelect,Integer.parseInt(jtfSalario.getText())));
                             JOptionPane.showMessageDialog(null,"Cliente cadastrado por sucesso");
                         }catch (NumberFormatException | LackOfInformationException ex){

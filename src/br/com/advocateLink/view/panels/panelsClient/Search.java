@@ -20,7 +20,7 @@ public class Search extends JPanel {
     private JTextField jtfPesquisar;
     private JButton jbPesquisar;
     private JLabel jlFundoPesquisar, lfotoUser, lnomeuser, lcpf, ltelefone, lemail, lOAB, lareaatuacao;
-
+    private EmployeeService employeeService = new EmployeeService();
     public Search() {
         super();
         setSize(815, 538);
@@ -157,7 +157,7 @@ public class Search extends JPanel {
                 } else if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.EMPLOYEE) {
 
                     try{
-                        Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
+                        Employee tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
                         lfotoUser.setIcon(setfoto(tempEmployee));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
@@ -167,7 +167,7 @@ public class Search extends JPanel {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                        lfotoUser.setBounds(100, 155, 200, 200);
                         // Pesquisa o Cliente a partir do nome
-                        Employee tempEmployee = EmployeeService.employee.search(jtfPesquisar.getText());
+                        Employee tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
                         System.out.println(ex.getMessage());
