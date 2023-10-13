@@ -15,9 +15,10 @@ public class Teste {
             ConnectionDataBase connectionDataBase = new ConnectionDataBase();
             connectionDataBase.connectionDB();
             CommandsEmployee employee = new CommandsEmployee();
-            System.out.println(employee.searchRow(null));
-//            employee.insertRow(new Employee("ultimo","123",new Address("qqqqq",1,"2"),new Contact(1234,"gui231"),
+//           employee.insertRow(new Employee("ultimo","123",new Address("qqqqq",1,"2"),new Contact(1234,"gui231"),
 //                    "123",0,"teste",123));
+           employee.updateRow(27L,new Employee(0,"test","123",null,new Contact(190,"guilherme@"),"teste",0,"empregado",1000l));
+
         } catch (SQLException ex) {
 
         } catch (UserNotFound e) {
