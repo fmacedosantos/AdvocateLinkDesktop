@@ -1,0 +1,34 @@
+create database advocatelink;
+use advocatelink;
+create table person(
+	id bigint auto_increment primary key,
+    name varchar(250),
+    cpf varchar(11),
+    urlphoto text,
+    salary double,
+    role varchar(255),
+    oab varchar(20)
+);
+create table address(
+	id bigint auto_increment primary key,
+    rua varchar(250),
+    number int,
+    bairro varchar(255),
+    id_person bigint,
+    FOREIGN KEY (id_person) REFERENCES advocatelink.person(id)
+);
+create table contact(
+	id bigint auto_increment primary key,
+    telephone varchar(20),
+    email varchar(255),
+    id_person bigint,
+    FOREIGN KEY (id_person) REFERENCES advocatelink.person(id)
+);
+select * from advocatelink.person;
+select * from advocatelink.contact;
+select * from advocatelink.address;
+INSERT INTO advocatelink.person VALUE (null,'teste','teste','teste',2,'teste',null);
+drop table advocatelink.person;
+drop table advocatelink.address;
+drop table advocatelink.contact;
+update advocatelink.address set bairro = "teste" where id=22;
