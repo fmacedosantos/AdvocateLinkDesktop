@@ -1,5 +1,6 @@
 package br.com.advocateLink.view.screens;
 
+import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.classes.shared.employee.EmployeeService;
 import br.com.advocateLink.view.panels.painelEmployee.AlterEmployee;
@@ -15,6 +16,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class Mainscreen extends JFrame {
     //Background
@@ -163,6 +165,10 @@ public class Mainscreen extends JFrame {
                     repaint();
                 }catch (NumberFormatException ex){
                     JOptionPane.showMessageDialog(null, "Digite um Id valido");
+                } catch (UserNotFound ex) {
+                    JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null,"Sem conexao");
                 }
             }
         });

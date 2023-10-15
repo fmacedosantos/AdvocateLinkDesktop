@@ -1,5 +1,6 @@
 package br.com.advocateLink.view.panels.panelsClient;
 
+import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.models.Clients;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.employee.EmployeeService;
@@ -14,7 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
-
+import java.sql.SQLException;
 public class Search extends JPanel {
 
     private JTextField jtfPesquisar;
@@ -163,12 +164,21 @@ public class Search extends JPanel {
                     } catch (IOException ex) {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                        lfotoUser.setBounds(100, 155, 200, 200);
-                        // Pesquisa o Cliente a partir do nome
-                        Employee tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
+                        Employee tempEmployee = null;
+                        try {
+                            tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
+                        } catch (UserNotFound exc) {
+                            JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
+                        } catch (SQLException exc) {
+                            JOptionPane.showMessageDialog(null,"Sem conexao");
+                        }
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
                         System.out.println(ex.getMessage());
-                    }catch (NullPointerException ex){
+                    } catch (UserNotFound ex) {
+                        JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null,"Sem conexao");
                     }
                 }
             }

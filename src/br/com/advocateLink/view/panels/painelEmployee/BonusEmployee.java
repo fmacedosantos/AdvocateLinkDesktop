@@ -1,6 +1,7 @@
 package br.com.advocateLink.view.panels.painelEmployee;
 
 import br.com.advocateLink.classes.exceptions.NegativeNumberException;
+import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.classes.shared.employee.EmployeeService;
 
@@ -8,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class BonusEmployee extends JPanel {
 
@@ -70,7 +72,10 @@ public class BonusEmployee extends JPanel {
                         JOptionPane.showMessageDialog(null,"Bonus adicionado com sucesso, Salario com bonus:"+ employeeService.search(Long.parseLong(jtfCodigo.getText())).getSalary()+ "R$");
                     }catch (NegativeNumberException ex){
                         JOptionPane.showMessageDialog(null,"Valor negativo em campo");
-                    }catch (NullPointerException ex){
+                    } catch (UserNotFound ex) {
+                        JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null,"Sem conexao");
                     }
                 }
             }

@@ -1,5 +1,6 @@
 package br.com.advocateLink.classes.interfaces;
 
+import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.models.Employee;
 
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ public interface IService<T>{
      * @param t
      * @return
      */
-    T search(Long id);
+    T search(Long id) throws UserNotFound, SQLException;
 
     /** Delete for an object from a Object.
      * @version 1.0
@@ -41,7 +42,7 @@ public interface IService<T>{
      * @return
      */
     // ALTERA AS INFORMACOES DO FUNCIONARIO
-    Boolean alter(Long id, T t) ;
+    Boolean alter(Long id, T t) throws UserNotFound, SQLException;
 
     /**
      * Registers an object to a list

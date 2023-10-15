@@ -1,6 +1,7 @@
 package br.com.advocateLink.view.panels.painelEmployee;
 
 import br.com.advocateLink.classes.exceptions.LackOfInformationException;
+import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.employee.EmployeeService;
@@ -9,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class AlterEmployee extends JPanel {
 
@@ -90,8 +92,12 @@ public class AlterEmployee extends JPanel {
         jbApagar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                employeeService.delete(employee);
-                JOptionPane.showMessageDialog(null,"Cliente deletado com sucesso");
+                try {
+                    employeeService.delete(employee);
+                    JOptionPane.showMessageDialog(null,"Cliente deletado com sucesso");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null,"Sem conexao");
+                }
             }
         });
         jcbTelefone.addActionListener(new ActionListener() {
@@ -128,9 +134,13 @@ public class AlterEmployee extends JPanel {
                     String itemSelect = combo.getSelectedItem().toString();
                     employeeService.alter(employee.getId(),new Employee(0,null,null,null,new Contact(tel,email),jtfFoto.getText(),0,itemSelect,Double.parseDouble(jtfSalario.getText())));
                     JOptionPane.showMessageDialog(null,"Cliente alterado com sucesso");
-                }catch (LackOfInformationException ex){
+                } catch (LackOfInformationException ex){
                     JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");
                     ex.getMessage();
+                } catch (UserNotFound ex) {
+                    JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null,"Sem conexao");
                 }
             }
         });

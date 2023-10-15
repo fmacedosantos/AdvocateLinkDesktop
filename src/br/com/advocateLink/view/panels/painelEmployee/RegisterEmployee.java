@@ -12,6 +12,7 @@ import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.ParseException;
 
 public class RegisterEmployee extends JPanel {
@@ -41,7 +42,6 @@ public class RegisterEmployee extends JPanel {
     private void iniciarComponentes() {
         // Imagem de fundo
         img = new ImageIcon(getClass().getResource("/imagens/backgroundEmployee.png"));
-        System.out.println("atualizou");
         jlFundoCadastro = new JLabel(img);
         jlFundoCadastro.setBounds(2, 2, 800, 500);
         //Objetos dos componentes
@@ -173,7 +173,6 @@ public class RegisterEmployee extends JPanel {
                         }
                     }
                 });
-
                 jbFinalizar.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e)throws LackOfInformationException {
@@ -191,6 +190,8 @@ public class RegisterEmployee extends JPanel {
                         }catch (NumberFormatException | LackOfInformationException ex){
                             JOptionPane.showMessageDialog(null,"VERIFIQUE AS INFORMACOES");
                             System.out.println(" "+ex.getMessage());
+                        }catch (SQLException ex){
+                            JOptionPane.showMessageDialog(null,"sem conexao");
                         }
                         }else {
                             JOptionPane.showMessageDialog(null,"PREENCHA TODOS OS CAMPOS");

@@ -26,17 +26,11 @@ public  class EmployeeService implements IService<Employee> {
      * @throws NegativeNumberException
      */
     public void sendBonus(Employee tempEmployee,double bonus)throws NegativeNumberException {
-        try {
-            if (bonus<0){
-                throw new NegativeNumberException("Numero negativo");
-            }
-            MethodsUtil.validatesNumber(bonus);
-            tempEmployee.setSalary(tempEmployee.getSalary()*bonus);
-            System.out.println(tempEmployee.getSalary()*bonus);
-        }catch (NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, " VERIFIQUE AS INFORMACOES");
-            System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
+        if (bonus<0){
+            throw new NegativeNumberException("Numero negativo");
         }
+        MethodsUtil.validatesNumber(bonus);
+        tempEmployee.setSalary(tempEmployee.getSalary()*bonus);
     }
     /**
      * Grab a reference.
@@ -44,16 +38,8 @@ public  class EmployeeService implements IService<Employee> {
      * @throws NullPointerException
      */
     @Override
-    public Employee search(Long id){
-        try {
-           return commandsEmployee.searchRow(id);
-        }catch (SQLException ex){
-            JOptionPane.showMessageDialog(null,"Sem conexao");
-            return null;
-        }catch (UserNotFound ex){
-            JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
-            return null;
-        }
+    public Employee search(Long id) throws UserNotFound, SQLException {
+        return commandsEmployee.searchRow(id);
     }
     /**
      * delete an employee passed by the parameter.
@@ -62,51 +48,31 @@ public  class EmployeeService implements IService<Employee> {
      * @throws NullPointerException
      */
     @Override
-    public Boolean delete(Employee tempEmployee)  {
-        try{
-            commandsEmployee.deleteRow(tempEmployee);
-            return true;
-        }catch (SQLException ex){
-            JOptionPane.showMessageDialog(null,"Sem conexao");
-            return false;
-        }
+    public Boolean delete(Employee tempEmployee) throws SQLException {
+        commandsEmployee.deleteRow(tempEmployee);
+        return true;
     }
     /**
      * CHANGES EMPLOYEE INFORMATION.
      * @return
      */
     @Override
-    public Boolean alter(Long id, Employee temp) {
-        try {
-            commandsEmployee.updateRow(id,temp);
-            return true;
-        }catch (SQLException ex){
-            JOptionPane.showMessageDialog(null,"Sem conexao");
-            return false;
-        } catch (UserNotFound e) {
-            JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
-            return false;
-        }
+    public Boolean alter(Long id, Employee temp) throws UserNotFound, SQLException {
+        commandsEmployee.updateRow(id,temp);
+        return true;
     }
-
     /**
      * Registers the employee in the employeelList.
      * @param employee
      * @return
      */
     @Override
-    public Boolean register(Employee employee) {
-        try{
-            commandsEmployee.insertRow(employee);
-            return true;
-        }catch (SQLException ex){
-            JOptionPane.showMessageDialog(null,"sem conexao");
-            return false;
-        }
+    public Boolean register(Employee employee) throws SQLException {
+        commandsEmployee.insertRow(employee);
+        return true;
     }
     @Override
     public List<Employee> show() {
         return list;
     }
-
 }
