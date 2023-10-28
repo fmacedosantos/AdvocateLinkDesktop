@@ -1,12 +1,11 @@
-package br.com.advocateLink.classes.shared.connections.database.commands;
+package br.com.advocateLink.connections.database.commands;
 
 import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.interfaces.IDatabase;
 import br.com.advocateLink.classes.models.Address;
 import br.com.advocateLink.classes.models.Client;
 import br.com.advocateLink.classes.models.Contact;
-import br.com.advocateLink.classes.models.Employee;
-import br.com.advocateLink.classes.shared.connections.database.ConnectionDataBase;
+import br.com.advocateLink.connections.database.ConnectionDataBase;
 import lombok.NonNull;
 
 import java.sql.PreparedStatement;

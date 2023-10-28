@@ -1,4 +1,4 @@
-package br.com.advocateLink.classes.shared.connections.database;
+package br.com.advocateLink.connections.database;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

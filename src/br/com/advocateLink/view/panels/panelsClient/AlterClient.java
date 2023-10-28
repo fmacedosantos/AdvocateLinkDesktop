@@ -2,14 +2,12 @@ package br.com.advocateLink.view.panels.panelsClient;
 
 import br.com.advocateLink.classes.exceptions.LackOfInformationException;
 import br.com.advocateLink.classes.models.Client;
-import br.com.advocateLink.classes.shared.connections.database.commands.CommandsClient;
-import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
+import br.com.advocateLink.service.ClientService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class AlterClient extends JPanel{
@@ -20,7 +18,7 @@ public class AlterClient extends JPanel{
     private Client client;
     private long tel = 0;
     private String email = null;
-    private CommandsClient commandsClient = new CommandsClient();
+    private ClientService service = new ClientService();
 
     public AlterClient(Client client) {
         super();
@@ -95,11 +93,9 @@ public class AlterClient extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    HttpsConnections.deleteHttps(client.getId());
+                    service.delete(client);
                     JOptionPane.showMessageDialog(null,"Client removido com Sucesso!");
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                } catch (InterruptedException ex) {
+                }catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
             }
@@ -140,7 +136,7 @@ public class AlterClient extends JPanel{
                     client.setAreaAtuacao(jtfSalario.getText());
                     client.getContato().setEmail(email);
                     client.getContato().setTelefone(tel);
-                    commandsClient.updateRow(client.getId(),client);
+                    service.alter(client.getId(),client);
                     JOptionPane.showMessageDialog(null,"ALTERADO COM SUCESSO");
                 }catch (LackOfInformationException ex){
                     JOptionPane.showMessageDialog(null, ex.getMessage());

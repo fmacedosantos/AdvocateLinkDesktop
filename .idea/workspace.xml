@@ -12,9 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="Colocado banco de dados no Client.java">
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionDataBase.java" afterDir="false" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="tratamento de perca de conexao com BD">
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsConnections.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsInitialize.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,23 +264,7 @@
       <workItem from="1698358300428" duration="7000" />
       <workItem from="1698491914990" duration="66000" />
       <workItem from="1698492007733" duration="2116000" />
-      <workItem from="1698494189673" duration="3508000" />
-    </task>
-    <task id="LOCAL-00004" summary="encapsulamento de metodos">
-      <option name="closed" value="true" />
-      <created>1694141148664</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1694141148664</updated>
-    </task>
-    <task id="LOCAL-00005" summary="encapsulamento de metodos">
-      <option name="closed" value="true" />
-      <created>1694141217998</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1694141217999</updated>
+      <workItem from="1698494189673" duration="3810000" />
     </task>
     <task id="LOCAL-00006" summary="encapsulamento de metodos">
       <option name="closed" value="true" />
@@ -653,7 +642,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698497298618</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="tratamento de perca de conexao com BD">
+      <option name="closed" value="true" />
+      <created>1698497785589</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1698497785589</updated>
+    </task>
+    <task id="LOCAL-00054" summary="tratamento de perca de conexao com BD">
+      <option name="closed" value="true" />
+      <created>1698497828588</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1698497828588</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,7 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="melhorada a estrutura do projeto" />
     <MESSAGE value="Procurar do Funcionario adicionado" />
     <MESSAGE value="Modo Off criado" />
     <MESSAGE value="Modo Off criadoo" />
@@ -696,7 +700,8 @@
     <MESSAGE value="script de banco de dados adicionado" />
     <MESSAGE value="melhorias de tratamentos de erros" />
     <MESSAGE value="Colocado banco de dados no Client.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Colocado banco de dados no Client.java" />
+    <MESSAGE value="tratamento de perca de conexao com BD" />
+    <option name="LAST_COMMIT_MESSAGE" value="tratamento de perca de conexao com BD" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

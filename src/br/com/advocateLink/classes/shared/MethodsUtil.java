@@ -1,8 +1,5 @@
 package br.com.advocateLink.classes.shared;
 
-import br.com.advocateLink.classes.shared.connections.https.HttpsInitialize;
-import br.com.advocateLink.classes.models.Client;
-
 import javax.swing.*;
 
 /**This class will do, processing within a class, for example, validate input, and verify that a number sent really is number.
@@ -44,12 +41,4 @@ public abstract class MethodsUtil {
      * @return
      * @throws NullPointerException
      */
-    public static Client search(String name) throws NullPointerException {
-        for (Client c: HttpsInitialize.getClients()) {
-            if (c.getNome().equals(name)) {
-                return c;
-            }
-        }
-        throw new NullPointerException();
-    }
 }

@@ -3,7 +3,7 @@ package br.com.advocateLink.service;
 import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.interfaces.IService;
 import br.com.advocateLink.classes.models.Client;
-import br.com.advocateLink.classes.shared.connections.database.commands.CommandsClient;
+import br.com.advocateLink.connections.database.commands.CommandsClient;
 
 import java.sql.SQLException;
 import java.util.List;

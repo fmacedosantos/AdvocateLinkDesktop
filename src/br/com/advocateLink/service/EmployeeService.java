@@ -5,10 +5,9 @@ import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.interfaces.IService;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
-import br.com.advocateLink.classes.shared.connections.database.commands.CommandsEmployee;
+import br.com.advocateLink.connections.database.commands.CommandsEmployee;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /** this class gives function to the ObjectMethods interface, processing the CRUD

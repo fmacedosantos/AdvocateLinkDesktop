@@ -1,10 +1,4 @@
-package br.com.advocateLink.classes.shared.connections.InputAndOutputFile;
-
-import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+package br.com.advocateLink.connections.InputAndOutputFile;
 
 public class InputFile {
     //Iniciar conexao OFFLine no 3 Sprint....

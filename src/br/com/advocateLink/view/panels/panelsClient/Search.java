@@ -5,8 +5,6 @@ import br.com.advocateLink.classes.models.Client;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.service.ClientService;
 import br.com.advocateLink.service.EmployeeService;
-import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
-import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.view.screens.Mainscreen;
 
 import javax.imageio.ImageIO;

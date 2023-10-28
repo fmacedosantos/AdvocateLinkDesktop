@@ -3,8 +3,8 @@ package br.com.advocateLink.testes;
 import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.models.Employee;
-import br.com.advocateLink.classes.shared.connections.database.ConnectionDataBase;
-import br.com.advocateLink.classes.shared.connections.database.commands.CommandsEmployee;
+import br.com.advocateLink.connections.database.ConnectionDataBase;
+import br.com.advocateLink.connections.database.commands.CommandsEmployee;
 
 import java.sql.SQLException;
 

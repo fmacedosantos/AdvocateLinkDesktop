@@ -1,9 +1,7 @@
 package br.com.advocateLink.view;
-import br.com.advocateLink.classes.shared.connections.database.ConnectionDataBase;
-import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
+import br.com.advocateLink.connections.database.ConnectionDataBase;
 import br.com.advocateLink.view.screens.Login;
 import javax.swing.*;
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class Main {
