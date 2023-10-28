@@ -13,16 +13,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="melhorias de tratamentos de erros">
-      <change afterPath="$PROJECT_DIR$/src/libs/org.tinygroup.exceptionhandler-3.4.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/ClientService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advocatelink01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/advocatelink01.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Clients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsConnections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsInitialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsInitialize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/testes/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/testes/Teste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/libs/org.tinygroup.exceptionhandler-3.4.9.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,36 +85,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Daniel/IdeaProjects/advocatelink01/src/libs/org.tinygroup.exceptionhandler-3.4.9.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/IdeaProjects/e-commerce_RestAPI&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01\src\libs" />
@@ -136,11 +145,11 @@
       </method>
     </configuration>
     <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.advocateLink.classes.testes.Teste" />
+      <option name="MAIN_CLASS_NAME" value="br.com.advocateLink.testes.Teste" />
       <module name="advocatelink01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.advocateLink.classes.testes.*" />
+          <option name="PATTERN" value="br.com.advocateLink.testes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -260,15 +269,14 @@
       <workItem from="1697291541033" duration="2377000" />
       <workItem from="1697299776911" duration="736000" />
       <workItem from="1697306279750" duration="2000" />
-      <workItem from="1697372801786" duration="1414000" />
-    </task>
-    <task id="LOCAL-00002" summary="initia">
-      <option name="closed" value="true" />
-      <created>1694136272037</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1694136272037</updated>
+      <workItem from="1697372801786" duration="1581000" />
+      <workItem from="1698010252545" duration="232000" />
+      <workItem from="1698097417872" duration="9000" />
+      <workItem from="1698149695353" duration="244000" />
+      <workItem from="1698358300428" duration="7000" />
+      <workItem from="1698491914990" duration="66000" />
+      <workItem from="1698492007733" duration="2116000" />
+      <workItem from="1698494189673" duration="2968000" />
     </task>
     <task id="LOCAL-00003" summary="encapsulamento de metodos">
       <option name="closed" value="true" />
@@ -654,7 +662,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697240981949</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="melhorias de tratamentos de erros">
+      <option name="closed" value="true" />
+      <created>1697374300893</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1697374300894</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

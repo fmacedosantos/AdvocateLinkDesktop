@@ -1,6 +1,6 @@
 package br.com.advocateLink.classes.shared.connections.https;
 
-import br.com.advocateLink.classes.models.Clients;
+import br.com.advocateLink.classes.models.Client;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -34,7 +34,7 @@ public abstract class HttpsConnections extends HttpsInitialize {
             }
         }
         Gson gson = new Gson();
-        clients = gson.fromJson(response.body(), Clients[].class);
+        clients = gson.fromJson(response.body(), Client[].class);
     }
 
     /**
@@ -43,7 +43,7 @@ public abstract class HttpsConnections extends HttpsInitialize {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static void postHttps(Clients tempClient) throws IOException, InterruptedException {
+    public static void postHttps(Client tempClient) throws IOException, InterruptedException {
         client = HttpClient.newHttpClient();
         // Constroi a solicitação HTTP POST
         HttpRequest request = HttpRequest.newBuilder()
@@ -86,7 +86,7 @@ public abstract class HttpsConnections extends HttpsInitialize {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static void alterClient(long id, Clients tempClient) throws IOException, InterruptedException {
+    public static void alterClient(long id, Client tempClient) throws IOException, InterruptedException {
         client = HttpClient.newHttpClient();
         // Constroi a solicitação HTTP POST
         HttpRequest request = HttpRequest.newBuilder()

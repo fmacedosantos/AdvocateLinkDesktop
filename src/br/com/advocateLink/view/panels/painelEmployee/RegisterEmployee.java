@@ -5,15 +5,13 @@ import br.com.advocateLink.classes.models.Address;
 import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
-import br.com.advocateLink.classes.shared.employee.EmployeeService;
+import br.com.advocateLink.service.EmployeeService;
 
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.text.ParseException;
 
 public class RegisterEmployee extends JPanel {
 

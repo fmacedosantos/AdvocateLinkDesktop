@@ -1,7 +1,8 @@
 package br.com.advocateLink.view.panels.panelsClient;
 
 import br.com.advocateLink.classes.exceptions.LackOfInformationException;
-import br.com.advocateLink.classes.models.Clients;
+import br.com.advocateLink.classes.models.Client;
+import br.com.advocateLink.classes.shared.connections.database.commands.CommandsClient;
 import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
 
 import javax.swing.*;
@@ -9,17 +10,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AlterClient extends JPanel{
     private JTextArea jtfSalario, jtfFoto,jtfOAB;
     private JButton jbAlterar, jbApagar;
     private JLabel jlFundoAlterar;
     private JCheckBox jcbEmail, jcbTelefone;
-    private Clients client;
+    private Client client;
     private long tel = 0;
     private String email = null;
+    private CommandsClient commandsClient = new CommandsClient();
 
-    public AlterClient(Clients client) {
+    public AlterClient(Client client) {
         super();
         this.client=client;
         setSize(812, 535);
@@ -137,14 +140,12 @@ public class AlterClient extends JPanel{
                     client.setAreaAtuacao(jtfSalario.getText());
                     client.getContato().setEmail(email);
                     client.getContato().setTelefone(tel);
-                    HttpsConnections.alterClient(client.getId(),client);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
+                    commandsClient.updateRow(client.getId(),client);
+                    JOptionPane.showMessageDialog(null,"ALTERADO COM SUCESSO");
                 }catch (LackOfInformationException ex){
-                    JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");
-                    ex.getMessage();
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Sem conexao");
                 }
             }
         });

@@ -13,11 +13,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Clients extends Manageable {
+public class Client extends Manageable {
     private String oab;
     private String areaAtuacao;
 
-    public Clients(long id, String name, String cpf, Address address, Contact contact, String photograph, String oab, String actingArea) {
+    public Client(long id, String name, String cpf, Address address, Contact contact, String photograph, String oab, String actingArea) {
         super(id, name, cpf, address, contact, photograph);
         this.oab = oab;
         this.areaAtuacao = actingArea;

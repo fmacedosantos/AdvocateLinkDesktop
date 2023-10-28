@@ -1,6 +1,6 @@
 package br.com.advocateLink.classes.shared.connections.https;
 
-import br.com.advocateLink.classes.models.Clients;
+import br.com.advocateLink.classes.models.Client;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -31,9 +31,9 @@ public abstract class HttpsInitialize {
     /**
      * converts from Json to a System Object
      */
-    protected static Clients[] clients = gson.fromJson(response.body(), Clients[].class);
+    protected static Client[] clients = gson.fromJson(response.body(), Client[].class);
     //Getters
-    public static Clients[] getClients() {
+    public static Client[] getClients() {
         return clients;
     }
 }

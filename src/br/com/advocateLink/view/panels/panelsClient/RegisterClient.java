@@ -3,16 +3,18 @@ package br.com.advocateLink.view.panels.panelsClient;
 import br.com.advocateLink.classes.exceptions.LackOfInformationException;
 import br.com.advocateLink.classes.exceptions.NegativeNumberException;
 import br.com.advocateLink.classes.models.Address;
-import br.com.advocateLink.classes.models.Clients;
+import br.com.advocateLink.classes.models.Client;
 import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
+import br.com.advocateLink.service.ClientService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import static br.com.advocateLink.classes.shared.MethodsUtil.validatesInput;
 import static br.com.advocateLink.classes.shared.MethodsUtil.validatesNumber;
@@ -30,6 +32,7 @@ public class RegisterClient extends JPanel {
     private JButton jbContinuar;
     private int tel = 0;
     private String email = null;
+    private ClientService clientService = new ClientService();
 
     public RegisterClient() {
         super();
@@ -37,7 +40,6 @@ public class RegisterClient extends JPanel {
         setLayout(null);
         iniciarComponentes();
         criarEventos();
-        HttpsConnections.getHttps();
     }
 
     private void iniciarComponentes() {
@@ -199,16 +201,16 @@ public class RegisterClient extends JPanel {
                                 String oab = jtfOAB.getText();
                                 String itemSelecionado = jcbAreaAtuaçao.getSelectedItem().toString();
                                 JOptionPane.showMessageDialog(null,"Cliente cadastrado com Sucesso");
-                                HttpsConnections.postHttps(new Clients(0, nome, cpf, new Address(rua, numero, bairro),
-                                        new Contact(tel, email), urlfoto, oab, itemSelecionado));
-                            } catch (IOException | InterruptedException ex) {
-                                System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
+                                clientService.register((new Client(0, nome, cpf, new Address(rua, numero, bairro),
+                                        new Contact(tel, email), urlfoto, oab, itemSelecionado)));
                             } catch (NumberFormatException | NegativeNumberException ex) {
                                 JOptionPane.showMessageDialog(null, " VERIFIQUE AS INFORMACOES");
                                 System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
                             } catch (LackOfInformationException ex) {
                                 JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");
                                 System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
+                            } catch (SQLException ex) {
+                                throw new RuntimeException(ex);
                             }
                         }
                     });

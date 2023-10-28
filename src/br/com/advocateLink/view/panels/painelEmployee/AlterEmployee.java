@@ -4,7 +4,7 @@ import br.com.advocateLink.classes.exceptions.LackOfInformationException;
 import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.models.Employee;
-import br.com.advocateLink.classes.shared.employee.EmployeeService;
+import br.com.advocateLink.service.EmployeeService;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,6 @@
-package br.com.advocateLink.classes.testes;
+package br.com.advocateLink.testes;
 
 import br.com.advocateLink.classes.exceptions.UserNotFound;
-import br.com.advocateLink.classes.models.Address;
 import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.connections.database.ConnectionDataBase;

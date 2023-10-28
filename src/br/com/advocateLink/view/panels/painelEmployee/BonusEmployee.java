@@ -3,7 +3,7 @@ package br.com.advocateLink.view.panels.painelEmployee;
 import br.com.advocateLink.classes.exceptions.NegativeNumberException;
 import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.shared.MethodsUtil;
-import br.com.advocateLink.classes.shared.employee.EmployeeService;
+import br.com.advocateLink.service.EmployeeService;
 
 import javax.swing.*;
 import java.awt.*;

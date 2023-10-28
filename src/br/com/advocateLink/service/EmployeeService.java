@@ -1,4 +1,4 @@
-package br.com.advocateLink.classes.shared.employee;
+package br.com.advocateLink.service;
 
 import br.com.advocateLink.classes.exceptions.NegativeNumberException;
 import br.com.advocateLink.classes.exceptions.UserNotFound;
@@ -7,7 +7,6 @@ import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.classes.shared.connections.database.commands.CommandsEmployee;
 
-import javax.swing.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.List;
  * @version 1.0
  */
 public  class EmployeeService implements IService<Employee> {
-    public static List<Employee> list = new ArrayList<>();
     private CommandsEmployee commandsEmployee = new CommandsEmployee();
     /**
      * sends bonuses to an employee.
@@ -25,7 +23,7 @@ public  class EmployeeService implements IService<Employee> {
      * @param bonus
      * @throws NegativeNumberException
      */
-    public void sendBonus(Employee tempEmployee,double bonus)throws NegativeNumberException {
+    public void sendBonus(Employee tempEmployee,Double bonus)throws NegativeNumberException {
         if (bonus<0){
             throw new NegativeNumberException("Numero negativo");
         }
@@ -73,6 +71,6 @@ public  class EmployeeService implements IService<Employee> {
     }
     @Override
     public List<Employee> show() {
-        return list;
+        return null;
     }
 }

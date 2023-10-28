@@ -1,8 +1,11 @@
 package br.com.advocateLink.view.screens;
 
 import br.com.advocateLink.classes.exceptions.UserNotFound;
+import br.com.advocateLink.classes.models.Client;
+import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
-import br.com.advocateLink.classes.shared.employee.EmployeeService;
+import br.com.advocateLink.service.ClientService;
+import br.com.advocateLink.service.EmployeeService;
 import br.com.advocateLink.view.panels.painelEmployee.AlterEmployee;
 import br.com.advocateLink.view.panels.painelEmployee.BonusEmployee;
 import br.com.advocateLink.view.panels.painelEmployee.RegisterEmployee;
@@ -40,6 +43,7 @@ public class Mainscreen extends JFrame {
     private JMenuItem jmiGerarRelatorio;
     private JMenuItem jmiSistema;
     private EmployeeService employeeService = new EmployeeService();
+    private ClientService service = new ClientService();
     //Gerenciador de Status
     public enum AppSearchState {
         NONE,
@@ -112,15 +116,11 @@ public class Mainscreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
-                if (Main.currentConnectState == Main.AppConnectState.ON){
-                    RegisterClient client = new RegisterClient();
-                    getContentPane().removeAll();
-                    getContentPane().add(client);
-                    getContentPane().validate();
-                    repaint();
-                }else {
-                    JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
-                }
+                RegisterClient client = new RegisterClient();
+                getContentPane().removeAll();
+                getContentPane().add(client);
+                getContentPane().validate();
+                repaint();
             }
         });
         jmiCadastrarFuncionario.addActionListener(new ActionListener() {
@@ -137,19 +137,22 @@ public class Mainscreen extends JFrame {
         jmiAlterarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Main.currentConnectState == Main.AppConnectState.ON){
-                    try {
-                        String nomeDoCliente = JOptionPane.showInputDialog("DIGITE O NOME DO CLIENTE");
-                        AlterClient clientt = new AlterClient(MethodsUtil.search(nomeDoCliente));
-                        getContentPane().removeAll();
-                        getContentPane().add(clientt);
-                        getContentPane().validate();
-                        repaint();
-                    }catch (NullPointerException ex){
-                        JOptionPane.showMessageDialog(null,"Cliente inexistente, confira os dados");
+                try {
+                    Client c = service.search(Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO CLIENTE")));
+                    if (c.getOab()==null){
+                        throw new NullPointerException("Cliente nao encontrado");
                     }
-                }else{
-                    JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
+                    AlterClient clientt = new AlterClient(c);
+                    getContentPane().removeAll();
+                    getContentPane().add(clientt);
+                    getContentPane().validate();
+                    repaint();
+                    } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                    }catch (NullPointerException  ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }catch (UserNotFound ex){
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
                 }
             }
         });
@@ -157,8 +160,11 @@ public class Mainscreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Long id = Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO FUNCIONARIO"));
-                    AlterEmployee employeee = new AlterEmployee(employeeService.search(id));
+                    Employee employeTemp = employeeService.search(Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO CLIENTE")));
+                    if (employeTemp.getSalary()==0){
+                        throw new UserNotFound("Cliente nao encontrado");
+                    }
+                    AlterEmployee employeee = new AlterEmployee(employeTemp);
                     getContentPane().removeAll();
                     getContentPane().add(employeee);
                     getContentPane().validate();
@@ -185,16 +191,12 @@ public class Mainscreen extends JFrame {
         jmiPesquisarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Main.currentConnectState == Main.AppConnectState.ON){
-                    Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.CLIENT;
-                    Search search = new Search();
-                    getContentPane().removeAll();
-                    getContentPane().add(search);
-                    getContentPane().validate();
-                    repaint();
-                }else {
-                    JOptionPane.showMessageDialog(null,"VOCE ESTA OFF, CONECTAR NA API OU TENTE MAIS TARDE");
-                }
+                Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.CLIENT;
+                Search search = new Search();
+                getContentPane().removeAll();
+                getContentPane().add(search);
+                getContentPane().validate();
+                repaint();
             }
         });
         jmiPesquisarFuncionario.addActionListener(new ActionListener() {

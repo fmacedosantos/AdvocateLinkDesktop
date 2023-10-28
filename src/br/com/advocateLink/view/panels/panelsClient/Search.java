@@ -1,16 +1,16 @@
 package br.com.advocateLink.view.panels.panelsClient;
 
 import br.com.advocateLink.classes.exceptions.UserNotFound;
-import br.com.advocateLink.classes.models.Clients;
+import br.com.advocateLink.classes.models.Client;
 import br.com.advocateLink.classes.models.Employee;
-import br.com.advocateLink.classes.shared.employee.EmployeeService;
+import br.com.advocateLink.service.ClientService;
+import br.com.advocateLink.service.EmployeeService;
 import br.com.advocateLink.classes.shared.connections.https.HttpsConnections;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.view.screens.Mainscreen;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -22,16 +22,13 @@ public class Search extends JPanel {
     private JButton jbPesquisar;
     private JLabel jlFundoPesquisar, lfotoUser, lnomeuser, lcpf, ltelefone, lemail, lOAB, lareaatuacao;
     private EmployeeService employeeService = new EmployeeService();
+    private ClientService clientService = new ClientService();
     public Search() {
         super();
         setSize(815, 538);
         setLayout(null);
         iniciarComponentes();
         criarEventos();
-        //se for verdadeiro ele permite a entrada no Gethttps
-        if (Mainscreen.currentAppSearchState==Mainscreen.AppSearchState.CLIENT){
-            HttpsConnections.getHttps();
-        }
     }
     private void iniciarComponentes() {
         jlFundoPesquisar = new JLabel();
@@ -76,7 +73,7 @@ public class Search extends JPanel {
         return imageIcon;
     }
 
-    private ImageIcon setfoto(Clients client) throws IOException {
+    private ImageIcon setfoto(Client client) throws IOException {
         URL url = new URL(client.getUrlfoto());
         Image image = ImageIO.read(url);
         ImageIcon imageIcon = new ImageIcon(image);
@@ -84,7 +81,7 @@ public class Search extends JPanel {
     }
 
 
-    private void setinfromacao(Clients client) {
+    private void setinfromacao(Client client) {
         Font font = new Font(Font.SERIF, Font.BOLD, 18);
         lnomeuser.setText("Nome: " + client.getNome());
         lnomeuser.setFont(font);
@@ -138,26 +135,42 @@ public class Search extends JPanel {
                 if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.CLIENT){
                     try {
                         // Pesquisa o Cliente a partir do nome
-                        Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
+                        Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
+                        if (tempClint.getOab()==null){
+                            throw new NullPointerException("Cliente nao encontrado");
+                        }
                         lfotoUser.setIcon(setfoto(tempClint));
                         lfotoUser.setText("TEXTEEEEE");
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempClint);
                     } catch (NullPointerException exception) {
                         System.out.println(exception.getMessage());
-                        JOptionPane.showMessageDialog(null, "Nome de busca incorreto ou inexistente");
+                        JOptionPane.showMessageDialog(null, exception.getMessage());
+                    }catch (UserNotFound ex){
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (IOException ex) {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         // Pesquisa o Cliente a partir do nome
-                        Clients tempClint = MethodsUtil.search(jtfPesquisar.getText());
-                        lfotoUser.setBounds(100, 155, 200, 200);
-                        setinfromacao(tempClint);
-                        System.out.println(ex.getMessage());
+                        try {
+                            Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
+                            lfotoUser.setBounds(100, 155, 200, 200);
+                            setinfromacao(tempClint);
+                            System.out.println(ex.getMessage());
+                        } catch (SQLException exc) {
+                            throw new RuntimeException(exc);
+                        } catch (UserNotFound exx){
+                            JOptionPane.showMessageDialog(null, exx.getMessage());
+                        }
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
                     }
                 } else if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.EMPLOYEE) {
                     try{
                         Employee tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
+                        if (tempEmployee.getSalary()==0){
+                            throw new NullPointerException("Funcionario nao encontrado");
+                        }
                         lfotoUser.setIcon(setfoto(tempEmployee));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
@@ -179,6 +192,8 @@ public class Search extends JPanel {
                         JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(null,"Sem conexao");
+                    } catch (NullPointerException ex){
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
                 }
             }
