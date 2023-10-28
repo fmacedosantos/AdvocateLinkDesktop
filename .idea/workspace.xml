@@ -12,26 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="melhorias de tratamentos de erros">
-      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Clients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/commands/CommandsEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsConnections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsInitialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsInitialize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/testes/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/testes/Teste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/libs/org.tinygroup.exceptionhandler-3.4.9.jar" beforeDir="false" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="Colocado banco de dados no Client.java">
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/database/ConnectionDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,15 +259,7 @@
       <workItem from="1698358300428" duration="7000" />
       <workItem from="1698491914990" duration="66000" />
       <workItem from="1698492007733" duration="2116000" />
-      <workItem from="1698494189673" duration="2968000" />
-    </task>
-    <task id="LOCAL-00003" summary="encapsulamento de metodos">
-      <option name="closed" value="true" />
-      <created>1694140954250</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1694140954250</updated>
+      <workItem from="1698494189673" duration="3508000" />
     </task>
     <task id="LOCAL-00004" summary="encapsulamento de metodos">
       <option name="closed" value="true" />
@@ -670,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697374300894</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Colocado banco de dados no Client.java">
+      <option name="closed" value="true" />
+      <created>1698497298618</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1698497298618</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,7 +671,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="criada a interface de metodos do funcionario" />
     <MESSAGE value="melhorada a estrutura do projeto" />
     <MESSAGE value="Procurar do Funcionario adicionado" />
     <MESSAGE value="Modo Off criado" />
@@ -713,7 +695,8 @@
     <MESSAGE value="arrumado codigo baguncado" />
     <MESSAGE value="script de banco de dados adicionado" />
     <MESSAGE value="melhorias de tratamentos de erros" />
-    <option name="LAST_COMMIT_MESSAGE" value="melhorias de tratamentos de erros" />
+    <MESSAGE value="Colocado banco de dados no Client.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Colocado banco de dados no Client.java" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
