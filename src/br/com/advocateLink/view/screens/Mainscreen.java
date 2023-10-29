@@ -1,28 +1,25 @@
 package br.com.advocateLink.view.screens;
 
-import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.models.Client;
 import br.com.advocateLink.classes.models.Employee;
-import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.service.ClientService;
 import br.com.advocateLink.service.EmployeeService;
 import br.com.advocateLink.view.panels.painelEmployee.AlterEmployee;
 import br.com.advocateLink.view.panels.painelEmployee.BonusEmployee;
 import br.com.advocateLink.view.panels.painelEmployee.RegisterEmployee;
 import br.com.advocateLink.view.panels.painelsAbout.GenereteRelatory;
+import br.com.advocateLink.view.panels.panelsClient.AlterClient;
 import br.com.advocateLink.view.panels.panelsClient.RegisterClient;
 import br.com.advocateLink.view.panels.panelsClient.Search;
-import br.com.advocateLink.view.Main;
-import br.com.advocateLink.view.panels.panelsClient.AlterClient;
 import lombok.SneakyThrows;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 public class Mainscreen extends JFrame {
+    public static AppSearchState currentAppSearchState = AppSearchState.NONE;
     //Background
     private JLabel jlFundo;
     private JButton jbSair;
@@ -45,14 +42,7 @@ public class Mainscreen extends JFrame {
     private JMenuItem jmiSistema;
     private EmployeeService employeeService = new EmployeeService();
     private ClientService service = new ClientService();
-    //Gerenciador de Status
-    public enum AppSearchState {
-        NONE,
-        OFF,
-        CLIENT,
-        EMPLOYEE,;
-    }
-    public static AppSearchState currentAppSearchState = AppSearchState.NONE;
+
     public Mainscreen(String title) throws HeadlessException {
         super(title);
         //Atributos da tela
@@ -63,6 +53,7 @@ public class Mainscreen extends JFrame {
         iniciarComponentes();
         criarEventos();
     }
+
     private void iniciarComponentes() {
         jmbBarra = new JMenuBar();
         jmCliente = new JMenu("Cliente");
@@ -145,8 +136,8 @@ public class Mainscreen extends JFrame {
                     getContentPane().add(clientt);
                     getContentPane().validate();
                     repaint();
-                    }catch (RuntimeException ex) {
-                    }
+                } catch (RuntimeException ex) {
+                }
             }
         });
         jmiAlterarFuncionario.addActionListener(new ActionListener() {
@@ -160,9 +151,10 @@ public class Mainscreen extends JFrame {
                     getContentPane().add(employeee);
                     getContentPane().validate();
                     repaint();
-                }catch (NumberFormatException ex){
+                } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "verifique os campos");
-                }catch (RuntimeException ex){}
+                } catch (RuntimeException ex) {
+                }
             }
         });
         jmiGerarRelatorio.addActionListener(new ActionListener() {
@@ -207,5 +199,13 @@ public class Mainscreen extends JFrame {
                 repaint();
             }
         });
+    }
+
+    //Gerenciador de Status
+    public enum AppSearchState {
+        NONE,
+        CLIENT,
+        EMPLOYEE,
+        ;
     }
 }

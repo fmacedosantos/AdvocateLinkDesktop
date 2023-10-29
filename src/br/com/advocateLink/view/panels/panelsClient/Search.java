@@ -1,6 +1,5 @@
 package br.com.advocateLink.view.panels.panelsClient;
 
-import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.models.Client;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.service.ClientService;
@@ -13,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+
 public class Search extends JPanel {
 
     private JTextField jtfPesquisar;
@@ -21,6 +20,7 @@ public class Search extends JPanel {
     private JLabel jlFundoPesquisar, lfotoUser, lnomeuser, lcpf, ltelefone, lemail, lOAB, lareaatuacao;
     private EmployeeService employeeService = new EmployeeService();
     private ClientService clientService = new ClientService();
+
     public Search() {
         super();
         setSize(815, 538);
@@ -28,6 +28,7 @@ public class Search extends JPanel {
         iniciarComponentes();
         criarEventos();
     }
+
     private void iniciarComponentes() {
         jlFundoPesquisar = new JLabel();
         jlFundoPesquisar.setIcon(new ImageIcon(getClass().getResource("/imagens/backgroundSearch.png")));
@@ -64,6 +65,7 @@ public class Search extends JPanel {
         jlFundoPesquisar.setBounds(0, 0, 800, 500);
 
     }
+
     private ImageIcon setfoto(Employee employee) throws IOException {
         URL url = new URL(employee.getUrlfoto());
         Image image = ImageIO.read(url);
@@ -102,6 +104,7 @@ public class Search extends JPanel {
         add(jlFundoPesquisar);
         jlFundoPesquisar.setBounds(0, 0, 800, 500);
     }
+
     private void setinfromacao(Employee employee) {
         Font font = new Font(Font.SERIF, Font.BOLD, 18);
         lnomeuser.setText("Nome: " + employee.getNome());
@@ -130,7 +133,7 @@ public class Search extends JPanel {
         jbPesquisar.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.CLIENT){
+                if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.CLIENT) {
                     try {
                         // Pesquisa o Cliente a partir do nome
                         Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
@@ -138,30 +141,31 @@ public class Search extends JPanel {
                         lfotoUser.setText("TEXTEEEEE");
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempClint);
-                    }catch (IOException ex) {
+                    } catch (IOException ex) {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         // Pesquisa o Cliente a partir do nome
-                            Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
-                            lfotoUser.setBounds(100, 155, 200, 200);
-                            setinfromacao(tempClint);
-                            System.out.println(ex.getMessage());
-                    }catch (RuntimeException ex){}
+                        Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
+                        lfotoUser.setBounds(100, 155, 200, 200);
+                        setinfromacao(tempClint);
+                        System.out.println(ex.getMessage());
+                    } catch (RuntimeException ex) {
+                    }
                 } else if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.EMPLOYEE) {
-                    try{
+                    try {
                         Employee tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
                         lfotoUser.setIcon(setfoto(tempEmployee));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
                     } catch (IOException ex) {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
-                       lfotoUser.setBounds(100, 155, 200, 200);
+                        lfotoUser.setBounds(100, 155, 200, 200);
                         Employee tempEmployee = null;
-                            tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
+                        tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
                         System.out.println(ex.getMessage());
-                    }catch (RuntimeException ex){
+                    } catch (RuntimeException ex) {
                     }
                 }
             }

@@ -12,32 +12,33 @@ import java.util.List;
 public class ClientService implements IService<Client> {
     private CommandsClient commandsClient = new CommandsClient();
     private ErrorHandler errorHandler = new ErrorHandler();
+
     @Override
-    public Client search(Long id){
-        try{
+    public Client search(Long id) {
+        try {
             Client c = commandsClient.searchRow(id);
-            if (c.getOab()==null){
+            if (c.getOab() == null) {
                 throw new UserNotFound("Cliente nao encontrado");
             }
             return c;
-        }catch (UserNotFound ex){
+        } catch (UserNotFound ex) {
             errorHandler.userNotFoundHandler(new UserNotFound("usuario incorreto"));
             throw new RuntimeException();
-        }catch (SQLException ex){
-            errorHandler.sqlHandler(new SQLException("Falha na conexao: "+ ex.getMessage()));
+        } catch (SQLException ex) {
+            errorHandler.sqlHandler(new SQLException("Falha na conexao: " + ex.getMessage()));
             throw new RuntimeException();
         }
     }
 
     @Override
-    public Boolean delete(Client client){
-        try{
+    public Boolean delete(Client client) {
+        try {
             commandsClient.deleteRow(client);
-        }catch (UserNotFound ex){
+        } catch (UserNotFound ex) {
             errorHandler.userNotFoundHandler(new UserNotFound("usuario incorreto"));
             throw new RuntimeException();
-        }catch (SQLException ex){
-            errorHandler.sqlHandler(new SQLException("Falha na conexao: "+ ex.getMessage()));
+        } catch (SQLException ex) {
+            errorHandler.sqlHandler(new SQLException("Falha na conexao: " + ex.getMessage()));
             throw new RuntimeException();
         }
 
@@ -45,14 +46,14 @@ public class ClientService implements IService<Client> {
     }
 
     @Override
-    public Boolean alter(Long id, Client client){
-        try{
-            commandsClient.updateRow(id,client);
-        }catch (UserNotFound ex){
+    public Boolean alter(Long id, Client client) {
+        try {
+            commandsClient.updateRow(id, client);
+        } catch (UserNotFound ex) {
             errorHandler.userNotFoundHandler(new UserNotFound("usuario incorreto"));
             throw new RuntimeException();
-        }catch (SQLException ex){
-            errorHandler.sqlHandler(new SQLException("Falha na conexao: "+ ex.getMessage()));
+        } catch (SQLException ex) {
+            errorHandler.sqlHandler(new SQLException("Falha na conexao: " + ex.getMessage()));
             throw new RuntimeException();
         }
         return null;
@@ -60,10 +61,10 @@ public class ClientService implements IService<Client> {
 
     @Override
     public Boolean register(Client client) {
-        try{
+        try {
             commandsClient.insertRow(client);
-        }catch (SQLException ex){
-            errorHandler.sqlHandler(new SQLException("Falha na conexao: "+ ex.getMessage()));
+        } catch (SQLException ex) {
+            errorHandler.sqlHandler(new SQLException("Falha na conexao: " + ex.getMessage()));
             throw new RuntimeException();
         }
         return null;

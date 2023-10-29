@@ -24,14 +24,14 @@ public class RegisterEmployee extends JPanel {
     private JTextField jtfCodigo;
     private ImageIcon img;
     private JButton jbContinuar;
-    private JComboBox <String> combo = new JComboBox<>();
+    private JComboBox<String> combo = new JComboBox<>();
     private int tel = 0;
     private String email = null;
     private EmployeeService employeeService = new EmployeeService();
 
     public RegisterEmployee() {
         super();
-        setSize(800,500);
+        setSize(800, 500);
         setLayout(null);
         iniciarComponentes();
         criarEventos();
@@ -81,8 +81,8 @@ public class RegisterEmployee extends JPanel {
         jtfBairro.setBounds(410, 200, 240, 35);
         jtfRua.setBounds(410, 273, 145, 35);
         jtfNumero.setBounds(570, 273, 70, 35);
-        jtfCodigo.setBounds(410,350,240,35);
-        jbContinuar.setBounds(687,448,95,35);
+        jtfCodigo.setBounds(410, 350, 240, 35);
+        jbContinuar.setBounds(687, 448, 95, 35);
         //Adicionar os componentes
         add(jtfNome);
         add(jtfCPF);
@@ -93,6 +93,7 @@ public class RegisterEmployee extends JPanel {
         add(jbContinuar);
         add(jlFundoCadastro);
     }
+
     private void criarEventos() {
         jbContinuar.addActionListener(new ActionListener() {
             private JLabel jlFundoCadastro01;
@@ -116,7 +117,7 @@ public class RegisterEmployee extends JPanel {
                 combo.addItem("menssagem normal");
                 add(combo);
                 combo.setBounds(396, 56, 253, 38);
-                combo.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+                combo.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
                 add(jtfFoto);
                 add(jtfSalario);
                 add(jcEmail);
@@ -125,11 +126,11 @@ public class RegisterEmployee extends JPanel {
                 add(jlFundoCadastro);
                 //Posicionamento dos componentes
                 jlFundoCadastro.setBounds(2, 2, 800, 500);
-                jtfSalario.setBounds(410,160,240,35);
-                jtfFoto.setBounds(410,264,240,35);
-                jcEmail.setBounds(448,353,50,50);
-                jcTelefone.setBounds(580,353,50,50);
-                jbFinalizar.setBounds(685,455,100,35);
+                jtfSalario.setBounds(410, 160, 240, 35);
+                jtfFoto.setBounds(410, 264, 240, 35);
+                jcEmail.setBounds(448, 353, 50, 50);
+                jcTelefone.setBounds(580, 353, 50, 50);
+                jbFinalizar.setBounds(685, 455, 100, 35);
                 //Estilizar fonte
                 Font font = jtfNome.getFont();
                 jtfFoto.setFont(new Font(font.getName(), Font.PLAIN, 18)); // Tamanho da fonte
@@ -173,26 +174,26 @@ public class RegisterEmployee extends JPanel {
                 });
                 jbFinalizar.addActionListener(new ActionListener() {
                     @Override
-                    public void actionPerformed(ActionEvent e)throws LackOfInformationException {
-                        if (MethodsUtil.validatesInput(jtfCPF,jtfRua,jtfBairro,jtfSalario,jtfNumero,jtfCodigo,jtfFoto)){
-                        try {
-                            if (email == null || tel == 0) {
-                                throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
+                    public void actionPerformed(ActionEvent e) throws LackOfInformationException {
+                        if (MethodsUtil.validatesInput(jtfCPF, jtfRua, jtfBairro, jtfSalario, jtfNumero, jtfCodigo, jtfFoto)) {
+                            try {
+                                if (email == null || tel == 0) {
+                                    throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
+                                }
+                                MethodsUtil.validatesNumber(Integer.parseInt(jtfNumero.getText()));
+                                MethodsUtil.validatesNumber(Integer.parseInt(jtfSalario.getText()));
+                                String itemSelect = combo.getSelectedItem().toString();
+                                employeeService.register(new Employee(0, jtfNome.getText(), jtfCPF.getText(), new Address(jtfRua.getText(), Integer.parseInt(jtfNumero.getText()), jtfBairro.getText()),
+                                        new Contact(tel, email), jtfFoto.getText(), 0, itemSelect, Integer.parseInt(jtfSalario.getText())));
+                                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
+                            } catch (NumberFormatException | LackOfInformationException ex) {
+                                JOptionPane.showMessageDialog(null, "VERIFIQUE AS INFORMACOES");
+                                System.out.println(" " + ex.getMessage());
+                            } catch (SQLException ex) {
+                                JOptionPane.showMessageDialog(null, "sem conexao");
                             }
-                            MethodsUtil.validatesNumber(Integer.parseInt(jtfNumero.getText()));
-                            MethodsUtil.validatesNumber(Integer.parseInt(jtfSalario.getText()));
-                            String itemSelect = combo.getSelectedItem().toString();
-                            employeeService.register(new Employee(0,jtfNome.getText(),jtfCPF.getText(),new Address(jtfRua.getText(),Integer.parseInt(jtfNumero.getText()),jtfBairro.getText()),
-                                    new Contact(tel,email),jtfFoto.getText(),0,itemSelect,Integer.parseInt(jtfSalario.getText())));
-                            JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso");
-                        }catch (NumberFormatException | LackOfInformationException ex){
-                            JOptionPane.showMessageDialog(null,"VERIFIQUE AS INFORMACOES");
-                            System.out.println(" "+ex.getMessage());
-                        }catch (SQLException ex){
-                            JOptionPane.showMessageDialog(null,"sem conexao");
-                        }
-                        }else {
-                            JOptionPane.showMessageDialog(null,"PREENCHA TODOS OS CAMPOS");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "PREENCHA TODOS OS CAMPOS");
                         }
                     }
                 });

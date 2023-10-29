@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class GenereteRelatory extends JPanel {
 
-     private JTextField jtfOAB;
+    private JTextField jtfOAB;
     private JButton jbGerarRelatorio;
     private JLabel jlFundoGerarRelatorio;
 
@@ -35,14 +35,14 @@ public class GenereteRelatory extends JPanel {
 
         jbGerarRelatorio = new JButton();
         add(jbGerarRelatorio);
-        jbGerarRelatorio.setBackground(new Color(0,0,0,0));
+        jbGerarRelatorio.setBackground(new Color(0, 0, 0, 0));
         jbGerarRelatorio.setOpaque(false);
         jbGerarRelatorio.setBorder(null);
         jbGerarRelatorio.setContentAreaFilled(false);
         jbGerarRelatorio.setCursor(new Cursor(Cursor.HAND_CURSOR));
         jbGerarRelatorio.setBounds(415, 282, 243, 35);
 
-        jlFundoGerarRelatorio.setBounds(0,0,800,500);
+        jlFundoGerarRelatorio.setBounds(0, 0, 800, 500);
         add(jlFundoGerarRelatorio);
 
 

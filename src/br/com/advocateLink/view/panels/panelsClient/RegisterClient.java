@@ -12,10 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.sql.SQLException;
 
-import static br.com.advocateLink.classes.shared.MethodsUtil.validatesInput;
 import static br.com.advocateLink.classes.shared.MethodsUtil.validatesNumber;
 
 public class RegisterClient extends JPanel {
@@ -188,8 +185,8 @@ public class RegisterClient extends JPanel {
                                 if (email == null || tel == 0) {
                                     throw new LackOfInformationException("Falta de informacao, verifique todos os campos");
                                 }
-                                int numero =(int) validatesNumber(Integer.parseInt(jtfNumero.getText()));
-                                if (numero<0){
+                                int numero = (int) validatesNumber(Integer.parseInt(jtfNumero.getText()));
+                                if (numero < 0) {
                                     throw new NegativeNumberException("Numero negativo em campos");
                                 }
                                 String nome = jtfNome.getText();
@@ -199,7 +196,7 @@ public class RegisterClient extends JPanel {
                                 String urlfoto = jtfFoto.getText();
                                 String oab = jtfOAB.getText();
                                 String itemSelecionado = jcbAreaAtuaçao.getSelectedItem().toString();
-                                JOptionPane.showMessageDialog(null,"Cliente cadastrado com Sucesso");
+                                JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso");
                                 clientService.register((new Client(0, nome, cpf, new Address(rua, numero, bairro),
                                         new Contact(tel, email), urlfoto, oab, itemSelecionado)));
                             } catch (NumberFormatException | NegativeNumberException ex) {

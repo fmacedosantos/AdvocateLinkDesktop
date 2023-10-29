@@ -1,7 +1,5 @@
 package br.com.advocateLink.view.panels.painelEmployee;
 
-import br.com.advocateLink.classes.exceptions.NegativeNumberException;
-import br.com.advocateLink.classes.exceptions.UserNotFound;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.service.EmployeeService;
 
@@ -9,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 public class BonusEmployee extends JPanel {
 
@@ -18,9 +15,9 @@ public class BonusEmployee extends JPanel {
     private JLabel jlFundoBonificacao;
     private EmployeeService employeeService = new EmployeeService();
 
-    public BonusEmployee(){
+    public BonusEmployee() {
         super();
-        setSize(815,538);
+        setSize(815, 538);
         setLayout(null);
         iniciarComponentes();
         criarEventos();
@@ -37,7 +34,7 @@ public class BonusEmployee extends JPanel {
         jtfCodigo.setOpaque(false);
         jtfCodigo.setBorder(null);
         jtfCodigo.setFont(fonte);
-        jtfCodigo.setBounds(409, 152, 230 , 33);
+        jtfCodigo.setBounds(409, 152, 230, 33);
 
         jtfValorBonus = new JTextField();
         add(jtfValorBonus);
@@ -52,10 +49,10 @@ public class BonusEmployee extends JPanel {
         jbFinalizar.setBorder(null);
         jbFinalizar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         jbFinalizar.setContentAreaFilled(false);
-        jbFinalizar.setBackground(new Color(0,0,0,0));
+        jbFinalizar.setBackground(new Color(0, 0, 0, 0));
         jbFinalizar.setBounds(695, 446, 75, 35);
 
-        jlFundoBonificacao.setBounds(0,0,800,500);
+        jlFundoBonificacao.setBounds(0, 0, 800, 500);
         add(jlFundoBonificacao);
 
 
@@ -65,12 +62,13 @@ public class BonusEmployee extends JPanel {
         jbFinalizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (MethodsUtil.validatesInput(jtfCodigo,jtfValorBonus)){
-                    try{
+                if (MethodsUtil.validatesInput(jtfCodigo, jtfValorBonus)) {
+                    try {
                         employeeService.sendBonus(employeeService.search(Long.parseLong(jtfCodigo.getText())),
                                 Double.parseDouble(jtfValorBonus.getText()));
-                        JOptionPane.showMessageDialog(null,"Bonus adicionado com sucesso, Salario com bonus:"+ employeeService.search(Long.parseLong(jtfCodigo.getText())).getSalary()+ "R$");
-                    }catch (RuntimeException ex){}
+                        JOptionPane.showMessageDialog(null, "Bonus adicionado com sucesso, Salario com bonus:" + employeeService.search(Long.parseLong(jtfCodigo.getText())).getSalary() + "R$");
+                    } catch (RuntimeException ex) {
+                    }
                 }
             }
         });

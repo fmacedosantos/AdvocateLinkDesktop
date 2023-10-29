@@ -9,13 +9,15 @@ import java.sql.SQLException;
 
 @Getter
 public class ErrorHandler {
-    public void userNotFoundHandler(UserNotFound x){
-        JOptionPane.showMessageDialog(null,x.getMessage());
+    public void userNotFoundHandler(UserNotFound x) {
+        JOptionPane.showMessageDialog(null, x.getMessage());
     }
-    public void sqlHandler(SQLException x){
-        JOptionPane.showMessageDialog(null,x.getMessage());
+
+    public void sqlHandler(SQLException x) {
+        JOptionPane.showMessageDialog(null, x.getMessage());
     }
-    public void negativeNumberHandler(NegativeNumberException x){
-        JOptionPane.showMessageDialog(null,x.getMessage());
+
+    public void negativeNumberHandler(NegativeNumberException x) {
+        JOptionPane.showMessageDialog(null, x.getMessage());
     }
 }
