@@ -92,12 +92,9 @@ public class AlterClient extends JPanel{
         jbApagar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    service.delete(client);
-                    JOptionPane.showMessageDialog(null,"Client removido com Sucesso!");
-                }catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
+                service.delete(client);
+                JOptionPane.showMessageDialog(null,"Client removido com Sucesso!");
+
             }
         });
         jcbTelefone.addActionListener(new ActionListener() {
@@ -140,8 +137,6 @@ public class AlterClient extends JPanel{
                     JOptionPane.showMessageDialog(null,"ALTERADO COM SUCESSO");
                 }catch (LackOfInformationException ex){
                     JOptionPane.showMessageDialog(null, ex.getMessage());
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Sem conexao");
                 }
             }
         });

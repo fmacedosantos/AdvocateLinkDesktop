@@ -134,41 +134,22 @@ public class Search extends JPanel {
                     try {
                         // Pesquisa o Cliente a partir do nome
                         Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
-                        if (tempClint.getOab()==null){
-                            throw new NullPointerException("Cliente nao encontrado");
-                        }
                         lfotoUser.setIcon(setfoto(tempClint));
                         lfotoUser.setText("TEXTEEEEE");
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempClint);
-                    } catch (NullPointerException exception) {
-                        System.out.println(exception.getMessage());
-                        JOptionPane.showMessageDialog(null, exception.getMessage());
-                    }catch (UserNotFound ex){
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (IOException ex) {
+                    }catch (IOException ex) {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         // Pesquisa o Cliente a partir do nome
-                        try {
                             Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
                             lfotoUser.setBounds(100, 155, 200, 200);
                             setinfromacao(tempClint);
                             System.out.println(ex.getMessage());
-                        } catch (SQLException exc) {
-                            throw new RuntimeException(exc);
-                        } catch (UserNotFound exx){
-                            JOptionPane.showMessageDialog(null, exx.getMessage());
-                        }
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                    }catch (RuntimeException ex){}
                 } else if (Mainscreen.currentAppSearchState == Mainscreen.AppSearchState.EMPLOYEE) {
                     try{
                         Employee tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
-                        if (tempEmployee.getSalary()==0){
-                            throw new NullPointerException("Funcionario nao encontrado");
-                        }
                         lfotoUser.setIcon(setfoto(tempEmployee));
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
@@ -176,22 +157,11 @@ public class Search extends JPanel {
                         lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
                        lfotoUser.setBounds(100, 155, 200, 200);
                         Employee tempEmployee = null;
-                        try {
                             tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
-                        } catch (UserNotFound exc) {
-                            JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
-                        } catch (SQLException exc) {
-                            JOptionPane.showMessageDialog(null,"Sem conexao");
-                        }
                         lfotoUser.setBounds(100, 155, 200, 200);
                         setinfromacao(tempEmployee);
                         System.out.println(ex.getMessage());
-                    } catch (UserNotFound ex) {
-                        JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null,"Sem conexao");
-                    } catch (NullPointerException ex){
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }catch (RuntimeException ex){
                     }
                 }
             }

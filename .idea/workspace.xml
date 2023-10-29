@@ -13,13 +13,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="tratamento de perca de conexao com BD">
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/MethodsUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsConnections.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/shared/connections/https/HttpsInitialize.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/handler/ErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,15 +272,8 @@
       <workItem from="1698358300428" duration="7000" />
       <workItem from="1698491914990" duration="66000" />
       <workItem from="1698492007733" duration="2116000" />
-      <workItem from="1698494189673" duration="3810000" />
-    </task>
-    <task id="LOCAL-00006" summary="encapsulamento de metodos">
-      <option name="closed" value="true" />
-      <created>1694141295335</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1694141295335</updated>
+      <workItem from="1698494189673" duration="3979000" />
+      <workItem from="1698584334667" duration="4752000" />
     </task>
     <task id="LOCAL-00007" summary="encapsulamento de metodos">
       <option name="closed" value="true" />
@@ -658,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698497828588</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="tratamento de perca de conexao com BD">
+      <option name="closed" value="true" />
+      <created>1698498168944</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1698498168944</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

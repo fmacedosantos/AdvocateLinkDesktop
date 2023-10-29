@@ -29,7 +29,8 @@ public class CommandsClient extends ConnectionDataBase implements IDatabase<Clie
     private PreparedStatement PREPARED_STATEMENT;
 
     @Override
-    public Boolean deleteRow(Client clients) throws SQLException {
+    public Boolean deleteRow(Client clients) throws SQLException, UserNotFound {
+        this.searchRow(clients.getId());
         PREPARED_STATEMENT = super.connectionDB().prepareStatement(deleteAddress);
         PREPARED_STATEMENT.setLong(1, clients.getId());
         PREPARED_STATEMENT.executeUpdate();

@@ -208,8 +208,6 @@ public class RegisterClient extends JPanel {
                             } catch (LackOfInformationException ex) {
                                 JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");
                                 System.err.println("Erro ao enviar a solicitação: " + ex.getMessage());
-                            } catch (SQLException ex) {
-                                throw new RuntimeException(ex);
                             }
                         }
                     });

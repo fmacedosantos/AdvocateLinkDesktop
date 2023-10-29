@@ -92,12 +92,8 @@ public class AlterEmployee extends JPanel {
         jbApagar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    employeeService.delete(employee);
-                    JOptionPane.showMessageDialog(null,"Cliente deletado com sucesso");
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null,"Sem conexao");
-                }
+                employeeService.delete(employee);
+                JOptionPane.showMessageDialog(null,"Cliente deletado com sucesso");
             }
         });
         jcbTelefone.addActionListener(new ActionListener() {
@@ -136,11 +132,6 @@ public class AlterEmployee extends JPanel {
                     JOptionPane.showMessageDialog(null,"Cliente alterado com sucesso");
                 } catch (LackOfInformationException ex){
                     JOptionPane.showMessageDialog(null, " VERIFIQUE SE PREENCHEU TODAS AS INFORMACOES");
-                    ex.getMessage();
-                } catch (UserNotFound ex) {
-                    JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null,"Sem conexao");
                 }
             }
         });

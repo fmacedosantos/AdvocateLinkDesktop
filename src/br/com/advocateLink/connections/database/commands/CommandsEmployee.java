@@ -1,6 +1,7 @@
 package br.com.advocateLink.connections.database.commands;
 
 import br.com.advocateLink.classes.exceptions.UserNotFound;
+import br.com.advocateLink.classes.exceptions.handler.ErrorHandler;
 import br.com.advocateLink.classes.interfaces.IDatabase;
 import br.com.advocateLink.classes.models.Address;
 import br.com.advocateLink.classes.models.Contact;
@@ -25,9 +26,11 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
     private final String insertPerson = "INSERT INTO advocatelink.person(name,cpf,urlphoto,salary,role) VALUE (?,?,?,?,?);";
     private final String insertAddress = "INSERT INTO advocatelink.address(rua,number,bairro,id_person) VALUE (?,?,?,?);";
     private final String insertContact = "INSERT INTO advocatelink.contact(telephone,email,id_person) VALUE (?,?,?);";
+    private ErrorHandler errorHandler= new ErrorHandler();
     private PreparedStatement PREPARED_STATEMENT;
     @Override
-    public Boolean deleteRow(Employee employee) throws SQLException {
+    public Boolean deleteRow(Employee employee) throws SQLException, UserNotFound {
+        this.searchRow(employee.getId());
         PREPARED_STATEMENT = super.connectionDB().prepareStatement(deleteAddress);
         PREPARED_STATEMENT.setLong(1, employee.getId());
         PREPARED_STATEMENT.executeUpdate();
@@ -69,12 +72,17 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
             return employee;
         } else {
             super.closeDB();
-            throw new UserNotFound("Usuário não existente");
+            errorHandler.userNotFoundHandler(new UserNotFound("Usuario nao encontrado"));
+            return null;
         }
     }
     @Override
     public @NonNull Boolean updateRow(Long id, Employee temp) throws UserNotFound, SQLException {
-        Optional.ofNullable(searchRow(id)).orElseThrow(()-> new UserNotFound("Usuario nao encontrado"));
+        Optional<@NonNull Employee> e =Optional.ofNullable(searchRow(id));
+        if (!e.isPresent()){
+            throw new UserNotFound("Usuario nao encontrado");
+        }
+        temp = e.get();
         PreparedStatement userStatement = super.connectionDB().prepareStatement(updateUser);
         userStatement.setString(1, temp.getUrlfoto());
         userStatement.setDouble(2, temp.getSalary());

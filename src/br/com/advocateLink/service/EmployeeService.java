@@ -2,6 +2,7 @@ package br.com.advocateLink.service;
 
 import br.com.advocateLink.classes.exceptions.NegativeNumberException;
 import br.com.advocateLink.classes.exceptions.UserNotFound;
+import br.com.advocateLink.classes.exceptions.handler.ErrorHandler;
 import br.com.advocateLink.classes.interfaces.IService;
 import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.classes.shared.MethodsUtil;
@@ -15,6 +16,7 @@ import java.util.List;
  * @version 1.0
  */
 public  class EmployeeService implements IService<Employee> {
+    private ErrorHandler errorHandler= new ErrorHandler();
     private CommandsEmployee commandsEmployee = new CommandsEmployee();
     /**
      * sends bonuses to an employee.
@@ -22,12 +24,18 @@ public  class EmployeeService implements IService<Employee> {
      * @param bonus
      * @throws NegativeNumberException
      */
-    public void sendBonus(Employee tempEmployee,Double bonus)throws NegativeNumberException {
-        if (bonus<0){
-            throw new NegativeNumberException("Numero negativo");
+    public void sendBonus(Employee tempEmployee,Double bonus) {
+        try {
+            if (bonus<0){
+                throw new NegativeNumberException("Numero negativo");
+            }
+            MethodsUtil.validatesNumber(bonus);
+            tempEmployee.setSalary(tempEmployee.getSalary()*bonus);
+        }catch (NegativeNumberException ex){
+            errorHandler.negativeNumberHandler(ex);
+            throw new RuntimeException();
         }
-        MethodsUtil.validatesNumber(bonus);
-        tempEmployee.setSalary(tempEmployee.getSalary()*bonus);
+
     }
     /**
      * Grab a reference.
@@ -35,8 +43,20 @@ public  class EmployeeService implements IService<Employee> {
      * @throws NullPointerException
      */
     @Override
-    public Employee search(Long id) throws UserNotFound, SQLException {
-        return commandsEmployee.searchRow(id);
+    public Employee search(Long id) {
+        try{
+            Employee e = commandsEmployee.searchRow(id);
+            if (e.getSalary()==0){
+                throw new UserNotFound("Cliente nao encontrado");
+            }
+            return e;
+        }catch (UserNotFound ex){
+            errorHandler.userNotFoundHandler(new UserNotFound("usuario incorreto"));
+            throw new RuntimeException();
+        }catch (SQLException ex){
+            errorHandler.sqlHandler(new SQLException("Falha na conexao: "+ ex.getMessage()));
+            throw new RuntimeException();
+        }
     }
     /**
      * delete an employee passed by the parameter.
@@ -45,8 +65,13 @@ public  class EmployeeService implements IService<Employee> {
      * @throws NullPointerException
      */
     @Override
-    public Boolean delete(Employee tempEmployee) throws SQLException {
-        commandsEmployee.deleteRow(tempEmployee);
+    public Boolean delete(Employee tempEmployee) {
+        try {
+            commandsEmployee.deleteRow(tempEmployee);
+        }catch (SQLException | UserNotFound ex){
+            errorHandler.sqlHandler(new SQLException("Falha na conexao: "+ ex.getMessage()));
+            throw new RuntimeException();
+        }
         return true;
     }
     /**
@@ -54,8 +79,16 @@ public  class EmployeeService implements IService<Employee> {
      * @return
      */
     @Override
-    public Boolean alter(Long id, Employee temp) throws UserNotFound, SQLException {
-        commandsEmployee.updateRow(id,temp);
+    public Boolean alter(Long id, Employee temp)  {
+        try {
+            commandsEmployee.updateRow(id,temp);
+        }catch (UserNotFound ex){
+            errorHandler.userNotFoundHandler(new UserNotFound("usuario incorreto"));
+            throw new RuntimeException();
+        }catch (SQLException ex){
+            errorHandler.sqlHandler(new SQLException("Falha na conexao: "+ ex.getMessage()));
+            throw new RuntimeException();
+        }
         return true;
     }
     /**

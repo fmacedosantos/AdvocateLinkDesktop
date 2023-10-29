@@ -20,15 +20,6 @@ public class Employee extends Manageable {
         this.role = role;
         this.salary = salary;
     }
-
-    public Employee(String nome, String cpf, Address endereco, Contact contato, String urlfoto, long idEmployee, String role, double salary) {
-        super(nome, cpf, endereco, contato, urlfoto);
-        this.idEmployee = idEmployee;
-        this.role = role;
-        this.salary = salary;
-    }
-
-
     @Override
     public String toString() {
         return     urlfoto +

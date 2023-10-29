@@ -14,6 +14,7 @@ import br.com.advocateLink.view.panels.panelsClient.RegisterClient;
 import br.com.advocateLink.view.panels.panelsClient.Search;
 import br.com.advocateLink.view.Main;
 import br.com.advocateLink.view.panels.panelsClient.AlterClient;
+import lombok.SneakyThrows;
 
 import javax.swing.*;
 import java.awt.*;
@@ -139,43 +140,29 @@ public class Mainscreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     Client c = service.search(Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO CLIENTE")));
-                    if (c.getOab()==null){
-                        throw new NullPointerException("Cliente nao encontrado");
-                    }
                     AlterClient clientt = new AlterClient(c);
                     getContentPane().removeAll();
                     getContentPane().add(clientt);
                     getContentPane().validate();
                     repaint();
-                    } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                    }catch (NullPointerException  ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                    }catch (UserNotFound ex){
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                }
+                    }catch (RuntimeException ex) {
+                    }
             }
         });
         jmiAlterarFuncionario.addActionListener(new ActionListener() {
+            @SneakyThrows
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     Employee employeTemp = employeeService.search(Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO CLIENTE")));
-                    if (employeTemp.getSalary()==0){
-                        throw new UserNotFound("Cliente nao encontrado");
-                    }
                     AlterEmployee employeee = new AlterEmployee(employeTemp);
                     getContentPane().removeAll();
                     getContentPane().add(employeee);
                     getContentPane().validate();
                     repaint();
                 }catch (NumberFormatException ex){
-                    JOptionPane.showMessageDialog(null, "Digite um Id valido");
-                } catch (UserNotFound ex) {
-                    JOptionPane.showMessageDialog(null,"Usuario nao encontrado");
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null,"Sem conexao");
-                }
+                    JOptionPane.showMessageDialog(null, "verifique os campos");
+                }catch (RuntimeException ex){}
             }
         });
         jmiGerarRelatorio.addActionListener(new ActionListener() {
