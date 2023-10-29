@@ -12,19 +12,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="tratamento de perca de conexao com BD">
-      <change afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/handler/ErrorHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/UserNotFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/interfaces/IDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsEmployee.java" afterDir="false" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="tratamento de Erros, minimizando codigo">
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/handler/ErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/handler/ErrorHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/ClientService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/AlterClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelsAbout/GenereteRelatory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelsAbout/GenereteRelatory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
@@ -273,15 +269,7 @@
       <workItem from="1698491914990" duration="66000" />
       <workItem from="1698492007733" duration="2116000" />
       <workItem from="1698494189673" duration="3979000" />
-      <workItem from="1698584334667" duration="4752000" />
-    </task>
-    <task id="LOCAL-00007" summary="encapsulamento de metodos">
-      <option name="closed" value="true" />
-      <created>1694141452444</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1694141452444</updated>
+      <workItem from="1698584334667" duration="5071000" />
     </task>
     <task id="LOCAL-00008" summary="encapsulamento de metodos">
       <option name="closed" value="true" />
@@ -667,7 +655,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698498168944</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="tratamento de Erros, minimizando codigo">
+      <option name="closed" value="true" />
+      <created>1698589235246</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1698589235246</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +681,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Procurar do Funcionario adicionado" />
     <MESSAGE value="Modo Off criado" />
     <MESSAGE value="Modo Off criadoo" />
     <MESSAGE value="bug arrumados" />
@@ -710,7 +705,8 @@
     <MESSAGE value="melhorias de tratamentos de erros" />
     <MESSAGE value="Colocado banco de dados no Client.java" />
     <MESSAGE value="tratamento de perca de conexao com BD" />
-    <option name="LAST_COMMIT_MESSAGE" value="tratamento de perca de conexao com BD" />
+    <MESSAGE value="tratamento de Erros, minimizando codigo" />
+    <option name="LAST_COMMIT_MESSAGE" value="tratamento de Erros, minimizando codigo" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

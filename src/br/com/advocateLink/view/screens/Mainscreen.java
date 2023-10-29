@@ -206,6 +206,5 @@ public class Mainscreen extends JFrame {
         NONE,
         CLIENT,
         EMPLOYEE,
-        ;
     }
 }
