@@ -12,18 +12,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="tratamento de Erros, minimizando codigo">
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/handler/ErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/classes/exceptions/handler/ErrorHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/AlterEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/BonusEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelsAbout/GenereteRelatory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelsAbout/GenereteRelatory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/RegisterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/panelsClient/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="correct indentation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,23 +259,9 @@
       <workItem from="1698491914990" duration="66000" />
       <workItem from="1698492007733" duration="2116000" />
       <workItem from="1698494189673" duration="3979000" />
-      <workItem from="1698584334667" duration="5071000" />
-    </task>
-    <task id="LOCAL-00008" summary="encapsulamento de metodos">
-      <option name="closed" value="true" />
-      <created>1694178105472</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1694178105472</updated>
-    </task>
-    <task id="LOCAL-00009" summary="ExceptionInInitializerError acrecentada">
-      <option name="closed" value="true" />
-      <created>1694180260489</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1694180260489</updated>
+      <workItem from="1698584334667" duration="5215000" />
+      <workItem from="1698601503768" duration="4000" />
+      <workItem from="1698750035986" duration="114000" />
     </task>
     <task id="LOCAL-00010" summary="Alterar client criado">
       <option name="closed" value="true" />
@@ -663,7 +639,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698589235246</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="correct indentation">
+      <option name="closed" value="true" />
+      <created>1698589485678</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1698589485678</updated>
+    </task>
+    <task id="LOCAL-00058" summary="correct indentation">
+      <option name="closed" value="true" />
+      <created>1698589508675</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1698589508675</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,7 +673,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modo Off criado" />
     <MESSAGE value="Modo Off criadoo" />
     <MESSAGE value="bug arrumados" />
     <MESSAGE value="Alterar do employee adicionado" />
@@ -706,7 +697,8 @@
     <MESSAGE value="Colocado banco de dados no Client.java" />
     <MESSAGE value="tratamento de perca de conexao com BD" />
     <MESSAGE value="tratamento de Erros, minimizando codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="tratamento de Erros, minimizando codigo" />
+    <MESSAGE value="correct indentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct indentation" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
