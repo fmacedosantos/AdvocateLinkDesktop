@@ -1,6 +1,6 @@
 create database advocatelink;
 use advocatelink;
-create table person(
+create table Manageable(
 	id bigint auto_increment primary key,
     name varchar(250),
     cpf varchar(11),
@@ -14,21 +14,16 @@ create table address(
     rua varchar(250),
     number int,
     bairro varchar(255),
-    id_person bigint,
-    FOREIGN KEY (id_person) REFERENCES advocatelink.person(id)
+    id_Manageable bigint,
+    FOREIGN KEY (id_Manageable) REFERENCES advocatelink.Manageable(id)
 );
 create table contact(
 	id bigint auto_increment primary key,
     telephone varchar(20),
     email varchar(255),
-    id_person bigint,
-    FOREIGN KEY (id_person) REFERENCES advocatelink.person(id)
+    id_Manageable bigint,
+    FOREIGN KEY (id_Manageable) REFERENCES advocatelink.Manageable(id)
 );
-select * from advocatelink.person;
+select * from advocatelink.Manageable;
 select * from advocatelink.contact;
 select * from advocatelink.address;
-INSERT INTO advocatelink.person VALUE (null,'teste','teste','teste',2,'teste',null);
-drop table advocatelink.person;
-drop table advocatelink.address;
-drop table advocatelink.contact;
-update advocatelink.address set bairro = "teste" where id=22;
