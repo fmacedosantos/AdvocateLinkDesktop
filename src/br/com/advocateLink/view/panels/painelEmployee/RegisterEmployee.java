@@ -190,7 +190,7 @@ public class RegisterEmployee extends JPanel {
                                 JOptionPane.showMessageDialog(null, "VERIFIQUE AS INFORMACOES");
                                 System.out.println(" " + ex.getMessage());
                             } catch (SQLException ex) {
-                                JOptionPane.showMessageDialog(null, "sem conexao");
+                                ex.printStackTrace();
                             }
                         } else {
                             JOptionPane.showMessageDialog(null, "PREENCHA TODOS OS CAMPOS");

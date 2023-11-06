@@ -14,6 +14,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="correct indentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/commands/CommandsEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/panels/painelEmployee/RegisterEmployee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,14 +266,11 @@
       <workItem from="1698584334667" duration="5215000" />
       <workItem from="1698601503768" duration="4000" />
       <workItem from="1698750035986" duration="114000" />
-    </task>
-    <task id="LOCAL-00010" summary="Alterar client criado">
-      <option name="closed" value="true" />
-      <created>1694190076437</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1694190076437</updated>
+      <workItem from="1698753400144" duration="76000" />
+      <workItem from="1698879975609" duration="62000" />
+      <workItem from="1698958729662" duration="103000" />
+      <workItem from="1698960408638" duration="35000" />
+      <workItem from="1699270162902" duration="1779000" />
     </task>
     <task id="LOCAL-00011" summary="criada a interface de metodos do funcionario">
       <option name="closed" value="true" />
@@ -655,7 +656,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698589508675</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="correct indentation">
+      <option name="closed" value="true" />
+      <created>1698753404552</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1698753404553</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

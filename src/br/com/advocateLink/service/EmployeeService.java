@@ -92,6 +92,7 @@ public class EmployeeService implements IService<Employee> {
     public Boolean alter(Long id, Employee temp) {
         try {
             commandsEmployee.updateRow(id, temp);
+            System.out.println(temp.getSalary());
         } catch (UserNotFound ex) {
             errorHandler.userNotFoundHandler(new UserNotFound("usuario incorreto"));
             throw new RuntimeException();

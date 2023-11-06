@@ -14,20 +14,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Optional;
+
 public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Employee> {
-    private final String deletePerson = "DELETE FROM advocatelink.person WHERE id = ?;";
-    private final String deleteAddress = "DELETE FROM advocatelink.address WHERE id_person = ?;";
-    private final String deleteContact = "DELETE FROM advocatelink.contact WHERE id = ?;";
-    private final String selectQueryUser = "SELECT * FROM advocatelink.person WHERE id = ?;";
-    private final String selectQueryAddress = "SELECT * FROM advocatelink.address WHERE id_person = ?;";
-    private final String selectQueryContact = "SELECT * FROM advocatelink.contact WHERE id_person = ?;";
-    private final String updateUser = "UPDATE advocatelink.person SET urlphoto = ?,salary = ?,role = ? WHERE id = ? ;";
-    private final String updateContact = "UPDATE advocatelink.contact SET telephone = ?,email = ? WHERE id_person = ? ;";
-    private final String insertPerson = "INSERT INTO advocatelink.person(name,cpf,urlphoto,salary,role) VALUE (?,?,?,?,?);";
-    private final String insertAddress = "INSERT INTO advocatelink.address(rua,number,bairro,id_person) VALUE (?,?,?,?);";
-    private final String insertContact = "INSERT INTO advocatelink.contact(telephone,email,id_person) VALUE (?,?,?);";
-    private ErrorHandler errorHandler= new ErrorHandler();
+    private final String deletePerson = "DELETE FROM advocatelink.Manageable WHERE id = ?;";
+    private final String deleteAddress = "DELETE FROM advocatelink.address WHERE id_Manageable = ?;";
+    private final String deleteContact = "DELETE FROM advocatelink.contact WHERE id_Manageable = ?;";
+    private final String selectQueryUser = "SELECT * FROM advocatelink.Manageable WHERE id = ?;";
+    private final String selectQueryAddress = "SELECT * FROM advocatelink.address WHERE id_Manageable = ?;";
+    private final String selectQueryContact = "SELECT * FROM advocatelink.contact WHERE id_Manageable = ?;";
+    private final String updateUser = "UPDATE advocatelink.Manageable SET urlphoto = ?,salary = ?,role = ? WHERE id = ? ;";
+    private final String updateContact = "UPDATE advocatelink.contact SET telephone = ?,email = ? WHERE id_Manageable = ? ;";
+    private final String updateAddress = "UPDATE advocatelink.address SET rua = ?,number = ?, bairro=? WHERE id_Manageable = ? ;";
+    private final String insertPerson = "INSERT INTO advocatelink.Manageable(name,cpf,urlphoto,salary,role) VALUE (?,?,?,?,?);";
+    private final String insertAddress = "INSERT INTO advocatelink.address(rua,number,bairro,id_Manageable) VALUE (?,?,?,?);";
+    private final String insertContact = "INSERT INTO advocatelink.contact(telephone,email,id_Manageable) VALUE (?,?,?);";
+    private ErrorHandler errorHandler = new ErrorHandler();
     private PreparedStatement PREPARED_STATEMENT;
+
     @Override
     public Boolean deleteRow(Employee employee) throws SQLException, UserNotFound {
         this.searchRow(employee.getId());
@@ -76,13 +79,10 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
             return null;
         }
     }
+
     @Override
     public @NonNull Boolean updateRow(Long id, Employee temp) throws UserNotFound, SQLException {
-        Optional<@NonNull Employee> e =Optional.ofNullable(searchRow(id));
-        if (!e.isPresent()){
-            throw new UserNotFound("Usuario nao encontrado");
-        }
-        temp = e.get();
+        Optional.ofNullable(searchRow(id)).orElseThrow(() -> new UserNotFound("Usuario nao encontrado"));
         PreparedStatement userStatement = super.connectionDB().prepareStatement(updateUser);
         userStatement.setString(1, temp.getUrlfoto());
         userStatement.setDouble(2, temp.getSalary());
@@ -96,14 +96,15 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
         contactStatement.executeUpdate();
         return true;
     }
+
     @Override
     public @NonNull Boolean insertRow(Employee employee) throws SQLException {
-        PREPARED_STATEMENT = super.connectionDB().prepareStatement(insertPerson,Statement.RETURN_GENERATED_KEYS);
-        PREPARED_STATEMENT.setString(1,employee.getNome());
-        PREPARED_STATEMENT.setString(2,employee.getCpf());
-        PREPARED_STATEMENT.setString(3,employee.getUrlfoto());
-        PREPARED_STATEMENT.setDouble(4,employee.getSalary());
-        PREPARED_STATEMENT.setString(5,employee.getRole());
+        PREPARED_STATEMENT = super.connectionDB().prepareStatement(insertPerson, Statement.RETURN_GENERATED_KEYS);
+        PREPARED_STATEMENT.setString(1, employee.getNome());
+        PREPARED_STATEMENT.setString(2, employee.getCpf());
+        PREPARED_STATEMENT.setString(3, employee.getUrlfoto());
+        PREPARED_STATEMENT.setDouble(4, employee.getSalary());
+        PREPARED_STATEMENT.setString(5, employee.getRole());
         PREPARED_STATEMENT.executeUpdate();
         ResultSet generatedKeys = PREPARED_STATEMENT.getGeneratedKeys();
         Long key = -1l;
@@ -113,12 +114,12 @@ public class CommandsEmployee extends ConnectionDataBase implements IDatabase<Em
             PREPARED_STATEMENT.setString(1, employee.getEndereco().getRua());
             PREPARED_STATEMENT.setInt(2, employee.getEndereco().getNumero());
             PREPARED_STATEMENT.setString(3, employee.getEndereco().getBairro());
-            PREPARED_STATEMENT.setLong(4,key);
+            PREPARED_STATEMENT.setLong(4, key);
             PREPARED_STATEMENT.execute();
             PREPARED_STATEMENT = super.getConnection().prepareStatement(insertContact);
             PREPARED_STATEMENT.setLong(1, employee.getContato().getTelefone());
             PREPARED_STATEMENT.setString(2, employee.getContato().getEmail());
-            PREPARED_STATEMENT.setLong(3,key);
+            PREPARED_STATEMENT.setLong(3, key);
             PREPARED_STATEMENT.execute();
         }
         super.closeDB();
