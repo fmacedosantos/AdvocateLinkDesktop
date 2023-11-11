@@ -1,61 +1,95 @@
-# Documentação do Projeto AdvocateLink
 
-## Visão Geral
-O projeto AdvocateLink é uma aplicação que permite gerenciar funcionários e clientes através de uma API. Ele oferece as seguintes funcionalidades:
+<h1>Documentação do Projeto: Sistema de Gestão de Funcionários e Clientes</h1>
 
-- **Uso em Modo Offline:** O aplicativo suporta um modo offline que permite ao usuário continuar utilizando-o mesmo quando não estiver conectado à API do AdvocateLink.
+    <section>
+        <h2>Introdução</h2>
+        <p>Este projeto foi desenvolvido como parte de um trabalho escolar e tem como objetivo criar um sistema de gestão de funcionários e clientes. O sistema implementa operações CRUD (Create, Read, Update, Delete) para ambas as entidades, permitindo a fácil administração desses dados. A interface gráfica foi construída usando a biblioteca Swing do Java.</p>
+    </section>
 
-- **Gerenciamento de Funcionários e Clientes:** É possível realizar operações CRUD (Create, Read, Update, Delete) para funcionários e clientes.
+    <section>
+        <h2>Funcionalidades</h2>
+        <ul>
+            <li><strong>Cadastro de Funcionários e Clientes:</strong> Permite adicionar novos registros de funcionários e clientes, fornecendo informações como nome, cargo (para funcionários), endereço, etc.</li>
+            <li><strong>Consulta de Registros:</strong> Oferece a capacidade de visualizar todos os funcionários e clientes cadastrados.</li>
+            <li><strong>Atualização de Informações:</strong> Permite a edição de dados existentes, possibilitando a atualização de informações como endereço, número de telefone, etc.</li>
+            <li><strong>Exclusão de Registros:</strong> Facilita a remoção de funcionários e clientes do sistema quando necessário.</li>
+            <li><strong>Pesquisa Avançada:</strong> Implementa uma funcionalidade de pesquisa que permite buscar funcionários ou clientes com base em critérios específicos, como nome, cargo, ou outras informações relevantes.</li>
+            <li><strong>Integração com Banco de Dados:</strong> Utiliza um banco de dados para armazenar os dados de forma persistente, garantindo que as informações não sejam perdidas entre as execuções do programa.</li>
+        </ul>
+    </section>
 
-## Modo Offline
-O AdvocateLink suporta um modo offline para permitir que os usuários continuem utilizando o aplicativo mesmo quando não estão conectados à API. No entanto, é importante notar que as operações que requerem interação com a API não estarão disponíveis durante o modo offline. As informações serão sincronizadas com a API assim que a conexão for restaurada.
+    <section>
+        <h2>Tecnologias Utilizadas</h2>
+        <ul>
+            <li><strong>Linguagem de Programação:</strong> Java</li>
+            <li><strong>Interface Gráfica:</strong> Swing</li>
+            <li><strong>Banco de Dados:</strong> [Nome do Banco de Dados utilizado, por exemplo, MySQL, SQLite]</li>
+            <li><strong>Gerenciador de Dependências:</strong> [Se aplicável, mencione se utilizou Maven, Gradle, etc.]</li>
+        </ul>
+    </section>
 
-## Endpoints da API
-A API do AdvocateLink oferece os seguintes endpoints:
+    <section>
+        <h2>Estrutura do Projeto</h2>
+        <pre>
+        /
+        |-- src
+        |   |-- main
+        |       |-- java
+        |           |-- com
+        |               |-- example
+        |                   |-- projetoescola
+        |                       |-- model
+        |                           |-- Funcionario.java
+        |                           |-- Cliente.java
+        |                       |-- dao
+        |                           |-- FuncionarioDAO.java
+        |                           |-- ClienteDAO.java
+        |                       |-- view
+        |                           |-- TelaPrincipal.java
+        |                           |-- TelaCadastro.java
+        |                           |-- TelaConsulta.java
+        |                           |-- TelaAtualizacao.java
+        |                           |-- TelaPesquisa.java
+        |                       |-- Main.java
+        |-- resources
+        |   |-- [Arquivos de Configuração, Se Aplicável]
+        |-- lib
+        |   |-- [Bibliotecas Externas, Se Aplicável]
+        |-- README.md
+        |-- [Outros Arquivos de Documentação, Se Aplicável]
+        </pre>
+    </section>
 
-### 1. Alterar Funcionário/Cliente (PUT)
-- **Endpoint:** `PUT /client/api/{id}`
-- **Descrição:** Este endpoint permite alterar informações de um cliente existente com base no ID fornecido.
-- **Parâmetros:**
-  - `{id}`: ID do funcionário ou cliente que deseja atualizar.
-- **Corpo da Solicitação:** O corpo da solicitação deve conter os dados atualizados do funcionário ou cliente.
+    <section>
+        <h2>Como Executar o Projeto</h2>
+        <ol>
+            <li><strong>Requisitos:</strong>
+                <ul>
+                    <li>Certifique-se de ter o Java instalado em sua máquina.</li>
+                    <li>[Outros requisitos, se aplicável, como a necessidade de configurar um banco de dados]</li>
+                </ul>
+            </li>
+            <li><strong>Clone o Repositório:</strong>
+                <pre>
+                git clone https://github.com/seu-usuario/nome-do-repositorio.git
+                cd nome-do-repositorio
+                </pre>
+            </li>
+            <li><strong>Execute o Projeto:</strong>
+                <pre>
+                javac src/main/java/com/example/projetoescola/Main.java
+                java -cp src/main/java com.example.projetoescola.Main
+                </pre>
+            </li>
+        </ol>
+    </section>
 
-### 2. Deletar Funcionário/Cliente (DELETE)
-- **Endpoint:** `DELETE /client/api/{id}`
-- **Descrição:** Este endpoint permite excluir cliente existente com base no ID fornecido.
-- **Parâmetros:**
-  - `{id}`: ID do funcionário ou cliente que deseja excluir.
+    <section>
+        <h2>Contribuições</h2>
+        <p>Contribuições são bem-vindas. Se você encontrar bugs, problemas ou tiver sugestões para melhorias, sinta-se à vontade para criar uma <code>issue</code> ou enviar um <code>pull request</code>.</p>
+    </section>
 
-### 3. Pesquisar Lista de Clientes (GET)
-- **Endpoint:** `GET /client/api`
-- **Descrição:** Este endpoint retorna uma lista de todos os clientes cadastrados no AdvocateLink.
-
-### 4. Adicionar Cliente (POST)
-- **Endpoint:** `POST /client/api/add`
-- **Descrição:** Este endpoint permite adicionar um novo cliente ao AdvocateLink.
-- **Corpo da Solicitação:** O corpo da solicitação deve conter os dados do novo cliente a ser adicionado.
-
-### 5. Obter um Único Cliente (GET)
-- **Endpoint:** `GET /client/api/{id}`
-- **Descrição:** Este endpoint retorna informações detalhadas de um cliente específico com base no ID fornecido.
-- **Parâmetros:**
-  - `{id}`: ID do cliente que deseja obter.
-    
-## Como Consumir a API
-Para consumir a API do AdvocateLink, siga os passos abaixo:
-
-1. Clone o repositório da API em [https://github.com/guilhermevini2013/Formulario-AdvocateLink](https://github.com/guilhermevini2013/Formulario-AdvocateLink).
-
-2. Execute a classe AdvocateLinkApplication.
-
-3. Depois de executada, você poderá acessar a API localmente no seu servidor local (normalmente em `localhost:8080/client`).
-
-Utilize os endpoints mencionados nesta documentação atraves do App desktop para interagir com a API do AdvocateLink.
-Isso conclui a documentação do projeto AdvocateLink. Utilize essas instruções para consumir a API local e gerenciar funcionários e clientes.
-<br>
-<br>
-<br>
-<br>
-# Modelo logico e conceitual do Banco de Dados
-<img src="src/imagens/logico.png">
-<img src="src/imagens/conceitual.png">
+    <section>
+        <h2>Licença</h2>
+        <p>Este projeto está licenciado sob a [Nome da Licença, por exemplo, MIT License] - veja o arquivo <code>LICENSE.md</code> para detalhes.</p>
+    </section>
