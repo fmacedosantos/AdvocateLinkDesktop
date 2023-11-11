@@ -23,8 +23,8 @@ Este projeto foi desenvolvido como parte de um trabalho escolar para criar um si
 
 1. **Requisitos:**
    - Certifique-se de ter o Java instalado em sua máquina.
-   - [Outros requisitos, se aplicável, como a necessidade de configurar um banco de dados]
-
+   - Configure a URL do banco de dados
+   - Em instruções tem o codigo para criar as tabelas
 2. **Clone o Repositório:**
    ```bash
    git clone https://github.com/guilhermevini2013/Advocatelink-APPDesktop-consumindo-API
