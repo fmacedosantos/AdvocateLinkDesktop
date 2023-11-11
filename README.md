@@ -18,7 +18,7 @@ Este projeto foi desenvolvido como parte de um trabalho escolar para criar um si
 
 - **Linguagem de Programação:** Java
 - **Interface Gráfica:** Swing
-- **Banco de Dados:** [Nome do Banco de Dados utilizado, por exemplo, MySQL, SQLite]
+- **Banco de Dados:** MySql
 ## Como Executar o Projeto
 
 1. **Requisitos:**
