@@ -33,7 +33,8 @@ public class Login extends JFrame {
     private void iniciarComponentes() {
 
         jtflogin = new JTextField();
-        jtflogin.setBounds(490, 196, 250, 37);
+        jtflogin.setBounds(255, 198, 290, 35);
+        add(jtflogin);
         jtflogin.setOpaque(false); //Deixa transparente
         jtflogin.setBorder(null); //Remove borda
 
@@ -43,7 +44,7 @@ public class Login extends JFrame {
 
 
         jpsSenha = new JTextField();
-        jpsSenha.setBounds(490,299,240,37);
+        jpsSenha.setBounds(255,290,300,35);
         jpsSenha.setOpaque(false); //deixa transparente
         jpsSenha.setBorder(null);//remove borda
 
@@ -52,22 +53,22 @@ public class Login extends JFrame {
         jpsSenha.setForeground(Color.black); //  Muda a cor da fonte
 
         jbLogar = new JButton();
-        jbLogar.setBounds(545,405,105,35);
+        jbLogar.setBounds(270,365,255,38);
         jbLogar.setOpaque(false); // Remove a cor de fundo do botao
         jbLogar.setContentAreaFilled(false); // Remover preenchimento
         jbLogar.setBorderPainted(false); // Remover borda
         jbLogar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //Adicionar na tela
 
-        add(jtflogin);
+
         add(jpsSenha);
         add(jbLogar);
 
         //Imagem de fundo
         jlFundoLogin = new JLabel();
-        jlFundoLogin.setIcon(new ImageIcon(getClass().getResource("/imagens/backgroundLogin.png")));
+        jlFundoLogin.setIcon(new ImageIcon(getClass().getResource("/imagens/Login.png")));
         jlFundoLogin.setBounds(0,0,800,500);
-        add(jlFundoLogin);
+       add(jlFundoLogin);
 
     }
 

@@ -12,7 +12,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="correct indentation" />
+    <list default="true" id="4508da35-d2c0-4663-83df-96a536ba0a56" name="Changes" comment="correct indentation">
+      <change afterPath="$PROJECT_DIR$/src/imagens/Login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/imagens/Main.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/ConnectionDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/connections/database/ConnectionDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/advocateLink/view/screens/Mainscreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/backgroundLogin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/backgroundMain.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,6 +112,7 @@
       <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01\src\classes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aluno\Documents\JoaoPedrosa\FPOO\Projetos\Advocatelink-APPDesktop-consumindo-API\src\imagens" />
       <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01\src\libs" />
       <recent name="C:\Users\Daniel\IdeaProjects\advocatelink01" />
     </key>
