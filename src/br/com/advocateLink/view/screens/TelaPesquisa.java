@@ -132,7 +132,7 @@ public class TelaPesquisa extends JFrame {
 
 
         jlFundo = new JLabel();
-        jlFundo.setIcon(new ImageIcon(getClass().getResource("/imagens/File.png")));
+        jlFundo.setIcon(new ImageIcon(getClass().getResource("/imagens/TelaPesquisa.png")));
         add(jlFundo);
         jlFundo.setBounds(0, 0, 800, 500);
     }

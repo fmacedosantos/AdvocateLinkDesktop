@@ -1,23 +1,20 @@
 package br.com.advocateLink.view.screens;
 
-import br.com.advocateLink.classes.models.Client;
 import br.com.advocateLink.service.ClientService;
-import br.com.advocateLink.view.panels.panelsClient.AlterClient;
 import br.com.advocateLink.view.panels.panelsClient.RegisterClient;
-import br.com.advocateLink.view.panels.panelsClient.Search;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TelaClientes extends JFrame {
+public class TelaArquivo extends JFrame {
 
-    private JButton jbCadastrar, jbAlterar, jbHome, jbCliente, jbFuncionario, jbArquivo, jbSistemas;
+    private JButton jbClientePesquisar, jbFuncionarioPesquisar, jbHome, jbCliente, jbFuncionario, jbArquivo, jbSistemas;
     private JLabel jlFundo;
     ClientService service;
 
-    public TelaClientes() throws HeadlessException {
+    public TelaArquivo() throws HeadlessException {
 
         setSize(800, 555);
         setLocationRelativeTo(null);
@@ -29,26 +26,25 @@ public class TelaClientes extends JFrame {
 
     private void iniciarComponentes() {
 
-        jbCadastrar = new JButton();
-        jbAlterar = new JButton();
+        jbClientePesquisar = new JButton();
+        jbFuncionarioPesquisar = new JButton();
         jbHome = new JButton();
         jbCliente = new JButton();
         jbFuncionario = new JButton();
         jbArquivo = new JButton();
         jbSistemas = new JButton();
 
-        add(jbCadastrar);
-        jbCadastrar.setBounds(360,170,200,38);
-        jbCadastrar.setOpaque(false); // Tornar o botão transparente
-        jbCadastrar.setContentAreaFilled(false); // Remover preenchimento
-        jbCadastrar.setBorderPainted(false); // Remover borda
+        add(jbClientePesquisar);
+        jbClientePesquisar.setBounds(360,170,200,38);
+        jbClientePesquisar.setOpaque(false); // Tornar o botão transparente
+        jbClientePesquisar.setContentAreaFilled(false); // Remover preenchimento
+        jbClientePesquisar.setBorderPainted(false); // Remover borda
 
-
-        add(jbAlterar);
-        jbAlterar.setBounds(360,238,200,38);
-        jbAlterar.setOpaque(false); // Tornar o botão transparente
-        jbAlterar.setContentAreaFilled(false); // Remover preenchimento
-        jbAlterar.setBorderPainted(false); // Remover borda
+        add(jbFuncionarioPesquisar);
+        jbFuncionarioPesquisar.setBounds(360,238,200,38);
+        jbFuncionarioPesquisar.setOpaque(false); // Tornar o botão transparente
+        jbFuncionarioPesquisar.setContentAreaFilled(false); // Remover preenchimento
+        jbFuncionarioPesquisar.setBorderPainted(false); // Remover bord
 
 
         add(jbHome);
@@ -82,7 +78,7 @@ public class TelaClientes extends JFrame {
         jbSistemas.setBorderPainted(false); // Remover borda
 
         jlFundo = new JLabel();
-        jlFundo.setIcon(new ImageIcon(getClass().getResource("/imagens/TelaCliente.png")));
+        jlFundo.setIcon(new ImageIcon(getClass().getResource("/imagens/TelaArquivo.png")));
         add(jlFundo);
         jlFundo.setBounds(0, 0, 800, 500);
 
@@ -97,6 +93,8 @@ public class TelaClientes extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 TelaClientes  telaClientes = new TelaClientes();
                 telaClientes.setVisible(true);
+                TelaArquivo telaArquivo = new TelaArquivo();
+                telaArquivo.setVisible(false);
             }
         });
         jbFuncionario.addActionListener(new ActionListener() {
@@ -104,18 +102,16 @@ public class TelaClientes extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
                 telaFuncionarios.setVisible(true);
-                TelaClientes telaClientes  = new TelaClientes();
-                telaClientes.setVisible(false);
-
+                TelaArquivo telaArquivo = new TelaArquivo();
+                telaArquivo.setVisible(false);
             }
         });
         jbArquivo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 TelaArquivo telaArquivo = new TelaArquivo();
                 telaArquivo.setVisible(true);
-                TelaClientes telaClientes  = new TelaClientes();
-                telaClientes.setVisible(false);
             }
         });
         jbSistemas.addActionListener(new ActionListener() {
@@ -124,31 +120,21 @@ public class TelaClientes extends JFrame {
                 JOptionPane.showMessageDialog(null, "TELA EM PROCESSO DE CRIAÇÃO" );
             }
         });
-        // FIM MENU
-        jbCadastrar.addActionListener(new ActionListener() {
+        //FIM MENU
+        jbClientePesquisar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RegisterClient registerClient = new RegisterClient();
-                RegisterClient client = new RegisterClient();
-                getContentPane().removeAll();
-                getContentPane().add(client);
-                getContentPane().validate();
-                repaint();
+                TelaPesquisa telaPesquisa = new TelaPesquisa();
+                telaPesquisa.setVisible(true);
+                setVisible(false);
             }
         });
-
-        jbAlterar.addActionListener(new ActionListener() {
+        jbFuncionarioPesquisar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Client c = service.search(Long.parseLong(JOptionPane.showInputDialog("DIGITE O ID DO CLIENTE")));
-                    AlterClient clientt = new AlterClient(c);
-                    getContentPane().removeAll();
-                    getContentPane().add(clientt);
-                    getContentPane().validate();
-                    repaint();
-                } catch (RuntimeException ex) {
-                }
+                TelaPesquisa telaPesquisa = new TelaPesquisa();
+                telaPesquisa.setVisible(true);
+                setVisible(false);
             }
         });
 

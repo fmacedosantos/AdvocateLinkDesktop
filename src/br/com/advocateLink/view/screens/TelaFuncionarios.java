@@ -107,24 +107,40 @@ public class TelaFuncionarios extends JFrame {
     }
 
     private void criarEventos() {
+        //INICIO MENU
         jbCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 TelaClientes  telaClientes = new TelaClientes();
                 telaClientes.setVisible(true);
-                Mainscreen mainscreen = new Mainscreen("AdvocateLInk");
-                mainscreen.setVisible(false);
+                TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
+                telaFuncionarios.setVisible(false);
             }
         });
         jbFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
                 telaFuncionarios.setVisible(true);
-                Mainscreen mainscreen = new Mainscreen("AdvocateLInk");
-                mainscreen.setVisible(false);
             }
         });
+        jbArquivo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaArquivo telaArquivo = new TelaArquivo();
+                telaArquivo.setVisible(true);
+                TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
+                telaFuncionarios.setVisible(false);
+            }
+        });
+        jbSistemas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "TELA EM PROCESSO DE CRIAÇÃO" );
+            }
+        });
+        //FIM MENU
         jbCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

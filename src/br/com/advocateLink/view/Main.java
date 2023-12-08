@@ -19,7 +19,7 @@ public class Main {
             System.exit(0);
         } finally {
             dataBase.closeDB();
-            JOptionPane.showMessageDialog(null, "OLA usuario, para que voce nao fique 1 hora procurando a senha para entrar no sistema, tome aqui: login: admin  senha: admin  , Muito Obrigado :)");
+            //JOptionPane.showMessageDialog(null, "OLA usuario, para que voce nao fique 1 hora procurando a senha para entrar no sistema, tome aqui: login: admin  senha: admin  , Muito Obrigado :)");
         }
     }
 }

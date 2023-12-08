@@ -21,7 +21,6 @@ public class RegisterEmployee extends JPanel {
     private JTextField jtfBairro;
     private JTextField jtfRua;
     private JTextField jtfNumero;
-    private JTextField jtfCodigo;
     private ImageIcon img;
     private JButton jbContinuar;
     private JComboBox<String> combo = new JComboBox<>();
@@ -39,7 +38,7 @@ public class RegisterEmployee extends JPanel {
 
     private void iniciarComponentes() {
         // Imagem de fundo
-        img = new ImageIcon(getClass().getResource("/imagens/backgroundEmployee.png"));
+        img = new ImageIcon(getClass().getResource("/imagens/TelaCadastroEmployee.png"));
         jlFundoCadastro = new JLabel(img);
         jlFundoCadastro.setBounds(2, 2, 800, 500);
         //Objetos dos componentes
@@ -48,7 +47,6 @@ public class RegisterEmployee extends JPanel {
         jtfBairro = new JTextField();
         jtfRua = new JTextField();
         jtfNumero = new JTextField();
-        jtfCodigo = new JTextField();
         jbContinuar = new JButton();
         //Estilizar os fonte
         Font font = jtfNome.getFont();
@@ -57,7 +55,6 @@ public class RegisterEmployee extends JPanel {
         jtfBairro.setFont(new Font(font.getName(), Font.PLAIN, 18));
         jtfRua.setFont(new Font(font.getName(), Font.PLAIN, 18));
         jtfNumero.setFont(new Font(font.getName(), Font.PLAIN, 18));
-        jtfCodigo.setFont(new Font(font.getName(), Font.PLAIN, 18));
         //Deixar os componentes transparente
         jtfNome.setOpaque(false);
         jtfNome.setBorder(null);
@@ -69,27 +66,24 @@ public class RegisterEmployee extends JPanel {
         jtfRua.setBorder(null);
         jtfNumero.setOpaque(false);
         jtfNumero.setBorder(null);
-        jtfCodigo.setOpaque(false);
-        jtfCodigo.setBorder(null);
+
         jbContinuar.setContentAreaFilled(false); // Remover preenchimento
         jbContinuar.setBorderPainted(false); // Remover borda
         jbContinuar.setOpaque(false); // Tornar o botão transparente
         jbContinuar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //Posicionando os elemnetos
-        jtfNome.setBounds(410, 62, 240, 35);
-        jtfCPF.setBounds(410, 132, 240, 35);
-        jtfBairro.setBounds(410, 200, 240, 35);
-        jtfRua.setBounds(410, 273, 145, 35);
-        jtfNumero.setBounds(570, 273, 70, 35);
-        jtfCodigo.setBounds(410, 350, 240, 35);
-        jbContinuar.setBounds(687, 448, 95, 35);
+        jtfNome.setBounds(300, 65, 280, 35);
+        jtfCPF.setBounds(300, 170, 280, 35);
+        jtfBairro.setBounds(300, 273, 280, 35);
+        jtfRua.setBounds(300, 375, 165, 35);
+        jtfNumero.setBounds(500, 375, 90, 35);
+        jbContinuar.setBounds(350, 450, 200, 35);
         //Adicionar os componentes
         add(jtfNome);
         add(jtfCPF);
         add(jtfBairro);
         add(jtfRua);
         add(jtfNumero);
-        add(jtfCodigo);
         add(jbContinuar);
         add(jlFundoCadastro);
     }
@@ -107,7 +101,7 @@ public class RegisterEmployee extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeAll();
-                img = new ImageIcon(getClass().getResource("/imagens/backgroundEmployee01.png"));
+                img = new ImageIcon(getClass().getResource("/imagens/TelaCadastroEmployee2.png"));
                 jlFundoCadastro = new JLabel(img);
                 jtfFoto = new JTextField();
                 jtfSalario = new JTextField();
@@ -116,7 +110,6 @@ public class RegisterEmployee extends JPanel {
                 jbFinalizar = new JButton();
                 combo.addItem("menssagem normal");
                 add(combo);
-                combo.setBounds(396, 56, 253, 38);
                 combo.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
                 add(jtfFoto);
                 add(jtfSalario);
@@ -126,11 +119,12 @@ public class RegisterEmployee extends JPanel {
                 add(jlFundoCadastro);
                 //Posicionamento dos componentes
                 jlFundoCadastro.setBounds(2, 2, 800, 500);
-                jtfSalario.setBounds(410, 160, 240, 35);
-                jtfFoto.setBounds(410, 264, 240, 35);
-                jcEmail.setBounds(448, 353, 50, 50);
-                jcTelefone.setBounds(580, 353, 50, 50);
-                jbFinalizar.setBounds(685, 455, 100, 35);
+                combo.setBounds(300, 65, 280, 35);
+                jtfSalario.setBounds(300, 168, 280, 35);
+                jtfFoto.setBounds(300, 274, 280, 35);
+                jcEmail.setBounds(347, 374, 50, 50);
+                jcTelefone.setBounds(490, 374, 50, 50);
+                jbFinalizar.setBounds(340, 440, 210, 35);
                 //Estilizar fonte
                 Font font = jtfNome.getFont();
                 jtfFoto.setFont(new Font(font.getName(), Font.PLAIN, 18)); // Tamanho da fonte
@@ -175,7 +169,7 @@ public class RegisterEmployee extends JPanel {
                 jbFinalizar.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) throws LackOfInformationException {
-                        if (MethodsUtil.validatesInput(jtfCPF, jtfRua, jtfBairro, jtfSalario, jtfNumero, jtfCodigo, jtfFoto)) {
+                        if (MethodsUtil.validatesInput(jtfCPF, jtfRua, jtfBairro, jtfSalario, jtfNumero,jtfRua, jtfFoto)) {
                             try {
                                 if (email == null || tel == 0) {
                                     throw new LackOfInformationException("Falta de informacao, verifique todos os campos");

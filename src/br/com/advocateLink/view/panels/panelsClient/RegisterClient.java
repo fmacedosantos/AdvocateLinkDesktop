@@ -7,6 +7,8 @@ import br.com.advocateLink.classes.models.Client;
 import br.com.advocateLink.classes.models.Contact;
 import br.com.advocateLink.classes.shared.MethodsUtil;
 import br.com.advocateLink.service.ClientService;
+import br.com.advocateLink.view.screens.Mainscreen;
+import br.com.advocateLink.view.screens.TelaFuncionarios;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,11 +25,11 @@ public class RegisterClient extends JPanel {
     private JTextField jtfBairro;
     private JTextField jtfRua;
     private JTextField jtfNumero;
-    private JTextField jtfCodigo;
     private ImageIcon img;
     private JButton jbContinuar;
     private int tel = 0;
     private String email = null;
+    private JButton jbHome, jbCliente, jbFuncionario, jbArquivo, jbSistemas;
     private ClientService clientService = new ClientService();
 
     public RegisterClient() {
@@ -40,7 +42,7 @@ public class RegisterClient extends JPanel {
 
     private void iniciarComponentes() {
         // Imagem de fundo
-        img = new ImageIcon(getClass().getResource("/imagens/backgroundRegister.png"));
+        img = new ImageIcon(getClass().getResource("/imagens/TelaCadastroCliente.png"));
         jlFundoCadastro = new JLabel(img);
         jlFundoCadastro.setBounds(2, 2, 800, 500);
         jtfCPF = new JTextField();
@@ -49,8 +51,12 @@ public class RegisterClient extends JPanel {
         jtfBairro = new JTextField();
         jtfRua = new JTextField();
         jtfNumero = new JTextField();
-        jtfCodigo = new JTextField();
         jbContinuar = new JButton();
+        jbHome = new JButton();
+        jbCliente = new JButton();
+        jbFuncionario = new JButton();
+        jbArquivo = new JButton();
+        jbSistemas = new JButton();
         //Estilizar os fonte
         Font font = jtfNome.getFont();
         jtfNome.setFont(new Font(font.getName(), Font.PLAIN, 18)); // Tamanho da fonte
@@ -58,7 +64,6 @@ public class RegisterClient extends JPanel {
         jtfBairro.setFont(new Font(font.getName(), Font.PLAIN, 18));
         jtfRua.setFont(new Font(font.getName(), Font.PLAIN, 18));
         jtfNumero.setFont(new Font(font.getName(), Font.PLAIN, 18));
-        jtfCodigo.setFont(new Font(font.getName(), Font.PLAIN, 18));
         //Deixar os componentes transparente
         jtfNome.setOpaque(false);
         jtfNome.setBorder(null);
@@ -70,19 +75,16 @@ public class RegisterClient extends JPanel {
         jtfRua.setBorder(null);
         jtfNumero.setOpaque(false);
         jtfNumero.setBorder(null);
-        jtfCodigo.setOpaque(false);
-        jtfCodigo.setBorder(null);
         jbContinuar.setContentAreaFilled(false); // Remover preenchimento
         jbContinuar.setBorderPainted(false); // Remover borda
         jbContinuar.setOpaque(false); // Tornar o botão transparente
         //Posicionando os elemnetos
-        jtfNome.setBounds(410, 62, 240, 35);
-        jtfCPF.setBounds(410, 132, 240, 35);
-        jtfBairro.setBounds(410, 200, 240, 35);
-        jtfRua.setBounds(410, 273, 145, 35);
-        jtfNumero.setBounds(570, 273, 70, 35);
-        jtfCodigo.setBounds(410, 350, 240, 35);
-        jbContinuar.setBounds(687, 448, 95, 35);
+        jtfNome.setBounds(300, 65, 280, 35);
+        jtfCPF.setBounds(300, 170, 280, 35);
+        jtfBairro.setBounds(300, 273, 280, 35);
+        jtfRua.setBounds(300, 379, 165, 35);
+        jtfNumero.setBounds(500, 379, 90, 35);
+        jbContinuar.setBounds(350, 450, 200, 35);
         jbContinuar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //Adicionar os componentes
         add(jtfNome);
@@ -90,7 +92,6 @@ public class RegisterClient extends JPanel {
         add(jtfBairro);
         add(jtfRua);
         add(jtfNumero);
-        add(jtfCodigo);
         add(jbContinuar);
         add(jlFundoCadastro);
     }
@@ -105,12 +106,14 @@ public class RegisterClient extends JPanel {
             private JCheckBox jcTelefone;
             private JButton jbFinalizar;
             private ImageIcon img;
+            private JButton jbHome, jbCliente, jbFuncionario, jbArquivo, jbSistemas;
+
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (MethodsUtil.validatesInput(jtfNome, jtfRua, jtfRua, jtfBairro, jtfCodigo, jtfCPF)) {
+                if (MethodsUtil.validatesInput(jtfNome, jtfRua, jtfRua, jtfBairro,jtfRua, jtfCPF)) {
                     removeAll();
-                    img = new ImageIcon(getClass().getResource("/imagens/backgroundRegister01.png"));
+                    img = new ImageIcon(getClass().getResource("/imagens/TelaCadastroCliente2.png"));
                     jlFundoCadastro = new JLabel(img);
                     jtfOAB = new JTextField();
                     jtfFoto = new JTextField();
@@ -118,6 +121,11 @@ public class RegisterClient extends JPanel {
                     jcEmail = new JCheckBox();
                     jcTelefone = new JCheckBox();
                     jbFinalizar = new JButton();
+                    jbHome = new JButton();
+                    jbCliente = new JButton();
+                    jbFuncionario = new JButton();
+                    jbArquivo = new JButton();
+                    jbSistemas = new JButton();
                     add(jcbAreaAtuaçao);
                     add(jtfOAB);
                     add(jtfFoto);
@@ -125,14 +133,45 @@ public class RegisterClient extends JPanel {
                     add(jcTelefone);
                     add(jbFinalizar);
                     add(jlFundoCadastro);
+
+                    add(jbHome);
+                    jbHome.setBounds(24,35,50,50);
+                    jbHome.setOpaque(false); // Tornar o botão transparente
+                    jbHome.setContentAreaFilled(false); // Remover preenchimento
+                    jbHome.setBorderPainted(false); // Remover borda
+
+                    add(jbCliente);
+                    jbCliente.setBounds(24,127,50,50);
+                    jbCliente.setOpaque(false); // Tornar o botão transparente
+                    jbCliente.setContentAreaFilled(false); // Remover preenchimento
+                    jbCliente.setBorderPainted(false); // Remover borda
+
+                    add(jbFuncionario);
+                    jbFuncionario.setBounds(25,218,50,50);
+                    jbFuncionario.setOpaque(false); // Tornar o botão transparente
+                    jbFuncionario.setContentAreaFilled(false); // Remover preenchimento
+                    jbFuncionario.setBorderPainted(false); // Remover borda
+
+                    add(jbArquivo);
+                    jbArquivo.setBounds(25,306,50,50);
+                    jbArquivo.setOpaque(false); // Tornar o botão transparente
+                    jbArquivo.setContentAreaFilled(false); // Remover preenchimento
+                    jbArquivo.setBorderPainted(false); // Remover borda
+
+                    add(jbSistemas);
+                    jbSistemas.setBounds(25,394,50,50);
+                    jbSistemas.setOpaque(false); // Tornar o botão transparente
+                    jbSistemas.setContentAreaFilled(false); // Remover preenchimento
+                    jbSistemas.setBorderPainted(false); // Remover borda
+
                     //Posicionamento dos componentes
                     jlFundoCadastro.setBounds(2, 2, 800, 500);
-                    jtfOAB.setBounds(410, 50, 240, 35);
-                    jcbAreaAtuaçao.setBounds(400, 153, 250, 35);
-                    jtfFoto.setBounds(410, 257, 240, 35);
-                    jcEmail.setBounds(450, 350, 50, 50);
-                    jcTelefone.setBounds(580, 350, 50, 50);
-                    jbFinalizar.setBounds(685, 455, 100, 35);
+                    jtfOAB.setBounds(300, 65, 280, 35);
+                    jcbAreaAtuaçao.setBounds(300, 168, 280, 35);
+                    jtfFoto.setBounds(300, 274, 280, 35);
+                    jcEmail.setBounds(347, 370, 50, 50);
+                    jcTelefone.setBounds(491, 370, 50, 50);
+                    jbFinalizar.setBounds(340, 440, 210, 35);
                     //Estilizar fonte
                     Font font = jtfNome.getFont();
                     jtfOAB.setFont(new Font(font.getName(), Font.PLAIN, 18)); // Tamanho da fonte
@@ -211,6 +250,15 @@ public class RegisterClient extends JPanel {
                 } else {
                     JOptionPane.showMessageDialog(null, "PREENCHA TODOS OS CAMPOS");
                 }
+            }
+        });
+        jbFuncionario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
+                telaFuncionarios.setVisible(true);
+                RegisterClient registerClient = new RegisterClient();
+                registerClient.setVisible(false);
             }
         });
     }

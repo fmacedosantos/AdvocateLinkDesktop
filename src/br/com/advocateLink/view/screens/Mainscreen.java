@@ -1,17 +1,7 @@
 package br.com.advocateLink.view.screens;
 
-import br.com.advocateLink.classes.models.Client;
-import br.com.advocateLink.classes.models.Employee;
 import br.com.advocateLink.service.ClientService;
 import br.com.advocateLink.service.EmployeeService;
-import br.com.advocateLink.view.panels.painelEmployee.AlterEmployee;
-import br.com.advocateLink.view.panels.painelEmployee.BonusEmployee;
-import br.com.advocateLink.view.panels.painelEmployee.RegisterEmployee;
-import br.com.advocateLink.view.panels.painelsAbout.GenereteRelatory;
-import br.com.advocateLink.view.panels.panelsClient.AlterClient;
-import br.com.advocateLink.view.panels.panelsClient.RegisterClient;
-import br.com.advocateLink.view.panels.panelsClient.Search;
-import lombok.SneakyThrows;
 
 import javax.swing.*;
 import java.awt.*;
@@ -143,17 +133,34 @@ public class Mainscreen extends JFrame {
         jbCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
                 TelaClientes  telaClientes = new TelaClientes();
                 telaClientes.setVisible(true);
+                Mainscreen mainscreen = new Mainscreen("AvocateLInk");
+                mainscreen.setVisible(false);
             }
         });
         jbFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
                 TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
                 telaFuncionarios.setVisible(true);
+                Mainscreen mainscreen = new Mainscreen("AvocateLInk");
+                mainscreen.setVisible(false);
+            }
+        });
+        jbArquivo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaArquivo telaArquivo = new TelaArquivo();
+                telaArquivo.setVisible(true);
+                Mainscreen mainscreen = new Mainscreen("AvocateLInk");
+                mainscreen.setVisible(false);
+            }
+        });
+        jbSistemas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "TELA EM PROCESSO DE CRIAÇÃO" );
             }
         });
 
@@ -222,14 +229,6 @@ public class Mainscreen extends JFrame {
 //                repaint();
 //            }
 //        });
-        jbArquivo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                TelaPesquisa telaPesquisa = new TelaPesquisa();
-                telaPesquisa.setVisible(true);
-            }
-        });
 
 //        jmiPesquisarFuncionario.addActionListener(new ActionListener() {
 //            @Override

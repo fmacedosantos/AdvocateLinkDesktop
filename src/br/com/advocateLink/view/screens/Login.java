@@ -13,7 +13,8 @@ public class Login extends JFrame {
 
     private  JLabel jlFundoLogin;
 
-    private JTextField jtflogin,jpsSenha;
+    private JTextField jtflogin;
+    private JPasswordField jpsSenha;
     private JButton jbLogar;
 
 
@@ -43,7 +44,7 @@ public class Login extends JFrame {
         jtflogin.setFont(new Font(font.getName(), Font.PLAIN, 18)); // Tamanho da fonte
 
 
-        jpsSenha = new JTextField();
+        jpsSenha = new JPasswordField();
         jpsSenha.setBounds(255,290,300,35);
         jpsSenha.setOpaque(false); //deixa transparente
         jpsSenha.setBorder(null);//remove borda
