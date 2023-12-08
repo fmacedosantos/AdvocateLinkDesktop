@@ -22,4 +22,20 @@ public class Client extends Manageable {
         this.oab = oab;
         this.areaAtuacao = actingArea;
     }
+
+    public String getOab() {
+        return oab;
+    }
+
+    public void setOab(String oab) {
+        this.oab = oab;
+    }
+
+    public String getAreaAtuacao() {
+        return areaAtuacao;
+    }
+
+    public void setAreaAtuacao(String areaAtuacao) {
+        this.areaAtuacao = areaAtuacao;
+    }
 }

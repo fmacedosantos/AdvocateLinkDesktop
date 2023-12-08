@@ -13,14 +13,38 @@ import java.sql.SQLException;
 @NoArgsConstructor
 public class ConnectionDataBase {
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private final String URL = "jdbc:mysql://ESN509VMYSQL  :3306/advocatelink";
-    private final String USER= "aluno";
-    private final String PASSWORD= "Senai1234";
+    private final String URL = "jdbc:mysql://localhost:3306/advocatelink";
+    private final String USER= "root";
+    private final String PASSWORD= "Gsg2005/08";
     private Connection connection;
     public Connection connectionDB() throws SQLException {
        return connection = DriverManager.getConnection(URL,USER,PASSWORD);
     }
     public void closeDB() throws SQLException{
         connection.close();
+    }
+
+    public String getDRIVER() {
+        return DRIVER;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public String getUSER() {
+        return USER;
+    }
+
+    public String getPASSWORD() {
+        return PASSWORD;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
     }
 }

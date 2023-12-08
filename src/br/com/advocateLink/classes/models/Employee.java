@@ -31,4 +31,6 @@ public class Employee extends Manageable {
                 "\nendereco=" + endereco +
                 "\ncontato=" + contato;
     }
+
+
 }

@@ -29,4 +29,6 @@ public class Manageable {
         this.contato = contato;
         this.urlfoto = urlfoto;
     }
+
+
 }
