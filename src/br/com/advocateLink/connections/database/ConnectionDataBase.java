@@ -15,7 +15,7 @@ public class ConnectionDataBase {
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private final String URL = "jdbc:mysql://localhost:3306/advocatelink";
     private final String USER= "root";
-    private final String PASSWORD= "Gsg2005/08";
+    private final String PASSWORD= "root";
     private Connection connection;
     public Connection connectionDB() throws SQLException {
        return connection = DriverManager.getConnection(URL,USER,PASSWORD);

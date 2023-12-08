@@ -44,11 +44,11 @@ public class Search extends JPanel {
         jbPesquisar = new JButton();
         add(jbPesquisar);
         jbPesquisar.setBounds(400, 85, 38, 38);
-        jbPesquisar.setOpaque(false);
-        jbPesquisar.setBorder(null);
-        jbPesquisar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jbPesquisar.setBackground(new Color(0, 0, 0, 0));
-        jbPesquisar.setContentAreaFilled(false);
+//        jbPesquisar.setOpaque(false);
+//        jbPesquisar.setBorder(null);
+//        jbPesquisar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+//        jbPesquisar.setBackground(new Color(0, 0, 0, 0));
+//        jbPesquisar.setContentAreaFilled(false);
         lnomeuser = new JLabel();
         add(lnomeuser);
         lcpf = new JLabel();

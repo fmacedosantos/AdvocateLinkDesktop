@@ -47,7 +47,7 @@ public class Mainscreen extends JFrame {
     public Mainscreen(String title) throws HeadlessException {
         super(title);
         //Atributos da tela
-        setSize(800, 550);
+        setSize(800, 530);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
@@ -61,34 +61,34 @@ public class Mainscreen extends JFrame {
         jbFuncionario = new JButton();
         jbArquivo = new JButton();
         jbSistemas = new JButton();
-        jmbBarra = new JMenuBar();
-        jmCliente = new JMenu("Cliente");
-        jmFuncionario = new JMenu("Funcionario");
-        jmSistema = new JMenu("Sistema");
-        jmSobre = new JMenu("Sobre");
-        jmiCadastrarCliente = new JMenuItem("Cadastrar");
-        jmiPesquisarCliente = new JMenuItem("Pesquisar");
-        jmiAlterarCliente = new JMenuItem("Alterar");
-        jmiCadastrarFuncionario = new JMenuItem("Cadastrar");
-        jmiPesquisarFuncionario = new JMenuItem("Pesquisar");
-        jmiAlterarFuncionario = new JMenuItem("Alterar");
-        jmiBonusFuncionario = new JMenuItem("Bônus");
-        jmiSistema = new JMenuItem("Sistema");
-        jmiGerarRelatorio = new JMenuItem("Relatório");
-        setJMenuBar(jmbBarra);
-        jmbBarra.add(jmCliente);
-        jmbBarra.add(jmFuncionario);
-        jmbBarra.add(jmSistema);
-        jmbBarra.add(jmSobre);
-        jmCliente.add(jmiCadastrarCliente);
-        jmCliente.add(jmiPesquisarCliente);
-        jmCliente.add(jmiAlterarCliente);
-        jmFuncionario.add(jmiCadastrarFuncionario);
-        jmFuncionario.add(jmiPesquisarFuncionario);
-        jmFuncionario.add(jmiAlterarFuncionario);
-        jmFuncionario.add(jmiBonusFuncionario);
-        jmSistema.add(jmiSistema);
-        jmSistema.add(jmiGerarRelatorio);
+//        jmbBarra = new JMenuBar();
+//        jmCliente = new JMenu("Cliente");
+//        jmFuncionario = new JMenu("Funcionario");
+//        jmSistema = new JMenu("Sistema");
+//        jmSobre = new JMenu("Sobre");
+//        jmiCadastrarCliente = new JMenuItem("Cadastrar");
+//        jmiPesquisarCliente = new JMenuItem("Pesquisar");
+//        jmiAlterarCliente = new JMenuItem("Alterar");
+//        jmiCadastrarFuncionario = new JMenuItem("Cadastrar");
+//        jmiPesquisarFuncionario = new JMenuItem("Pesquisar");
+//        jmiAlterarFuncionario = new JMenuItem("Alterar");
+//        jmiBonusFuncionario = new JMenuItem("Bônus");
+//        jmiSistema = new JMenuItem("Sistema");
+//        jmiGerarRelatorio = new JMenuItem("Relatório");
+//        setJMenuBar(jmbBarra);
+//        jmbBarra.add(jmCliente);
+//        jmbBarra.add(jmFuncionario);
+//        jmbBarra.add(jmSistema);
+//        jmbBarra.add(jmSobre);
+//        jmCliente.add(jmiCadastrarCliente);
+//        jmCliente.add(jmiPesquisarCliente);
+//        jmCliente.add(jmiAlterarCliente);
+//        jmFuncionario.add(jmiCadastrarFuncionario);
+//        jmFuncionario.add(jmiPesquisarFuncionario);
+//        jmFuncionario.add(jmiAlterarFuncionario);
+//        jmFuncionario.add(jmiBonusFuncionario);
+//        jmSistema.add(jmiSistema);
+//        jmSistema.add(jmiGerarRelatorio);
         jbSair = new JButton();
         jbSair.setBounds(374, 438, 100, 35);
         jbSair.setOpaque(false); // Tornar o botão transparente
@@ -143,19 +143,17 @@ public class Mainscreen extends JFrame {
         jbCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 TelaClientes  telaClientes = new TelaClientes();
                 telaClientes.setVisible(true);
-                Mainscreen mainscreen = new Mainscreen("AdvocateLInk");
-                mainscreen.setVisible(false);
             }
         });
         jbFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
                 telaFuncionarios.setVisible(true);
-                Mainscreen mainscreen = new Mainscreen("AdvocateLink");
-                mainscreen.setVisible(false);
             }
         });
 
@@ -224,17 +222,15 @@ public class Mainscreen extends JFrame {
 //                repaint();
 //            }
 //        });
-//        jmiPesquisarCliente.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.CLIENT;
-//                Search search = new Search();
-//                getContentPane().removeAll();
-//                getContentPane().add(search);
-//                getContentPane().validate();
-//                repaint();
-//            }
-//        });
+        jbArquivo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                TelaPesquisa telaPesquisa = new TelaPesquisa();
+                telaPesquisa.setVisible(true);
+            }
+        });
+
 //        jmiPesquisarFuncionario.addActionListener(new ActionListener() {
 //            @Override
 //            public void actionPerformed(ActionEvent e) {

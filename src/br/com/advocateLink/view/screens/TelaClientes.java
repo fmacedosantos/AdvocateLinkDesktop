@@ -130,11 +130,9 @@ public class TelaClientes extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Mainscreen.currentAppSearchState = Mainscreen.AppSearchState.CLIENT;
-                 Search search = new Search();
-                getContentPane().removeAll();
-                getContentPane().add(search);
-                getContentPane().validate();
-                repaint();
+                setVisible(false);
+                TelaPesquisa telaPesquisa = new TelaPesquisa();
+                telaPesquisa.setVisible(true);
             }
         });
         jbAlterar.addActionListener(new ActionListener() {
