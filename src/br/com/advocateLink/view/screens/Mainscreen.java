@@ -142,19 +142,17 @@ public class Mainscreen extends JFrame {
         jbFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
                 telaFuncionarios.setVisible(true);
-                Mainscreen mainscreen = new Mainscreen("AvocateLInk");
-                mainscreen.setVisible(false);
             }
         });
         jbArquivo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 TelaArquivo telaArquivo = new TelaArquivo();
                 telaArquivo.setVisible(true);
-                Mainscreen mainscreen = new Mainscreen("AvocateLInk");
-                mainscreen.setVisible(false);
             }
         });
         jbSistemas.addActionListener(new ActionListener() {

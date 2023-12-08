@@ -204,52 +204,9 @@ public class TelaPesquisa extends JFrame {
         jbPesquisarCodigo.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // processo que pega o id digitado e verifica se a coluna salary está nula
-                String sql = "SELECT salary FROM advocatelink.Manageable WHERE id = ?";
-                String sqlIdExiste = "SELECT * FROM advocatelink.Manageable WHERE id = ?";
-                ConnectionDataBase conexao = new ConnectionDataBase();
-                PreparedStatement statement, statement1;
-                int id = Integer.parseInt(jtfPesquisar.getText());
-                ResultSet resultado, resultado1;
-                Double salario = null;
-                int idExistente = 0;
-                try {
-                    statement = conexao.connectionDB().prepareStatement(sql);
-                    statement1 = conexao.connectionDB().prepareStatement(sqlIdExiste);
-                    statement.setInt(1, id);
-                    statement1.setInt(1, id);
-                    resultado = statement.executeQuery();
-                    resultado1 = statement1.executeQuery();
-                    if (resultado.next() && resultado1.next()) {
-                        salario = resultado.getDouble("salary");
-                        idExistente = resultado1.getInt("id");
-                    }
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
 
-
-                // caso seja nula, é um cliente
-
-                    if (!(idExistente == 0) && salario == null) {
-                        try {
-                            // Pesquisa o Cliente a partir do nome
-                            Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
-                            lfotoUser.setIcon(setfoto(tempClint));
-                            lfotoUser.setText("TEXTEEEEE");
-                            lfotoUser.setBounds(250, 155, 200, 200);
-                            setinfromacao(tempClint);
-                        } catch (IOException ex) {
-                            lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
-                            lfotoUser.setBounds(250, 155, 200, 200);
-                            // Pesquisa o Cliente a partir do nome
-                            Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
-                            lfotoUser.setBounds(250, 155, 200, 200);
-                            setinfromacao(tempClint);
-                            System.out.println(ex.getMessage());
-                        } catch (RuntimeException ex) {
-                        }
-                    } else if (!(idExistente == 0) && salario != null){
+                long id = Long.parseLong(jtfPesquisar.getText());
+                if (clientService.search(id).getOab() == null){
                         try {
                             Employee tempEmployee = employeeService.search(Long.parseLong(jtfPesquisar.getText()));
                             lfotoUser.setIcon(setfoto(tempEmployee));
@@ -266,9 +223,24 @@ public class TelaPesquisa extends JFrame {
                         } catch (RuntimeException ex) {
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Código não existente.",
-                                "Aviso:", JOptionPane.WARNING_MESSAGE);
-                    }
+                         try {
+                             // Pesquisa o Cliente a partir do nome
+                             Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
+                             lfotoUser.setIcon(setfoto(tempClint));
+                             lfotoUser.setText("TEXTEEEEE");
+                             lfotoUser.setBounds(250, 155, 200, 200);
+                             setinfromacao(tempClint);
+                         } catch (IOException ex) {
+                             lfotoUser.setIcon(new ImageIcon(getClass().getResource("/imagens/defalt.png")));
+                             lfotoUser.setBounds(250, 155, 200, 200);
+                             // Pesquisa o Cliente a partir do nome
+                             Client tempClint = clientService.search(Long.parseLong(jtfPesquisar.getText()));
+                             lfotoUser.setBounds(250, 155, 200, 200);
+                             setinfromacao(tempClint);
+                             System.out.println(ex.getMessage());
+                         } catch (RuntimeException ex) {
+                         }
+                     }
 
             }
         });
