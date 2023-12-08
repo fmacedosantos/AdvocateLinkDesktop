@@ -152,11 +152,10 @@ public class Mainscreen extends JFrame {
         jbFuncionario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaFuncionarios funcionarios = new TelaFuncionarios();
-                getContentPane().removeAll();
-                getContentPane().add(funcionarios);
-                getContentPane().validate();
-                repaint();
+                TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
+                telaFuncionarios.setVisible(true);
+                Mainscreen mainscreen = new Mainscreen("AdvocateLink");
+                mainscreen.setVisible(false);
             }
         });
 
